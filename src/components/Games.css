@@ -1,0 +1,26 @@
+.games-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+
+}
+
+.games-items {
+  display: flex;
+  height: 30vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.games-items li{
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  list-style-type: none;
+}
+
+.games-title {
+  font-size: 1.5em;
+  font-family: 'Expletus Sans', cursive;
+}
