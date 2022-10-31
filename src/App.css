@@ -1,9 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
+.App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
 }
