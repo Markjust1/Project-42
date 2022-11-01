@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
+  font-family: "Expletus Sans", cursive;
 }
 
 .top-content {

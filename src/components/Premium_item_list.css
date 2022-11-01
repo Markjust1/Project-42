@@ -1,0 +1,16 @@
+.premium-list-container {
+  width: 85vw;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-evenly;
+}
+
+.premium-list-title {
+  font-size: 1.5em;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
