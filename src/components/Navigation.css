@@ -1,31 +1,38 @@
 /* Mobile-first method */
 
 /* @media only screen and (min-width: 320px) { */
-  .navbar-container {
-    display: flex;
-    /* position: fixed; */
-    height: 9vh;
-    width: 100%;
-    border-bottom: 1px dotted rgba(128, 128, 128, 0.087);
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.181);
-    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
-  }
-  .navbar-title {
-    margin-left: 10px;
-  }
-  .navbar-elements {
-    display: flex;
-    flex-direction: row;
-    margin-right: 10px;
-  }
-  .navbar-elements div {
-    margin: 3px;
-  }
-  .navbar-elements div:hover {
-    transform: scale(1.1);
-  }
+.navbar-container {
+  display: flex;
+  /* position: fixed; */
+  height: 9vh;
+  width: 100%;
+  border-bottom: 1px dotted rgba(128, 128, 128, 0.087);
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.181);
+  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+}
+
+.navbar-title {
+  margin-left: 10px;
+}
+
+.navbar-title:hover {
+  transform: scale(1.1);
+}
+
+.navbar-elements {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+}
+.navbar-elements div {
+  margin: 3px;
+}
+
+.navbar-elements div:hover {
+  transform: scale(1.1);
+}
 /* } */
 /* @media only screen and (min-width: 480px) {
   .navbar-container {

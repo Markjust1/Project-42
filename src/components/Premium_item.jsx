@@ -1,6 +1,6 @@
-import "./Premium_items.css";
+import "./Premium_item.css";
 
-const Premium_items = () => {
+const Premium_item = () => {
   return (
     <div className="premium-container">
       <div className="premium-title">Game Title</div>
@@ -13,4 +13,4 @@ const Premium_items = () => {
   );
 };
 
-export default Premium_items;
+export default Premium_item;

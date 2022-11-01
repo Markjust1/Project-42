@@ -1,0 +1,33 @@
+/* <div className="premium-container">
+<div className="premium-title">Game Title</div>
+<div className="premium-main-part">
+  <div className="premium-image" src='' alt='game image'>Game image</div>
+  <div className="premium-price">$1000</div>
+  <div className="premium-description">description</div>
+</div>
+</div> */
+
+.premium-container {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 33vh;
+  border: 3px solid rgba(128, 128, 128, 0.199);
+  border-radius: 6px;
+  font-family: "Expletus Sans", cursive;
+}
+.premium-image {
+  height: 20vh;
+  border: 3px solid rgba(128, 128, 128, 0.199);
+  border-radius: 6px;
+}
+
+.premium-title {
+  font-size: 1.4em;
+  margin: 3px;
+}
+
+.premium-price {
+  margin: 3px;
+  font-size: 1.2em;
+}
