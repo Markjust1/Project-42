@@ -5,7 +5,7 @@
 }
 .games-items {
   display: flex;
-  height: 25vh;
+  height: auto;
   width: 80%;
   flex-direction: row;
   flex-wrap: wrap;
