@@ -17,10 +17,13 @@
   width: 80px;
   height: 80px;
   margin: 10px;
-  border: 1px solid grey;
+  border: 1px solid rgba(128, 128, 128, 0.322);
   border-radius: 3px;
   list-style-type: none;
   cursor: pointer;
+}
+.platform-items li:hover{
+  transform: scale(1.05);
 }
 
 .platform-title {

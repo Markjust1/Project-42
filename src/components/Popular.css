@@ -22,4 +22,5 @@
   transform: scale(1.1);
   background-color: rgba(158, 87, 169, 0.319);
   padding: 6px;
+  cursor:pointer;
 }
