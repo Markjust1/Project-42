@@ -7,7 +7,9 @@
   background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
 }
 
-main {
+.top-content {
   display: flex;
   flex-direction: row;
+  width: 90%;
+  align-self: center;
 }

@@ -1,9 +1,10 @@
-.games-container {
+.platform-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.games-items {
+
+.platform-items {
   display: flex;
   height: 25vh;
   width: 80%;
@@ -12,18 +13,18 @@
   align-items: center;
   text-align: center;
 }
-.games-items li{
+.platform-items li {
   width: 80px;
   height: 80px;
   margin: 10px;
   border: 1px solid grey;
   border-radius: 3px;
   list-style-type: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.games-title {
-  margin: 20px;
+.platform-title {
   font-size: 1.5em;
-  font-family: 'Expletus Sans', cursive;
+  font-family: "Expletus Sans", cursive;
+  margin: 20px;
 }

@@ -1,6 +1,7 @@
 import Navigation from './components/Navigation';
 import Popular from './components/Popular';
 import Games from './components/Games';
+import Platform from './components/Platform';
 import './App.css';
 
 function App() {
@@ -8,9 +9,9 @@ function App() {
     <div className="App">
       <Navigation />
       <Popular />
-      <main>
+      <main className='top-content'>
         <Games />
-        {/* <Games /> */}
+        <Platform />
       </main>
     </div>
   );

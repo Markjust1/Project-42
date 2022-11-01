@@ -16,7 +16,7 @@
   background-color: rgba(128, 128, 128, 0.127);
   padding: 6px;
   list-style-type: none;
-  font-family: 'Expletus Sans', cursive;
+  font-family: "Expletus Sans", cursive;
 }
 .popular-items li:hover {
   transform: scale(1.1);

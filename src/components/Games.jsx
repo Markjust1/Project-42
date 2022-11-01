@@ -16,14 +16,6 @@ const Games = () => {
     "game",
     "game",
     "game",
-    "game",
-    "game",
-    "game",
-    "game",
-    "game",
-    "game",
-    "game",
-    "game",
   ];
   const listItems = games.map((item) => <li key={item}>{item}</li>);
   return (
