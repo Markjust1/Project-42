@@ -4,3 +4,23 @@
   align-items: center;
   justify-content: center;
 }
+
+.info-title {
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: row;
+}
+.info-list div{
+  margin: 6px;
+  font-size: 1.1em;
+  margin: 20px;
+}
+.info-list div:hover{
+  text-decoration: underline;
+  cursor:pointer;
+  transform: scale(1.03);
+}

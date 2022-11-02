@@ -1,5 +1,6 @@
 import Payment from "./Payment";
 import Social from "./Social";
+import Information from "./Information";
 import "./styles/Footer.css";
 
 const Footer = () => {
@@ -8,6 +9,7 @@ const Footer = () => {
     <div className="footer-container">
       <Payment />
       <Social />
+      <Information />
     </div>
   );
 };

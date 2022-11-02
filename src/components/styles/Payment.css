@@ -4,3 +4,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.payment-title {
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+.payment-container div img:hover {
+  transform: scale(1.07);
+  cursor:pointer;
+}
