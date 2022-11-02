@@ -1,5 +1,5 @@
 import Premium_item from "./Premium_item";
-import "./Premium_item_list.css";
+import "./styles/Premium_item_list.css";
 
 const Premium_item_list = () => {
   return (

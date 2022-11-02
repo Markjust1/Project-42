@@ -1,11 +1,13 @@
 import Payment from "./Payment";
-import "./Footer.css";
+import Social from "./Social";
+import "./styles/Footer.css";
 
 const Footer = () => {
 
   return (
     <div className="footer-container">
       <Payment />
+      <Social />
     </div>
   );
 };

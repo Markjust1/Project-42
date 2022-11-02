@@ -1,4 +1,4 @@
-import "./Popular.css";
+import "./styles/Popular.css";
 
 const Popular = () => {
   const popularItems = ["Games", "Skins", "Game currency", "Boost", "Other"];

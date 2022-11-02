@@ -1,4 +1,4 @@
-import "./Navigation.css";
+import "./styles/Navigation.css";
 import logo from "../assets/game-icon.png";
 import search from "../assets/search.png";
 import profile from "../assets/profile.png";

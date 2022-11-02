@@ -1,4 +1,4 @@
-import "./Premium_item.css";
+import "./styles/Premium_item.css";
 
 const Premium_item = () => {
   return (

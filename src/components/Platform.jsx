@@ -1,4 +1,4 @@
-import "./Platform.css";
+import "./styles/Platform.css";
 
 const Platform = () => {
   const Platform = [
