@@ -1,4 +1,5 @@
 import "./styles/Games.css";
+import game from '../assets/game.png';
 
 const Games = () => {
   const games = [
@@ -20,7 +21,10 @@ const Games = () => {
   const listItems = games.map((item) => <li key={item}>{item}</li>);
   return (
     <div className="games-container">
-      <div className="games-title">Games</div>
+      <div>
+        <img src={game} alt=''></img>
+        <div className="games-title">Games</div>
+      </div>
       <ul className="games-items">{listItems}</ul>
     </div>
   );

@@ -3,6 +3,11 @@
   flex-direction: column;
   align-items: center;
 }
+.games-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .games-items {
   display: flex;
   height: auto;
@@ -12,21 +17,22 @@
   align-items: center;
   text-align: center;
 }
-.games-items li{
+.games-items li {
   width: 80px;
   height: 80px;
   margin: 10px;
   border: 1px solid rgba(128, 128, 128, 0.322);
   border-radius: 3px;
   list-style-type: none;
-  cursor:pointer;
+  cursor: pointer;
 }
-.games-items li:hover{
+.games-items li:hover {
   transform: scale(1.05);
 }
 
 .games-title {
   margin: 20px;
-  font-size: 1.5em;
-  font-family: 'Expletus Sans', cursive;
+  font-size: 1.7em;
+  color: blueviolet;
+  margin-top: -5px;
 }

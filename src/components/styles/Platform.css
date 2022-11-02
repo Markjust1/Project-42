@@ -3,6 +3,11 @@
   flex-direction: column;
   align-items: center;
 }
+.platform-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .platform-items {
   display: flex;
@@ -22,11 +27,13 @@
   list-style-type: none;
   cursor: pointer;
 }
-.platform-items li:hover{
+.platform-items li:hover {
   transform: scale(1.05);
 }
 
 .platform-title {
-  font-size: 1.5em;
+  font-size: 1.7em;
   margin: 20px;
+  color: blueviolet;
+  margin-top: -5px;
 }
