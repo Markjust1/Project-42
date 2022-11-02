@@ -3,13 +3,12 @@ import logo from "../assets/game-icon.png";
 import search from "../assets/search.png";
 import profile from "../assets/profile.png";
 import cart from "../assets/cart.png";
+import Title from "./Title";
 
 const Navigation = () => {
   return (
     <nav className="navbar-container">
-      <div className="navbar-title">
-        <img src={logo} alt="Site logo"></img>
-      </div>
+      <Title/>
       <div className="navbar-elements">
         <div className="navbar-search">
           <img src={search} alt="Search"></img>
