@@ -15,7 +15,6 @@
   letter-spacing: -4px;
   margin-bottom: 4px;
   text-decoration: #d834dbc0 underline; 
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  
 }

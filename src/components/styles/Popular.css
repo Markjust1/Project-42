@@ -11,7 +11,7 @@
   justify-content: space-evenly;
 }
 .popular-items li {
-  border: 1px solid rgba(128, 128, 128, 0.172);
+  border: 3px solid rgba(128, 128, 128, 0.074);
   border-radius: 3px;
   background-color: rgba(128, 128, 128, 0.127);
   padding: 6px;
