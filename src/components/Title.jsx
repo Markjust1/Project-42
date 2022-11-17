@@ -1,4 +1,5 @@
 import "./styles/Title.css";
+import { Fragment } from "react";
 import p from '../assets/title/p.png';
 import r from '../assets/title/r.png';
 import o from '../assets/title/o.png';
@@ -12,7 +13,7 @@ const Title = () => {
 
   return (
     <div className="title-container">
-      <div>
+      <>
         <img src={p} alt='P'></img>
         <img src={r} alt='r'></img>
         <img src={o} alt='o'></img>
@@ -20,7 +21,7 @@ const Title = () => {
         <img src={e} alt='e'></img>
         <img src={c} alt='c'></img>
         <img src={t} alt='t'></img>
-      </div>
+      </>
       <div id="num">42</div>
     </div>
   );

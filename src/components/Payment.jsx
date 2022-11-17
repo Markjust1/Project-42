@@ -9,12 +9,12 @@ const Payment = () => {
   return (
     <div className="payment-container">
       <div className='payment-title'>We accept:</div>
-      <div>
+      <>
         <img src={mcard} alt='mastercard'></img>
         <img src={visa} alt='visa'></img>
         <img src={paypal} alt='paypal'></img>
         <img src={mir} alt='mir'></img>
-      </div>
+      </>
     </div>
   );
 };

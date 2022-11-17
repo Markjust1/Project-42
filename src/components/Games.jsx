@@ -21,10 +21,10 @@ const Games = () => {
   const listItems = games.map((item) => <li key={item}>{item}</li>);
   return (
     <div className="games-container">
-      <div>
+      <>
         <img src={game} alt=''></img>
         <div className="games-title">Games</div>
-      </div>
+      </>
       <ul className="games-items">{listItems}</ul>
     </div>
   );
