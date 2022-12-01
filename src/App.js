@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
 import Games from "./components/Games";
@@ -7,6 +8,7 @@ import Premium_item_list from "./components/Premium_item_list";
 import "./App.css";
 
 function App() {
+  const [showTerms, setShowTerms] = useState(false);
 
   return (
     <div className="App">
