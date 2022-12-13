@@ -2,7 +2,7 @@ import "./styles/Terms.css";
 
 const Terms = () => {
   return (
-    <div to="/terms" className="terms-container">
+    <div className="terms-container">
       <h1>Terms</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa facere

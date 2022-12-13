@@ -3,7 +3,7 @@ import "./styles/Privacy.css";
 
 const Privacy = () => {
   return (
-    <div to="/privacy" className="privacy-container">
+    <div className="privacy-container">
       <h1>Privacy</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit,
