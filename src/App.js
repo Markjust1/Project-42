@@ -8,6 +8,7 @@ import Premium_item_list from "./components/Premium_item_list";
 import About from "./components/About";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
+import Security from "./components/Security"
 import "./components/styles/Terms.css";
 import "./App.css";
 
@@ -20,7 +21,7 @@ function App() {
           path="/"
           element={
             <>
-              <Popular />
+              {/* <Popular /> */}
               <div className="top-content">
                 <Games />
                 <Platform />
@@ -31,6 +32,8 @@ function App() {
         />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/security" element={<Security />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </>
