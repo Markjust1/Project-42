@@ -5,8 +5,9 @@ import Games from "./components/Games";
 import Platform from "./components/Platform";
 import Footer from "./components/Footer";
 import Premium_item_list from "./components/Premium_item_list";
-import About from './components/About';
-import Terms from './components/Terms';
+import About from "./components/About";
+import Terms from "./components/Terms";
+import Privacy from "./components/Privacy";
 import "./components/styles/Terms.css";
 import "./App.css";
 
@@ -28,7 +29,8 @@ function App() {
             </>
           }
         />
-        <Route path="/terms" element={<Terms />}/>
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
       <Footer />
     </>
