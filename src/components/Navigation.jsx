@@ -1,9 +1,10 @@
-import "./styles/Navigation.css";
+import { Link } from "react-router-dom";
 import logo from "../assets/game-icon.png";
-import search from "../assets/search.png";
+import home from "../assets/home.png";
 import profile from "../assets/profile.png";
 import cart from "../assets/cart.png";
 import Title from "./Title";
+import "./styles/Navigation.css";
 
 const Navigation = () => {
   return (
@@ -11,13 +12,13 @@ const Navigation = () => {
       <Title/>
       <div className="navbar-elements">
         <div className="navbar-search">
-          <img src={search} alt="Search"></img>
+          <Link to='/'><img src={home} alt="home"></img></Link>
         </div>
         <div className="navbar-profile">
-          <img src={profile} alt="Profile"></img>
+          <Link to='/profile'><img src={profile} alt="Profile"></img></Link>
         </div>
         <div className="navbar-cart">
-          <img src={cart} alt="Cart"></img>
+          <Link to='/cart'><img src={cart} alt="Cart"></img></Link>
         </div>
       </div>
     </nav>

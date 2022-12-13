@@ -4,7 +4,6 @@ import Information from "./Information";
 import "./styles/Footer.css";
 
 const Footer = () => {
-
   return (
     <div className="footer-container">
       <Payment />

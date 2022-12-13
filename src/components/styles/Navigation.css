@@ -16,6 +16,9 @@
 .navbar-title {
   margin-left: 10px;
 }
+.navbar-search {
+  margin-top: 10px;
+}
 
 /* .navbar-title:hover {
   transform: scale(1.1);

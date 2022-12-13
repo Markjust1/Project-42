@@ -1,26 +1,37 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
 import Games from "./components/Games";
 import Platform from "./components/Platform";
 import Footer from "./components/Footer";
 import Premium_item_list from "./components/Premium_item_list";
+import Terms from "./components/Terms";
+import "./components/styles/Terms.css";
 import "./App.css";
 
 function App() {
-  const [showTerms, setShowTerms] = useState(false);
 
   return (
-    <div className="App">
+    <>
       <Navigation />
-      <Popular />
-      <div className="top-content">
-        <Games />
-        <Platform />
-      </div>
-      <Premium_item_list />
+      <Routes className="App">
+        <Route
+          path="/"
+          element={
+            <>
+              <Popular />
+              <div className="top-content">
+                <Games />
+                <Platform />
+              </div>
+              <Premium_item_list />
+            </>
+          }
+        />
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
