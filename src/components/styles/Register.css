@@ -24,7 +24,7 @@
     linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
   border-radius: 23px;
   box-sizing: border-box;
-  color: purple;
+  color: blueviolet;
   margin: 100px auto;
 }
 
@@ -112,23 +112,42 @@ button {
   display: inline-block;
 }
 
+.line-footer {
+  font-size: 0.8em;
+}
+
 .submit-btn {
   color: #ff40f5;
-  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 8px, transparent 8px) 0% 0%/10px 10px no-repeat,
-  radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 8px, transparent 8px) 100% 0%/10px 10px no-repeat,
-  radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 8px, transparent 8px) 0% 100%/10px 10px no-repeat,
-  radial-gradient(circle at 0 0, #ffffff 0, #ffffff 8px, transparent 8px) 100% 100%/10px 10px no-repeat,
-  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 4px) calc(100% - 20px) no-repeat,
-  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 4px) no-repeat,
-  linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
-border-radius: 10px;
-padding: 12px;
-box-sizing: border-box;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 8px,
+        transparent 8px
+      )
+      0% 0%/10px 10px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 8px, transparent 8px)
+      100% 0%/10px 10px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 8px, transparent 8px)
+      0% 100%/10px 10px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 8px, transparent 8px) 100%
+      100%/10px 10px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 4px)
+      calc(100% - 20px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 20px)
+      calc(100% - 4px) no-repeat,
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+  border-radius: 10px;
+  padding: 12px;
+  box-sizing: border-box;
 }
 
 .submit-btn:disabled {
-  background-color: #a09e9e61;
+  background: linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
   border: none;
   background: #a09e9e61;
   color: #ffffff;
+}
+
+.submit-btn:hover:enabled {
+  transform: scale(1.02);
 }
