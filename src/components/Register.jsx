@@ -8,8 +8,7 @@ import {
 import "./styles/Register.css";
 
 const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
-const pwd_regex =
-  /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
+const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
 
 const Register = () => {
   const userRef = useRef();
@@ -59,15 +58,15 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   return (
-    <div className="register-container">
+    <section id="register">
       <p
         ref={errRef}
-        classname={errMsg ? "errmsg" : "offscreen"}
+        className={errMsg ? "errmsg" : "offscreen"}
         aria-live="assertive"
       >
         {errMsg}
       </p>
-      <h1>Register</h1>
+      <h1>Create user</h1>
       <form>
         {/* USERNAME FIELD */}
 
@@ -94,7 +93,7 @@ const Register = () => {
         />
         <p
           id="uidnote"
-          classname={
+          className={
             userFocus && user && !validName ? "instructions" : "offscreen"
           }
         >
@@ -129,7 +128,7 @@ const Register = () => {
         />
         <p
           id="pwdnote"
-          classname={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+          className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
         >
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
           8 to 24 characters.
@@ -168,13 +167,13 @@ const Register = () => {
         />
         <p
           id="confirmnote"
-          classname={matchFocus && !validMatch ? "instructions" : "offscreen"}
+          className={matchFocus && !validMatch ? "instructions" : "offscreen"}
         >
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
           Must match the first password input field.
         </p>
       </form>
-    </div>
+    </section>
   );
 };
 
