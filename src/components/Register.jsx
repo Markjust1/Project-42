@@ -66,7 +66,7 @@ const Register = () => {
       >
         {errMsg}
       </p>
-      <h1>Create user</h1>
+      <h1>Create new account</h1>
       <form>
         {/* USERNAME FIELD */}
 
@@ -172,6 +172,7 @@ const Register = () => {
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
           Must match the first password input field.
         </p>
+        
       </form>
     </section>
   );

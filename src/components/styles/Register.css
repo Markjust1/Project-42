@@ -1,14 +1,21 @@
 #register {
   display: flex;
   flex-direction: column;
-  align-self: center;
   min-height: 60vh;
   font-family: "Expletus Sans", cursive;
   font-size: 1.2em;
   background-color: rgba(0, 0, 0, 0.056);
-  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.069);
+  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 20px, transparent 20px) 0% 0%/23px 23px no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px) 100% 0%/23px 23px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px) 0% 100%/23px 23px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px) 100% 100%/23px 23px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 6px) calc(100% - 46px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 46px) calc(100% - 6px) no-repeat,
+            linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+border-radius: 23px;
+box-sizing: border-box;
+color: purple;
+
   margin: 100px auto;
 }
 
@@ -52,7 +59,7 @@ button {
 .instructions {
   font-size: 0.75rem;
   border-radius: 0.5rem;
-  background: rgb(255, 0, 0);
+  background: rgba(166, 96, 184, 0.792);
   color: rgb(255, 255, 255);
   padding: 0.25rem;
   position: relative;
