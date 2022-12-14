@@ -98,11 +98,11 @@ const Register = () => {
           }
         >
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
-          4 to 24 characters.
+           - Should be 4 to 24 characters.
           <br />
-          Must begin with a letter.
+           - Must begin with a letter.
           <br />
-          Letters, numbers, underscores, hyphens allowed.
+           - Letters, numbers, underscores, hyphens allowed.
         </p>
 
         {/* PASSWORD FIELD */}
@@ -131,12 +131,12 @@ const Register = () => {
           className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
         >
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
-          8 to 24 characters.
+          - Should be 8 to 24 characters.
           <br />
-          Must include uppercase and lowercase letters, a number and a special
+          - Must include uppercase and lowercase letters, a number and a special
           character.
           <br />
-          Allowed special characters:{" "}
+          - Allowed special characters:{" "}
           <span aria-label="exclamation mark">!</span>{" "}
           <span aria-label="at symbol">@</span>{" "}
           <span aria-label="hashtag">#</span>{" "}
@@ -170,9 +170,12 @@ const Register = () => {
           className={matchFocus && !validMatch ? "instructions" : "offscreen"}
         >
           {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
-          Must match the first password input field.
+          - Make sure passwords are identical!
         </p>
         
+        {/* submit button */}
+        <button className='submit-btn' disabled={!validName || !validPwd || !validMatch ? true : false}>SIGN ME UP!</button>
+
       </form>
     </section>
   );

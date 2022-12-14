@@ -4,18 +4,27 @@
   min-height: 60vh;
   font-family: "Expletus Sans", cursive;
   font-size: 1.2em;
-  background-color: rgba(0, 0, 0, 0.056);
-  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 20px, transparent 20px) 0% 0%/23px 23px no-repeat,
-            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px) 100% 0%/23px 23px no-repeat,
-            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px) 0% 100%/23px 23px no-repeat,
-            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px) 100% 100%/23px 23px no-repeat,
-            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 6px) calc(100% - 46px) no-repeat,
-            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 46px) calc(100% - 6px) no-repeat,
-            linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
-border-radius: 23px;
-box-sizing: border-box;
-color: purple;
-
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 20px,
+        transparent 20px
+      )
+      0% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      0% 100%/23px 23px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 100%/23px 23px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
+      calc(100% - 46px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+  border-radius: 23px;
+  box-sizing: border-box;
+  color: purple;
   margin: 100px auto;
 }
 
@@ -45,6 +54,8 @@ textarea {
   font-size: 1em;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  border: 1px solid rgba(200, 70, 255, 0.22);
+  background-color: rgba(169, 169, 169, 0.097);
 }
 
 label,
@@ -99,4 +110,25 @@ button {
 
 .line {
   display: inline-block;
+}
+
+.submit-btn {
+  color: #ff40f5;
+  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 8px, transparent 8px) 0% 0%/10px 10px no-repeat,
+  radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 8px, transparent 8px) 100% 0%/10px 10px no-repeat,
+  radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 8px, transparent 8px) 0% 100%/10px 10px no-repeat,
+  radial-gradient(circle at 0 0, #ffffff 0, #ffffff 8px, transparent 8px) 100% 100%/10px 10px no-repeat,
+  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 4px) calc(100% - 20px) no-repeat,
+  linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 4px) no-repeat,
+  linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+border-radius: 10px;
+padding: 12px;
+box-sizing: border-box;
+}
+
+.submit-btn:disabled {
+  background-color: #a09e9e61;
+  border: none;
+  background: #a09e9e61;
+  color: #ffffff;
 }
