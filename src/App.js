@@ -9,6 +9,7 @@ import About from "./components/About";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
 import Security from "./components/Security"
+import Register from "./components/Register"
 import "./components/styles/Terms.css";
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <Register />
       <Routes className="App">
         <Route
           path="/"
