@@ -82,7 +82,7 @@ const Register = () => {
       // Clear input fields
       setUser('');
       setPwd('');
-    } catch (err) {}
+    } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 409) {
@@ -90,6 +90,7 @@ const Register = () => {
       } else {
         setErrMsg('Registration Failed');
       }
+    }
       errRef.current.focus();
   };
 
