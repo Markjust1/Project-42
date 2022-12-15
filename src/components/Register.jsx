@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles/Register.css";
-import axios from "axios";
+import axios from "../api/axios";
 
 const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
