@@ -1,5 +1,8 @@
 .popular-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
+  color: blueviolet;
 }
 
 .popular-items {
@@ -11,10 +14,32 @@
   justify-content: space-evenly;
 }
 .popular-items li {
-  border: 3px solid rgba(184, 55, 253, 0.618);
-  border-radius: 3px;
-  background-color: rgba(128, 128, 128, 0.127);
-  padding: 6px;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 60px;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 20px,
+        transparent 20px
+      )
+      0% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      0% 100%/23px 23px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 100%/23px 23px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
+      calc(100% - 46px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+  border-radius: 23px;
+  box-sizing: border-box;
   list-style-type: none;
   font-family: "Expletus Sans", cursive;
 }
