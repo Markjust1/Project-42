@@ -19,8 +19,8 @@ function App() {
   return (
     <main className="App">
       <Navigation />
-      <AddItem />
       <Routes>
+        <Route path='/add' element={<AddItem/>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
         <Route

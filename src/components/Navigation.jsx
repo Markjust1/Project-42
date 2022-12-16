@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/game-icon.png";
 import home from "../assets/home.png";
 import profile from "../assets/profile.png";
-import cart from "../assets/cart.png";
+import add from "../assets/add.png";
 import Title from "./Title";
 import "./styles/Navigation.css";
 
@@ -27,6 +27,12 @@ const Navigation = () => {
           <div className="navbar-item">
             <img src={profile} alt="Register"></img>
             <span>REGISTER</span>
+          </div>
+        </Link>
+        <Link to="/add" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
+            <img src={add} alt="Add Item"></img>
+            <span>ADD ITEM</span>
           </div>
         </Link>
         {/* <div className="navbar-cart">
