@@ -9,16 +9,23 @@ import "./styles/Navigation.css";
 const Navigation = () => {
   return (
     <nav className="navbar-container">
-      <Title/>
+      <Title />
       <div className="navbar-elements">
-        <div className="navbar-search">
-          <Link to='/'><img src={home} alt="home"></img></Link>
-        </div>
+        <Link to="/">
+          <div className="navbar-home">
+            <img src={home} alt="home"></img>
+            <span>HOME</span>
+          </div>
+        </Link>
         <div className="navbar-profile">
-          <Link to='/profile'><img src={profile} alt="Profile"></img></Link>
+          <Link to="/profile">
+            <img src={profile} alt="Profile"></img>
+          </Link>
         </div>
         <div className="navbar-cart">
-          <Link to='/cart'><img src={cart} alt="Cart"></img></Link>
+          <Link to="/cart">
+            <img src={cart} alt="Cart"></img>
+          </Link>
         </div>
       </div>
     </nav>

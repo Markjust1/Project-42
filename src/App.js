@@ -18,9 +18,9 @@ function App() {
   return (
     <>
       <Navigation />
-      <Login />
-      <Register />
       <Routes className="App">
+        <Route path='/login' element={<Login />}/>
+        <Route path='/register' element={<Register />}/>
         <Route
           path="/"
           element={

@@ -1,5 +1,4 @@
 import "./styles/Title.css";
-import { Fragment } from "react";
 import p from '../assets/title/p.png';
 import r from '../assets/title/r.png';
 import o from '../assets/title/o.png';

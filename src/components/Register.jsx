@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "./styles/Register.css";
 import axios from "../api/axios";
+import { Link } from "react-router-dom";
 
 const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
@@ -215,7 +216,8 @@ const Register = () => {
             <br />
             <span className="line">
               {/* Router lin goes here */}
-              <a href="#">Log In</a>
+
+              <Link to='/login'><a href="#">Log In</a></Link>
             </span>
           </p>
         </section>

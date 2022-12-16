@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "./styles/Register.css";
 import axios from "../api/axios";
+import { Link } from "react-router-dom";
 
 
 const LOGIN_URL = "/login";
@@ -16,10 +17,7 @@ const Login = () => {
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
-  // State for matching password
-  // const [matchPwd, setMatchPwd] = useState("");
-  // const [validMatch, setValidMatch] = useState(false);
-  // const [matchFocus, setMatchFocus] = useState(false);
+
   // State for error message
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -29,23 +27,6 @@ const Login = () => {
     userRef.current.focus();
   }, []);
 
-  // UseEffect for username
-  // useEffect(() => {
-  //   const result = user_regex.test(user);
-  //   console.log(result);
-  //   console.log(user);
-  //   setValidName(result);
-  // }, [user]);
-
-  // UseEffect for the password
-  // useEffect(() => {
-  //   const result = pwd_regex.test(pwd);
-  //   console.log(result);
-  //   console.log(pwd);
-  //   setValidPwd(result);
-  //   const match = pwd === matchPwd;
-  //   setValidMatch(match);
-  // }, [pwd, matchPwd]);
 
   // UseEf for error message
   useEffect(() => {
@@ -136,8 +117,8 @@ const Login = () => {
             Don't have an account yet?
             <br />
             <span className="line">
-              {/* Router lin goes here */}
-              <a href="#">Create Account</a>
+              {/* Router link goes here */}
+              <Link to='/register'><a href="#">Create Account</a></Link>
             </span>
           </p>
         </section>

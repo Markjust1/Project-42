@@ -16,8 +16,12 @@
 .navbar-title {
   margin-left: 10px;
 }
-.navbar-search {
+.navbar-home {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
+  text-align: center;
+  font-family: "Expletus Sans";
 }
 
 /* .navbar-title:hover {
