@@ -11,22 +11,29 @@ const Navigation = () => {
     <nav className="navbar-container">
       <Title />
       <div className="navbar-elements">
-        <Link to="/">
-          <div className="navbar-home">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
             <img src={home} alt="home"></img>
             <span>HOME</span>
           </div>
         </Link>
-        <div className="navbar-profile">
-          <Link to="/profile">
-            <img src={profile} alt="Profile"></img>
-          </Link>
-        </div>
-        <div className="navbar-cart">
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
+            <img src={profile} alt="Login"></img>
+            <span>LOGIN</span>
+          </div>
+        </Link>
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
+            <img src={profile} alt="Register"></img>
+            <span>REGISTER</span>
+          </div>
+        </Link>
+        {/* <div className="navbar-cart">
           <Link to="/cart">
             <img src={cart} alt="Cart"></img>
           </Link>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

@@ -25,7 +25,7 @@ function App() {
           path="/"
           element={
             <>
-              {/* <Popular /> */}
+              <Popular />
               <div className="top-content">
                 <Games />
                 <Platform />

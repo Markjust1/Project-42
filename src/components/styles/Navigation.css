@@ -13,33 +13,31 @@
   background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
 }
 
-.navbar-title {
-  margin-left: 10px;
-}
-.navbar-home {
+.navbar-item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-top: 10px;
   text-align: center;
   font-family: "Expletus Sans";
+  transform: scale(0.8);
+  font-size: 80%;
 }
-
-/* .navbar-title:hover {
-  transform: scale(1.1);
-} */
 
 .navbar-elements {
   display: flex;
   flex-direction: row;
   margin-right: 10px;
 }
+
 .navbar-elements div {
   margin: 3px;
 }
 
 .navbar-elements div:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
+
 /* } */
 /* @media only screen and (min-width: 480px) {
   .navbar-container {

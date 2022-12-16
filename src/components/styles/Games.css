@@ -17,6 +17,7 @@
   align-items: center;
   text-align: center;
 }
+
 .games-items li {
   width: 80px;
   height: 80px;
@@ -35,4 +36,5 @@
   font-size: 1.7em;
   color: blueviolet;
   margin-top: -5px;
+  font-family: "Expletus Sans";
 }

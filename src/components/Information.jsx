@@ -5,10 +5,10 @@ const Information = () => {
   return (
     <div className="info-container">
       <div className="info-list">
-        <Link to='/terms'><div>Terms</div></Link>
-        <Link to='/privacy'><div>Privacy</div></Link>
-        <Link to='/security'><div>Security</div></Link>
-        <Link to='/about'><div>About</div></Link>
+        <Link to='/terms' style={{ textDecoration: "none" }}><div>Terms</div></Link>
+        <Link to='/privacy' style={{ textDecoration: "none" }}><div>Privacy</div></Link>
+        <Link to='/security' style={{ textDecoration: "none" }}><div>Security</div></Link>
+        <Link to='/about' style={{ textDecoration: "none" }}><div>About</div></Link>
       </div>
     </div>
   );
