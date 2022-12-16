@@ -16,9 +16,9 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <main className="App">
       <Navigation />
-      <Routes className="App">
+      <Routes>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
         <Route
@@ -40,7 +40,7 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-    </>
+    </main>
   );
 }
 

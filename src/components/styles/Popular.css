@@ -20,7 +20,7 @@
 }
 .popular-items li:hover {
   transform: scale(1.1);
-  background-color: rgba(158, 87, 169, 0.319);
+  background-color: rgba(255, 237, 135, 0.319);
   padding: 6px;
   cursor:pointer;
 }
