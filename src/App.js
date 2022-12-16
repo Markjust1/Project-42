@@ -10,7 +10,8 @@ import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
 import Security from "./components/Security"
 import Register from "./components/Register";
-import Login from "./components/Login"
+import Login from "./components/Login";
+import AddItem from "./components/AddItem";
 import "./components/styles/Terms.css";
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <main className="App">
       <Navigation />
+      <AddItem />
       <Routes>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>

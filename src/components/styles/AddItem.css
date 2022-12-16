@@ -1,0 +1,130 @@
+#add-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  min-width: 40vw;
+  font-family: "Expletus Sans", cursive;
+  font-size: 1.2em;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 20px,
+        transparent 20px
+      )
+      0% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      0% 100%/23px 23px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 100%/23px 23px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
+      calc(100% - 46px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+  border-radius: 23px;
+  box-sizing: border-box;
+  color: blueviolet;
+  margin: 100px auto;
+}
+
+section {
+  width: 40vw;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="textarea"],
+textarea {
+  font-family: "Expletus Sans", cursive;
+  font-size: 1em;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(200, 70, 255, 0.22);
+  background-color: rgba(169, 169, 169, 0.097);
+  resize: none;
+}
+
+input:focus {
+  outline-color: rgb(108, 127, 252)
+}
+
+label,
+button {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+
+.errmsg {
+  border: 3px dotted firebrick;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 9px;
+  text-align: center;
+  background-color: rgba(255, 192, 203, 0.465);
+  animation: .8s shake infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: skewX(-15deg); }
+  5% { transform: skewX(15deg); }
+  10% { transform: skewX(-15deg); }
+  15% { transform: skewX(15deg); }
+  20% { transform: skewX(0deg); }
+  100% { transform: skewX(0deg); }  
+}
+
+#submit-btn {
+  color: #ff40f5;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 8px,
+        transparent 8px
+      )
+      0% 0%/10px 10px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 8px, transparent 8px)
+      100% 0%/10px 10px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 8px, transparent 8px)
+      0% 100%/10px 10px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 8px, transparent 8px) 100%
+      100%/10px 10px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 4px)
+      calc(100% - 20px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 20px)
+      calc(100% - 4px) no-repeat,
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+  border-radius: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+
+#submit-btn:hover:enabled {
+  transform: scale(1.02);
+}
+
+.form-title {
+  display:flex;
+  align-self: center;
+}
