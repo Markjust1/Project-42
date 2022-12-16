@@ -1,10 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import {
-  faCheck,
-  faTimes,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles/Register.css";
 import axios from "../api/axios";
 
@@ -77,21 +71,21 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data)
+      console.log(response.data);
       setSuccess(true);
       // Clear input fields
-      setUser('');
-      setPwd('');
+      setUser("");
+      setPwd("");
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg("No Server Response");
       } else if (err.response?.status === 409) {
-        setErrMsg('Username Taken')
+        setErrMsg("Username Taken");
       } else {
-        setErrMsg('Registration Failed');
+        setErrMsg("Registration Failed");
       }
     }
-      errRef.current.focus();
+    errRef.current.focus();
   };
 
   return (
@@ -112,18 +106,14 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1>Create account</h1>
+          <h1 className='form-title'>CREATE ACCOUNT</h1>
           <form onSubmit={submitHandler}>
             {/* USERNAME FIELD */}
 
             <label htmlFor="username">
               Username:
-              <span className={validName ? "valid" : "hide"}>
-                {/* <FontAwesomeIcon icon={faCheck} /> */}
-              </span>
-              <span className={validName || !user ? "hide" : "invalid"}>
-                {/* <FontAwesomeIcon icon={faTimes} /> */}
-              </span>
+              <span className={validName ? "valid" : "hide"}></span>
+              <span className={validName || !user ? "hide" : "invalid"}></span>
             </label>
             <input
               type="text"
@@ -143,7 +133,6 @@ const Register = () => {
                 userFocus && user && !validName ? "instructions" : "offscreen"
               }
             >
-              {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
               - Should be 4 to 24 characters.
               <br />
               - Must begin with a letter.
@@ -154,12 +143,8 @@ const Register = () => {
 
             <label htmlFor="password">
               Password:
-              <span className={validPwd ? "valid" : "hide"}>
-                {/* <FontAwesomeIcon icon={faCheck} /> */}
-              </span>
-              <span className={validPwd || !pwd ? "hide" : "invalid"}>
-                {/* <FontAwesomeIcon icon={faTimes} /> */}
-              </span>
+              <span className={validPwd ? "valid" : "hide"}></span>
+              <span className={validPwd || !pwd ? "hide" : "invalid"}></span>
             </label>
             <input
               type="password"
@@ -175,7 +160,6 @@ const Register = () => {
               id="pwdnote"
               className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
             >
-              {/* <FontAwesomeIcon icon={faInfoCircle} /> */}
               - Should be 8 to 24 characters.
               <br />
               - Must include uppercase and lowercase letters, a number and a
@@ -192,12 +176,12 @@ const Register = () => {
 
             <label htmlFor="confirm_pwd">
               Confirm Password:
-              <span className={validMatch && matchPwd ? "valid" : "hide"}>
-                {/* <FontAwesomeIcon icon={faCheck} /> */}
-              </span>
-              <span className={validMatch || !matchPwd ? "hide" : "invalid"}>
-                {/* <FontAwesomeIcon icon={faTimes} /> */}
-              </span>
+              <span
+                className={validMatch && matchPwd ? "valid" : "hide"}
+              ></span>
+              <span
+                className={validMatch || !matchPwd ? "hide" : "invalid"}
+              ></span>
             </label>
             <input
               type="password"
@@ -215,8 +199,7 @@ const Register = () => {
                 matchFocus && !validMatch ? "instructions" : "offscreen"
               }
             >
-              {/* <FontAwesomeIcon icon={faInfoCircle} /> */}- Make sure
-              passwords are identical!
+              - Make sure passwords are identical!
             </p>
 
             {/* submit button */}

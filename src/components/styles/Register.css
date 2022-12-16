@@ -58,6 +58,10 @@ textarea {
   background-color: rgba(169, 169, 169, 0.097);
 }
 
+input:focus {
+  outline-color: rgb(108, 127, 252)
+}
+
 label,
 button {
   margin-top: 1rem;
@@ -163,4 +167,9 @@ button {
 
 .submit-btn:hover:enabled {
   transform: scale(1.02);
+}
+
+.form-title {
+  display:flex;
+  align-self: center;
 }
