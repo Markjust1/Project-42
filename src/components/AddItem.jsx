@@ -10,9 +10,10 @@ const AddItem = () => {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
+  const [premium, setPremium] = useState(false);
 
   return (
-    <section id="add-form">
+    <div id="add-form">
       <h1 className="form-title">LIST NEW ITEM</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor="title">Title</label>
@@ -31,14 +32,63 @@ const AddItem = () => {
           onChange={(e) => setPrice(e.target.value)}
           required
         />
+        <fieldset>
+          <legend>Select a platform:</legend>
+
+          <div>
+            <input type="radio" id="xbox" name="drone" value="xbox" />
+            <label for="xbox">Xbox</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="playstation"
+              name="drone"
+              value="playstation"
+            />
+            <label for="playstation">PlayStation</label>
+          </div>
+          <div>
+            <input type="radio" id="origin" name="drone" value="origin" />
+            <label for="origin">Origin</label>
+          </div>
+          <div>
+            <input type="radio" id="battlenet" name="drone" value="battlenet" />
+            <label for="battlenet">Battle.net</label>
+          </div>
+
+          <div>
+            <input type="radio" id="steam" name="drone" value="steam" />
+            <label for="steam">Steam</label>
+          </div>
+          <div>
+            <input type="radio" id="discord" name="drone" value="discord" />
+            <label for="discord">Discord</label>
+          </div>
+          <div>
+            <input type="radio" id="epicgames" name="drone" value="epicgames" />
+            <label for="epicgames">Epic Games</label>
+          </div>
+        </fieldset>
         <label htmlFor="description">Description</label>
         <textarea
-          rows='4'
+          rows="4"
           id="description"
           autoComplete="off"
           onChange={(e) => setDescription(e.target.value)}
           required
         />
+        <div>
+          <label htmlFor="premium">List as Premium</label>
+          <input
+            type="checkbox"
+            id="premium"
+            autoComplete="off"
+            onChange={(e) => setPremium(true)}
+            required
+          />
+        </div>
         <label htmlFor="image">Image</label>
         <input
           type="file"
@@ -47,9 +97,9 @@ const AddItem = () => {
           onChange={(e) => setImage(e.target.value)}
           required
         />
-        <button id='submit-btn'>Add Item</button>
+        <button id="submit-btn">Add Item</button>
       </form>
-    </section>
+    </div>
   );
 };
 

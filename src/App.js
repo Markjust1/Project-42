@@ -1,4 +1,4 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
 import Games from "./components/Games";
@@ -12,13 +12,16 @@ import Security from "./components/Security"
 import Register from "./components/Register";
 import Login from "./components/Login";
 import AddItem from "./components/AddItem";
+import AllItems from "./components/AllItems";
 import "./components/styles/Terms.css";
 import "./App.css";
 
 function App() {
+
   return (
     <main className="App">
       <Navigation />
+      {/* <AllItems /> */}
       <Routes>
         <Route path='/add' element={<AddItem/>}/>
         <Route path='/login' element={<Login />}/>
