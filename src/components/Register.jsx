@@ -1,11 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import "./styles/Register.css";
-import axios from "../api/axios";
+// import axios from "../api/axios";
 import { Link } from "react-router-dom";
 
 const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
-const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -34,16 +33,12 @@ const Register = () => {
   // UseEffect for username
   useEffect(() => {
     const result = user_regex.test(user);
-    console.log(result);
-    console.log(user);
     setValidName(result);
   }, [user]);
 
   // UseEffect for the password
   useEffect(() => {
     const result = pwd_regex.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -62,29 +57,6 @@ const Register = () => {
     if (!v1 || !v2) {
       setErrMsg("Invalid Entry");
       return;
-    }
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ user, pwd }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      setSuccess(true);
-      // Clear input fields
-      setUser("");
-      setPwd("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed");
-      }
     }
     errRef.current.focus();
   };
@@ -217,7 +189,7 @@ const Register = () => {
             <span className="line">
               {/* Router lin goes here */}
 
-              <Link to='/login'><a href="#">Log In</a></Link>
+              <Link to='/login'>Log In</Link>
             </span>
           </p>
         </section>
