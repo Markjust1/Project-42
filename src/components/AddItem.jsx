@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./styles/AddItem.css";
 
 const AddItem = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
   };
+
+
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
@@ -37,7 +39,7 @@ const AddItem = () => {
 
           <div>
             <input type="radio" id="xbox" name="drone" value="xbox" />
-            <label for="xbox">Xbox</label>
+            <label htmlFor="xbox">Xbox</label>
           </div>
 
           <div>
@@ -47,28 +49,28 @@ const AddItem = () => {
               name="drone"
               value="playstation"
             />
-            <label for="playstation">PlayStation</label>
+            <label htmlFor="playstation">PlayStation</label>
           </div>
           <div>
             <input type="radio" id="origin" name="drone" value="origin" />
-            <label for="origin">Origin</label>
+            <label htmlFor="origin">Origin</label>
           </div>
           <div>
             <input type="radio" id="battlenet" name="drone" value="battlenet" />
-            <label for="battlenet">Battle.net</label>
+            <label htmlFor="battlenet">Battle.net</label>
           </div>
 
           <div>
             <input type="radio" id="steam" name="drone" value="steam" />
-            <label for="steam">Steam</label>
+            <label htmlFor="steam">Steam</label>
           </div>
           <div>
             <input type="radio" id="discord" name="drone" value="discord" />
-            <label for="discord">Discord</label>
+            <label htmlFor="discord">Discord</label>
           </div>
           <div>
             <input type="radio" id="epicgames" name="drone" value="epicgames" />
-            <label for="epicgames">Epic Games</label>
+            <label htmlFor="epicgames">Epic Games</label>
           </div>
         </fieldset>
         <label htmlFor="description">Description</label>

@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import "./styles/Register.css";
-
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -17,7 +16,7 @@ const Login = () => {
 
   return (
     <>
-        <section id="register">
+        <div id="register">
           <h1 className='form-title'>LOGIN</h1>
           <form onSubmit={submitHandler}>
             {/* USERNAME FIELD */}
@@ -60,7 +59,7 @@ const Login = () => {
               <Link to='/register'>Create Account</Link>
             </span>
           </p>
-        </section>
+        </div>
     </>
   );
 };

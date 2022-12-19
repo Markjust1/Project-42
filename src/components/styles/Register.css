@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 60vh;
+  min-width: 30vw;
   font-family: "Expletus Sans", cursive;
   font-size: 1.2em;
   background: radial-gradient(
@@ -26,16 +27,7 @@
   box-sizing: border-box;
   color: blueviolet;
   margin: 100px auto;
-}
-
-section {
-  width: 40vw;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1.5rem;
+  padding: 30px;
 }
 
 form {

@@ -8,6 +8,8 @@ const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z](?=.*[0-9])(?=.*[!@#$%])).{8,24}$/;
 
 const Register = () => {
   const userRef = useRef();
+  const passwordRef = useRef();
+  const matchPasswordRef = useRef();
   const errRef = useRef();
   // State for username
   const [user, setUser] = useState("");
@@ -51,27 +53,23 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // additional check
-    const v1 = user_regex.test(user);
-    const v2 = pwd_regex.test(pwd);
-    if (!v1 || !v2) {
-      setErrMsg("Invalid Entry");
-      return;
-    }
-    errRef.current.focus();
+    console.log({username: userRef.current.value, password: passwordRef.current.value});
+    userRef.current.value = '';
+    passwordRef.current.value = '';
+    matchPasswordRef.current.value = '';
   };
 
   return (
     <>
       {success ? (
-        <section>
+        <div>
           <h1>Success!</h1>
           <p>
             <a href="#">Log In</a>
           </p>
-        </section>
+        </div>
       ) : (
-        <section id="register">
+        <div id="register">
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -122,6 +120,7 @@ const Register = () => {
             <input
               type="password"
               id="password"
+              ref={passwordRef}
               onChange={(e) => setPwd(e.target.value)}
               required
               aria-invalid={validPwd ? "false" : "true"}
@@ -159,6 +158,7 @@ const Register = () => {
             <input
               type="password"
               id="confirm_pwd"
+              ref={matchPasswordRef}
               onChange={(e) => setMatchPwd(e.target.value)}
               required
               aria-invalid={validMatch ? "false" : "true"}
@@ -192,7 +192,7 @@ const Register = () => {
               <Link to='/login'>Log In</Link>
             </span>
           </p>
-        </section>
+        </div>
       )}
     </>
   );
