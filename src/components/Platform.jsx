@@ -1,18 +1,17 @@
 import "./styles/Platform.css";
 import console from '../assets/console.png';
+import xbox from '../assets/platform/xbox.jpeg'
 
 const Platform = () => {
   const Platform = [
-    "xbox",
-    "PS",
-    "discord",
-    "origin",
-    "battle.net",
-    "uplay",
-    "epic games",
-    "steam",
+    {name: 'xbox', pic: xbox},
+    {name: 'playstation', pic: xbox},
+    {name: 'origin', pic: xbox},
+    {name: 'battlenet', pic: xbox},
+    {name: 'steam', pic: xbox},
+    {name: 'epicgames', pic: xbox}
   ];
-  const listItems = Platform.map((item) => <li key={item}>{item}</li>);
+  const listItems = Platform.map((item) => <li key={item.name}>{item.name}</li>);
   return (
     <div className="platform-container">
       <div>

@@ -21,7 +21,6 @@ function App() {
   return (
     <main className="App">
       <Navigation />
-      {/* <AllItems /> */}
       <Routes>
         <Route path='/add' element={<AddItem/>}/>
         <Route path='/login' element={<Login />}/>
@@ -36,6 +35,7 @@ function App() {
                 <Platform />
               </div>
               <Premium_item_list />
+              <AllItems />
             </>
           }
         />
