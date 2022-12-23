@@ -12,6 +12,11 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Database connected!"));
 
+app.use(express.json());
+
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter)
+
 app.listen(PORT, () => {
   console.log(`Server has started on port: ${PORT}`);
 });
