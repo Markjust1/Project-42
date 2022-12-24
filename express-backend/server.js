@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -14,8 +14,8 @@ db.once("open", () => console.log("Database connected!"));
 
 app.use(express.json());
 
-const usersRouter = require('./routes/users');
-app.use('/users', usersRouter)
+const usersRouter = require("./routes/users");
+app.use("/api/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log(`Server has started on port: ${PORT}`);
