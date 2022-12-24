@@ -2,7 +2,7 @@ GET http://localhost:3000/users
 
 ###
 
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/63a64d9ba62108b75838c7f0
 
 
 ### 
@@ -14,3 +14,7 @@ Content-Type: application/json
   "name": "Artem",
   "email": "123@gmail.com"
 }
+
+###
+
+DELETE http://localhost:3000/users/63a64d9ba62108b75838c7f0
