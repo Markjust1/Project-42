@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 
 // Get all users
+
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
@@ -13,11 +14,13 @@ router.get("/", async (req, res) => {
 });
 
 // Get one user
+
 router.get("/:id", getUser, (req, res) => {
   res.json(res.user);
 });
 
 // Create user
+
 router.post("/", async (req, res) => {
   const user = new User({
     name: req.body.name,
@@ -33,9 +36,25 @@ router.post("/", async (req, res) => {
 });
 
 // Update/modify user
-router.patch("/", getUser, (req, res) => {});
+
+router.patch("/:id", getUser, async (req, res) => {
+  if (req.body.name != null) {
+    res.user.name = req.body.name;
+  }
+  if (req.body.email != null) {
+    res.user.email = req.body.email;
+  }
+
+  try {
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 // Delete user
+
 router.delete("/:id", getUser, async (req, res) => {
   try {
     await res.user.remove();
@@ -44,6 +63,8 @@ router.delete("/:id", getUser, async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+// Middleware function
 
 async function getUser(req, res, next) {
   let user;
