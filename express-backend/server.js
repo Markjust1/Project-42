@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 
 // Connecting mongoose db
@@ -17,6 +17,6 @@ app.use(express.json());
 const usersRouter = require("./routes/users");
 app.use("/api/users", usersRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server has started on port: ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server has started on port ${port}.`);
 });
