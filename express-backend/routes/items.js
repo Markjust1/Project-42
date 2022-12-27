@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
 
 // Update one
 
-router.patch("/:id", getItem, async (req,res) => {
+router.patch("/:id", getItem, async (req, res) => {
   if (req.body.title != null) {
     res.user.title = req.body.title;
   }
@@ -55,9 +55,18 @@ router.patch("/:id", getItem, async (req,res) => {
   if (req.body.price != null) {
     res.user.price = req.body.price;
   }
-})
+});
 
 // Delete one
+
+router.delete("/:id", getItem, async (req, res) => {
+  try {
+    await res.item.remove();
+    res.json({ message: "Deleted item" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // Middleware function
 
