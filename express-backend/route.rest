@@ -1,13 +1,13 @@
-GET http://localhost:3000/users
+GET http://localhost:2500/api/users
 
 ###
 
-GET http://localhost:3000/users/63a64d9ba62108b75838c7f0
+GET http://localhost:2500/api/users/63a64d9ba62108b75838c7f0
 
 
 ### 
 
-POST http://localhost:3000/users
+POST http://localhost:2500/api/users
 Content-Type: application/json
 
 {
@@ -17,11 +17,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/users/63a64d9ba62108b75838c7f0
+DELETE http://localhost:2500/api/users/63a64d9ba62108b75838c7f0
 
 ###
 
-PATCH  http://localhost:3000/users/63a64deaa62108b75838c7f3
+PATCH  http://localhost:2500/api/users/63a64deaa62108b75838c7f3
 Content-Type: application/json
 
 {

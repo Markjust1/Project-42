@@ -29,12 +29,12 @@ function App() {
           path="/"
           element={
             <>
-              <Popular />
+              {/* <Popular /> */}
               <div className="top-content">
-                <Games />
-                <Platform />
+                {/* <Games /> */}
+                {/* <Platform /> */}
               </div>
-              <Premium_item_list />
+              {/* <Premium_item_list /> */}
               <AllItems />
             </>
           }
