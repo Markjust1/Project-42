@@ -1,18 +1,23 @@
-GET http://localhost:2500/api/users
+GET http://localhost:2500/api/items
+# GET http://localhost:2500/api/users
 
 ###
 
-GET http://localhost:2500/api/users/63a64d9ba62108b75838c7f0
+GET http://localhost:2500/api/items/63a64d9ba62108b75838c7f0
+# GET http://localhost:2500/api/users/63a64d9ba62108b75838c7f0
 
 
 ### 
 
-POST http://localhost:2500/api/users
+POST http://localhost:2500/api/items
 Content-Type: application/json
 
 {
-  "name": "Artem",
-  "email": "123@gmail.com"
+  "title": "Frostmourne",
+  "image": "https://imgur.com/gallery/ir7xP",
+  "description": "Rare legendary weapon",
+  "platform": "Battle.net",
+  "price": 250
 }
 
 ###

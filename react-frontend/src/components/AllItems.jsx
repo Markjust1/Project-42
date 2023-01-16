@@ -1,14 +1,23 @@
 // import './styles/AllItems.css';
-import star from '../assets/star.png';
+import { useState, useEffect } from "react";
+import star from "../assets/star.png";
 import "./styles/Premium_item_list.css";
-import Premium_item from './Premium_item';
-import axios from 'axios';
+import Premium_item from "./Premium_item";
+import axios from "axios";
 
 const AllItems = () => {
-  axios
-    .get(`/api/items/`)
-    .then(response => console.log(response.data))
-    .catch(err => {console.log(err)}) 
+  const [items, setItems] = useState();
+  useEffect(() => {
+    axios
+      .get(`/api/items/`)
+      .then((response) => {
+        setItems(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(items);
   return (
     <div className="premium-list-container">
       <div className="title-logo">
@@ -16,16 +25,19 @@ const AllItems = () => {
         <div className="premium-list-title">All Items</div>
       </div>
       <div className="premium-list-container">
-        <Premium_item />
-        <Premium_item />
-        <Premium_item />
-        <Premium_item />
-        <Premium_item />
-        <Premium_item />
-        <Premium_item />
+        {/* {items.map((item) => (
+          <Premium_item
+            key={item._id}
+            title={item.title}
+            image={item.image}
+            description={item.description}
+            platform={item.platform}
+            price={item.price}
+          />
+        ))} */}
       </div>
     </div>
-  )
+  );
 };
 
 export default AllItems;
