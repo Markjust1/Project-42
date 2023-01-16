@@ -5,10 +5,10 @@ import Premium_item from './Premium_item';
 import axios from 'axios';
 
 const AllItems = () => {
-  // axios
-  //   .get(`api/users/`)
-  //   .then(response => console.log(response))
-  //   .catch(err => {console.log(err)}) 
+  axios
+    .get(`api/users/`)
+    .then(response => console.log(response))
+    .catch(err => {console.log(err)}) 
   return (
     <div className="premium-list-container">
       <div className="title-logo">

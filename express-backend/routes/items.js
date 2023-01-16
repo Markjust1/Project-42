@@ -83,3 +83,5 @@ async function getItem(req, res, next) {
   res.item = item;
   next();
 }
+
+module.exports = router;
