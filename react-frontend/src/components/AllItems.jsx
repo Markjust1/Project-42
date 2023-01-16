@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const AllItems = () => {
   axios
-    .get(`api/users/`)
-    .then(response => console.log(response))
+    .get(`/api/items/`)
+    .then(response => console.log(response.data))
     .catch(err => {console.log(err)}) 
   return (
     <div className="premium-list-container">
