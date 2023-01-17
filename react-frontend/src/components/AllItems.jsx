@@ -19,22 +19,27 @@ const AllItems = () => {
   }, []);
   console.log(items);
   return (
-    <div className="premium-list-container">
+    <div>
       <div className="title-logo">
         <img src={star} alt=""></img>
         <div className="premium-list-title">All Items</div>
       </div>
       <div className="premium-list-container">
-        {/* {items.map((item) => (
-          <Premium_item
-            key={item._id}
-            title={item.title}
-            image={item.image}
-            description={item.description}
-            platform={item.platform}
-            price={item.price}
-          />
-        ))} */}
+        {!items ? (
+          <div>There's no items yet</div>
+        ) : (
+          items.length > 1 &&
+          items.map((item) => (
+            <Premium_item
+              key={item._id}
+              title={item.title}
+              image={item.image}
+              description={item.description}
+              platform={item.platform}
+              price={item.price}
+            />
+          ))
+        )}
       </div>
     </div>
   );

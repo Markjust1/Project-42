@@ -5,9 +5,7 @@ const Premium_item = (props) => {
     <div className="premium-container">
       <div className="premium-title">{props.title}</div>
       <div className="premium-main-part">
-        <div className="premium-image" src={props.image} alt="game image">
-          
-        </div>
+        <img className="premium-image" src={props.image} alt="game image"/>
         <div className="premium-price">${props.price}</div>
         <div className="premium-description">{props.description}</div>
       </div>
