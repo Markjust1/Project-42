@@ -1,8 +1,10 @@
+import { FilePond, File } from 'react-filepond'
 import { useState, useRef } from "react";
+import 'filepond/dist/filepond.min.css'
 import "./styles/AddItem.css";
 
 const AddItem = () => {
-
+  const [files, setFiles] = useState([])
   const titleRef = useRef();
   const priceRef = useRef();
   const imageRef = useRef();
@@ -118,6 +120,15 @@ const AddItem = () => {
           ref={imageRef}
           // required
         />
+        <FilePond
+        files={files}
+        onupdatefiles={setFiles}
+        allowMultiple={false}
+        maxFiles={1}
+        server="http://localhost:2500/api/items"
+        name="files" /* sets the file input name, it's filepond by default */
+        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+      />
         <button id="submit-btn">Add Item</button>
       </form>
     </div>

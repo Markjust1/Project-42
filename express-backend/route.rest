@@ -13,11 +13,11 @@ POST http://localhost:2500/api/items
 Content-Type: application/json
 
 {
-  "title": "Frostmourne",
-  "image": "https://imgur.com/gallery/ir7xP",
-  "description": "Rare legendary weapon",
-  "platform": "Battle.net",
-  "price": 250
+  "title": "PS5",
+  "image": "https://imgur.com/gallery/xGFblTd",
+  "description": "Unique edition PS5",
+  "platform": "Playstation",
+  "price": 2000
 }
 
 ###
