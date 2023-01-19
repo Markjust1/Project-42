@@ -6,7 +6,7 @@ import Premium_item from "./Premium_Item";
 import axios from "axios";
 
 const AllItems = () => {
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
   useEffect(() => {
     setTimeout(() => {
       axios
@@ -18,7 +18,7 @@ const AllItems = () => {
           console.log(err);
         });
     }, 500);
-  }, [])
+  }, []);
   console.log(items);
   return (
     <div>
@@ -27,25 +27,20 @@ const AllItems = () => {
         <div className="premium-list-title">All Items</div>
       </div>
       <div className="premium-list-container">
-
-          {items.map((item) => (
+        {items.length < 1 ? (
+          <div>No items present yet</div>
+        ) : (
+          items.map((item) => (
             <Premium_item
               key={item._id}
               title={item.title}
               image={item.image}
               description={item.description}
               platform={item.platform}
-              price={items.price}
+              price={item.price}
             />
-          ))}
-        
-        {/* <Premium_item 
-          key={'item._id'}
-          title={'item.title'}
-          image={'item.image'}
-          description={'item.description'}
-          platform={'item.platform'}
-          price={'item.price'}/> */}
+          ))
+        )}
       </div>
     </div>
   );

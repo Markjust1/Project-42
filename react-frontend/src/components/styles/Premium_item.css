@@ -1,14 +1,15 @@
 .premium-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 25vw;
-  height: 33vh;
+  height: 40vh;
   border: 3px solid rgba(128, 128, 128, 0.199);
   border-radius: 6px;
   font-family: "Expletus Sans", cursive;
   margin: 10px;
+  background-color: rgba(255, 228, 196, 0.426);
 }
 .premium-container:hover {
   transform: scale(1.01);
@@ -17,7 +18,7 @@
   display: flex;
   flex-grow: 4;
   width: 25vw;
-  height: 20vh;
+  height: 25vh;
   border: 1px solid rgba(0, 0, 0, 0.199);
   border-radius: 6px;
 }
@@ -34,5 +35,14 @@
 
 .premium-description {
   display: flex;
+  text-align: center;
   flex-grow: 3;
+}
+
+.form-top {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25vw;
 }
