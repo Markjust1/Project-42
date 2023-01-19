@@ -1,4 +1,4 @@
-// import './styles/AllItems.css';
+import Loading from "./Loading";
 import { useState, useEffect } from "react";
 import star from "../assets/star.png";
 import "./styles/Premium_item_list.css";
@@ -19,7 +19,7 @@ const AllItems = () => {
         });
     }, 500);
   }, []);
-  console.log(items);
+
   return (
     <div className="premium-list-container">
       <div className="title-logo">
@@ -28,7 +28,7 @@ const AllItems = () => {
       </div>
       <div className="list-container">
         {items.length < 1 ? (
-          <div>No items present yet</div>
+          <Loading/>
         ) : (
           items.map((item) => (
             <Premium_item

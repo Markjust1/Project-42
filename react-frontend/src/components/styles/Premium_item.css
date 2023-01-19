@@ -10,8 +10,14 @@
   border: 1px solid rgba(255, 165, 31, 0.849);
   border-radius: 6px;
   margin: 10px;
-  background-color: rgba(40, 15, 138, 0.57);
-  font-family: 'Cinzel Decorative', cursive;
+  background: rgb(101, 30, 214);
+  background: linear-gradient(
+    90deg,
+    rgba(101, 30, 214, 1) 0%,
+    rgba(168, 29, 253, 1) 50%,
+    rgba(12, 0, 103, 0.7035407913165266) 99%
+  );
+  font-family: "Cinzel Decorative", cursive;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   z-index: 1;
 }
@@ -37,13 +43,12 @@
   border-radius: 6px;
 }
 
-
 .premium-price {
   display: flex;
   margin: 3px;
   font-size: 1.3em;
   color: rgb(255, 79, 16);
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   text-shadow: 0px 3px 3px rgba(6, 20, 224, 0.4);
 }
 
@@ -56,9 +61,9 @@
   margin-left: 1vw;
   margin-right: 1vw;
   min-height: 70px;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   text-shadow: 0px 3px 3px rgba(255, 162, 31, 0.4);
-  color:rgb(252, 243, 189)
+  color: rgb(252, 243, 189);
 }
 
 .list-container {
@@ -73,7 +78,8 @@
   height: 45px;
   width: 70px;
   z-index: 2;
-  box-shadow: rgb(255, 163, 34) 3px 3px 6px 0px inset, rgb(252, 106, 28) -3px -3px 6px 1px inset;
+  box-shadow: rgb(255, 163, 34) 3px 3px 6px 0px inset,
+    rgb(252, 106, 28) -3px -3px 6px 1px inset;
   border-radius: 45%;
   background-color: rgb(236, 225, 255);
   align-self: center;
