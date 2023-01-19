@@ -4,7 +4,7 @@ import Popular from "./components/Popular";
 import Games from "./components/Games";
 import Platform from "./components/Platform";
 import Footer from "./components/Footer";
-import Premium_item_list from "./components/Premium_item_list";
+import Premium_Item_List from "./components/Premium_Item_List";
 import About from "./components/About";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
@@ -34,7 +34,7 @@ function App() {
                 {/* <Games /> */}
                 {/* <Platform /> */}
               </div>
-              {/* <Premium_item_list /> */}
+              {/* <Premium_Item_List /> */}
               <AllItems />
             </>
           }

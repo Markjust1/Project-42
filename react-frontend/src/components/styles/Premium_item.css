@@ -1,6 +1,8 @@
 .premium-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 25vw;
   height: 33vh;
   border: 3px solid rgba(128, 128, 128, 0.199);
@@ -12,8 +14,11 @@
   transform: scale(1.01);
 }
 .premium-image {
+  display: flex;
+  flex-grow: 4;
+  width: 25vw;
   height: 20vh;
-  border: 3px solid rgba(128, 128, 128, 0.199);
+  border: 1px solid rgba(0, 0, 0, 0.199);
   border-radius: 6px;
 }
 
@@ -25,4 +30,9 @@
 .premium-price {
   margin: 3px;
   font-size: 1.2em;
+}
+
+.premium-description {
+  display: flex;
+  flex-grow: 3;
 }

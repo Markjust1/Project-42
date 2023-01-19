@@ -5,6 +5,7 @@
   flex-direction: row;
   align-self: center;
   justify-content: space-evenly;
+  flex-direction: column;
 }
 .title-logo {
   display: flex;
