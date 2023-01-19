@@ -10,6 +10,7 @@
   font-family: "Expletus Sans", cursive;
   margin: 10px;
   background-color: rgba(255, 228, 196, 0.426);
+  font-family: 'VT323', monospace;
 }
 .premium-container:hover {
   transform: scale(1.01);
@@ -24,19 +25,24 @@
 }
 
 .premium-title {
-  font-size: 1.4em;
+  font-size: 2.3em;
   margin: 3px;
+  color: rgb(100, 21, 100);
 }
 
 .premium-price {
   margin: 3px;
-  font-size: 1.2em;
+  font-size: 2em;
+  color: coral;
 }
 
 .premium-description {
   display: flex;
   text-align: center;
+  align-content: center;
   flex-grow: 3;
+  font-size: 1.3em;
+  height: 5vh;
 }
 
 .form-top {
@@ -45,4 +51,9 @@
   flex-direction: row;
   justify-content: space-between;
   width: 25vw;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
 }

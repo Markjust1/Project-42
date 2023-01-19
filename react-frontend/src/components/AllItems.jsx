@@ -21,12 +21,12 @@ const AllItems = () => {
   }, []);
   console.log(items);
   return (
-    <div>
+    <div className="premium-list-container">
       <div className="title-logo">
         <img src={star} alt=""></img>
         <div className="premium-list-title">All Items</div>
       </div>
-      <div className="premium-list-container">
+      <div className="list-container">
         {items.length < 1 ? (
           <div>No items present yet</div>
         ) : (
