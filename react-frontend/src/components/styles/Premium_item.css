@@ -1,36 +1,46 @@
 .premium-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   width: 25vw;
+  min-width: 250px;
+  min-height: 400px;
   height: 40vh;
-  border: 3px solid rgba(128, 128, 128, 0.199);
+  border: 1px solid rgba(128, 128, 128, 0.104);
   border-radius: 6px;
   font-family: "Expletus Sans", cursive;
   margin: 10px;
-  background-color: rgba(255, 228, 196, 0.426);
+  background-color: rgba(249, 175, 85, 0.426);
   font-family: 'VT323', monospace;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .premium-container:hover {
   transform: scale(1.01);
 }
+
+.premium-title {
+  display: flex;
+  font-family: monoton;
+  font-size: 1.1em;
+  margin: 3px;
+  color: rgb(100, 21, 100);
+  flex-grow: 1;
+}
+
 .premium-image {
   display: flex;
   flex-grow: 4;
-  width: 25vw;
-  height: 25vh;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
   border: 1px solid rgba(0, 0, 0, 0.199);
   border-radius: 6px;
 }
 
-.premium-title {
-  font-size: 2.3em;
-  margin: 3px;
-  color: rgb(100, 21, 100);
-}
 
 .premium-price {
+  display: flex;
   margin: 3px;
   font-size: 2em;
   color: coral;
@@ -39,18 +49,13 @@
 .premium-description {
   display: flex;
   text-align: center;
-  align-content: center;
-  flex-grow: 3;
+  flex-grow: 1;
   font-size: 1.3em;
-  height: 5vh;
-}
-
-.form-top {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 25vw;
+  margin-top: 1.5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  min-height: 100px;
+  /* border: 1px solid black; */
 }
 
 .list-container {
