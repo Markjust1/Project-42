@@ -9,7 +9,9 @@ const Premium_Item = (props) => {
       <img className="premium-image" src={props.image} alt="game image" />
       <div className="premium-description">{props.description}</div>
     </div>
+    <div className="price-circle">
       <div className="premium-price">${props.price}</div>
+    </div>
     </>
   );
 };

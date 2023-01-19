@@ -14,6 +14,7 @@
   background-color: rgba(249, 175, 85, 0.426);
   font-family: 'VT323', monospace;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  z-index: 3;
 }
 .premium-container:hover {
   transform: scale(1.01);
@@ -42,7 +43,7 @@
 .premium-price {
   display: flex;
   margin: 3px;
-  font-size: 2em;
+  font-size: 1.5em;
   color: coral;
 }
 
@@ -62,3 +63,18 @@
   display: flex;
   flex-direction: row;
 }
+
+.price-circle {
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(137, 43, 226, 0.131);
+  left: 100px;
+  height: 45px;
+  width: 70px;
+  z-index: 2;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, blueviolet -3px -3px 6px 1px inset;
+  border-radius: 45%;
+}
+
