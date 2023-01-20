@@ -1,4 +1,4 @@
-GET http://localhost:2500/api/items
+GET http://localhost:2500/api/users
 # GET http://localhost:2500/api/users
 
 ###
@@ -9,20 +9,17 @@ GET http://localhost:2500/api/items/63a64d9ba62108b75838c7f0
 
 ### 
 
-POST http://localhost:2500/api/items
+POST http://localhost:2500/api/users/
 Content-Type: application/json
 
 {
-  "title": "PS5",
-  "image": "https://imgur.com/gallery/xGFblTd",
-  "description": "Unique edition PS5",
-  "platform": "Playstation",
-  "price": 2000
+  "name": "Pinky",
+  "password": "Persimmon88!"
 }
 
 ###
 
-DELETE http://localhost:2500/api/items/63c4e5919b1b3fafb19d4976
+DELETE http://localhost:2500/api/users/63a73b662ae3bb583caa9be5
 
 ###
 

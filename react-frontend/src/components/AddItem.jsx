@@ -2,10 +2,9 @@ import { useState, useRef } from "react";
 import "./styles/AddItem.css";
 import axios from "axios";
 
-
 const AddItem = () => {
-  const url = 'http://localhost:2500/api/items/'
-  const [files, setFiles] = useState('')
+  const url = "http://localhost:2500/api/items/";
+  const [files, setFiles] = useState("");
   const titleRef = useRef();
   const priceRef = useRef();
   const imageRef = useRef();
@@ -14,21 +13,20 @@ const AddItem = () => {
   // const [premium, setPremium] = useState(false);
 
   const resetValues = () => {
-    titleRef.current.value = '';
-    priceRef.current.value = '';
-    descriptionRef.current.value = '';
-    setPlatform('');
-    imageRef.current.value = '';
+    titleRef.current.value = "";
+    priceRef.current.value = "";
+    descriptionRef.current.value = "";
+    setPlatform("");
+    imageRef.current.value = "";
   };
 
   const createPost = async (newFile) => {
     try {
-      await axios.post(url, newFile)
-    } catch(err) {
-      console.log(err)
+      await axios.post(url, newFile);
+    } catch (err) {
+      console.log(err);
     }
-  }
-
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -38,26 +36,26 @@ const AddItem = () => {
       description: descriptionRef.current.value,
       platform: platform,
       price: priceRef.current.value,
-    })
-    alert('Item successfully added')
+    });
+    alert("Item successfully added");
     // Clean up:
     resetValues();
   };
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
-      if(file.size > 1607152){
-        alert("File is too big!");
-        imageRef.current.value = '';
-        return;
-     };
-    const base64 = await convertToBase64(file)
-    setFiles(base64)
-  }
+    if (file.size > 1607152) {
+      alert("File is too big!");
+      imageRef.current.value = "";
+      return;
+    }
+    const base64 = await convertToBase64(file);
+    setFiles(base64);
+  };
 
   const handleChange = (event) => {
-    setPlatform(event.target.value)
-  }
+    setPlatform(event.target.value);
+  };
 
   return (
     <div id="add-form">
@@ -83,14 +81,21 @@ const AddItem = () => {
           <legend>Select a platform:</legend>
 
           <div>
-            <input onChange={handleChange} checked={platform === 'xbox'} type="radio" id="xbox" name="platform" value="xbox" />
+            <input
+              onChange={handleChange}
+              checked={platform === "xbox"}
+              type="radio"
+              id="xbox"
+              name="platform"
+              value="xbox"
+            />
             <label htmlFor="xbox">Xbox</label>
           </div>
 
           <div>
             <input
-            onChange={handleChange}
-              checked={platform === 'playstation'}
+              onChange={handleChange}
+              checked={platform === "playstation"}
               type="radio"
               id="playstation"
               name="platform"
@@ -99,20 +104,48 @@ const AddItem = () => {
             <label htmlFor="playstation">PlayStation</label>
           </div>
           <div>
-            <input onChange={handleChange} checked={platform === 'origin'} type="radio" id="origin" name="platform" value="origin" />
+            <input
+              onChange={handleChange}
+              checked={platform === "origin"}
+              type="radio"
+              id="origin"
+              name="platform"
+              value="origin"
+            />
             <label htmlFor="origin">Origin</label>
           </div>
           <div>
-            <input onChange={handleChange} checked={platform === 'battlenet'} type="radio" id="battlenet" name="platform" value="battlenet" />
+            <input
+              onChange={handleChange}
+              checked={platform === "battlenet"}
+              type="radio"
+              id="battlenet"
+              name="platform"
+              value="battlenet"
+            />
             <label htmlFor="battlenet">Battle.net</label>
           </div>
 
           <div>
-            <input onChange={handleChange} checked={platform === 'steam'} type="radio" id="steam" name="platform" value="steam" />
+            <input
+              onChange={handleChange}
+              checked={platform === "steam"}
+              type="radio"
+              id="steam"
+              name="platform"
+              value="steam"
+            />
             <label htmlFor="steam">Steam</label>
           </div>
           <div>
-            <input onChange={handleChange} checked={platform === 'epicgames'} type="radio" id="epicgames" name="platform" value="epicgames" />
+            <input
+              onChange={handleChange}
+              checked={platform === "epicgames"}
+              type="radio"
+              id="epicgames"
+              name="platform"
+              value="epicgames"
+            />
             <label htmlFor="epicgames">Epic Games</label>
           </div>
         </fieldset>
@@ -136,11 +169,11 @@ const AddItem = () => {
         <label htmlFor="image">Image</label>
         <input
           type="file"
-          label='image'
+          label="image"
           id="image"
           ref={imageRef}
           accept="image/*"
-          onChange = {(e) => handleFileUpload(e)}
+          onChange={(e) => handleFileUpload(e)}
           // required
         />
         <button id="submit-btn">Add Item</button>
@@ -156,10 +189,10 @@ function convertToBase64(file) {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.onload = () => {
-      resolve(fileReader.result)
+      resolve(fileReader.result);
     };
     fileReader.onerror = (err) => {
-      reject(err)
-    }
-  })
+      reject(err);
+    };
+  });
 }

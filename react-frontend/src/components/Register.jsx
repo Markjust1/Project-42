@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import "./styles/Register.css";
-// import axios from "../api/axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const user_regex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -26,6 +26,15 @@ const Register = () => {
   // State for error message
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const url = "http://localhost:2500/api/users/";
+  const createUser = async (newUser) => {
+    try {
+      await axios.post(url, newUser);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // For setting the focus when the component loads
   useEffect(() => {
@@ -53,10 +62,17 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log({username: userRef.current.value, password: passwordRef.current.value});
-    userRef.current.value = '';
-    passwordRef.current.value = '';
-    matchPasswordRef.current.value = '';
+    console.log({
+      name: userRef.current.value,
+      password: passwordRef.current.value,
+    });
+    createUser({
+      name: userRef.current.value,
+      password: passwordRef.current.value,
+    });
+    userRef.current.value = "";
+    passwordRef.current.value = "";
+    matchPasswordRef.current.value = "";
   };
 
   return (
@@ -77,7 +93,7 @@ const Register = () => {
           >
             {errMsg}
           </p>
-          <h1 className='form-title'>CREATE ACCOUNT</h1>
+          <h1 className="form-title">CREATE ACCOUNT</h1>
           <form onSubmit={submitHandler}>
             {/* USERNAME FIELD */}
 
@@ -189,7 +205,7 @@ const Register = () => {
             <span className="line">
               {/* Router lin goes here */}
 
-              <Link to='/login'>Log In</Link>
+              <Link to="/login">Log In</Link>
             </span>
           </p>
         </div>

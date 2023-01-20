@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
+  password: {
     type: String,
     required: true,
   },
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     required: true,
     default: Date.now,
-  },
+  }
 });
 
 module.exports = mongoose.model("User", userSchema);
