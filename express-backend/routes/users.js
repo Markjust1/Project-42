@@ -1,4 +1,5 @@
 const express = require("express");
+const { db } = require("../models/user");
 const router = express.Router();
 const User = require("../models/user");
 
@@ -22,6 +23,7 @@ router.get("/:id", getUser, (req, res) => {
 // Create user
 
 router.post("/", async (req, res) => {
+  console.log(req.body);
   const user = new User({
     name: req.body.name,
     password: req.body.password,
