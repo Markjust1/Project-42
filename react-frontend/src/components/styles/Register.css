@@ -1,7 +1,7 @@
 #register {
   display: flex;
   flex-direction: column;
-  min-height: 60vh;
+  min-height: 600px;
   min-width: 30vw;
   font-family: "Expletus Sans", cursive;
   font-size: 1.2em;
