@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./styles/Register.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -27,13 +28,21 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const navigate = useNavigate();
+
   const url = "http://localhost:2500/api/users/";
-  const createUser = async (newUser) => {
-    try {
-      await axios.post(url, newUser);
-    } catch (err) {
-      console.log(err);
-    }
+  const createUser = (newUser) => {
+    axios
+      .post(url, newUser)
+      .then((res) => {
+        console.log(res);
+        alert("User successfully created, you can login now!");
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something went wrong...");
+      });
   };
 
   // For setting the focus when the component loads
@@ -204,7 +213,6 @@ const Register = () => {
             <br />
             <span className="line">
               {/* Router lin goes here */}
-
               <Link to="/login">Log In</Link>
             </span>
           </p>
