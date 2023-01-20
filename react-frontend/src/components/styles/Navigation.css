@@ -13,20 +13,16 @@
   background-color: rgba(255, 255, 255, 0.181);
   background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  background: rgb(101, 30, 214);
-  background: linear-gradient(
-    90deg,
-    rgb(85, 48, 143) 0%,
-    rgb(89, 51, 113) 50%,
-    rgba(50, 40, 130, 0.704) 99%
-  );
+  background: rgb(214,30,30);
+background: linear-gradient(90deg, rgba(214,30,30,1) 0%, rgba(253,124,29,1) 29%, rgba(97,66,167,1) 100%);
   font-family: "Cinzel Decorative", cursive;
   border-bottom: 1px solid orangered;
+  text-shadow: 3px 0px 2px rgb(136, 22, 151);
 }
 
 .navbar-title {
   font-size: 2.5em;
-  color: rgb(255, 115, 0);
+  color: rgb(70, 20, 145);
 }
 
 .navbar-item {
