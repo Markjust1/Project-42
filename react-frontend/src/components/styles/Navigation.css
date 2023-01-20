@@ -5,6 +5,7 @@
   display: flex;
   /* position: fixed; */
   height: 9vh;
+  min-height: 70px;
   width: 100%;
   border-bottom: 1px dotted rgba(128, 128, 128, 0.087);
   align-items: center;
@@ -12,6 +13,20 @@
   background-color: rgba(255, 255, 255, 0.181);
   background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  background: rgb(101, 30, 214);
+  background: linear-gradient(
+    90deg,
+    rgb(85, 48, 143) 0%,
+    rgb(89, 51, 113) 50%,
+    rgba(50, 40, 130, 0.704) 99%
+  );
+  font-family: "Cinzel Decorative", cursive;
+  border-bottom: 1px solid orangered;
+}
+
+.navbar-title {
+  font-size: 2.5em;
+  color: rgb(255, 115, 0);
 }
 
 .navbar-item {
@@ -23,12 +38,14 @@
   font-family: "Expletus Sans";
   transform: scale(0.8);
   font-size: 80%;
+  color: rgb(254, 162, 24);
 }
 
 .navbar-elements {
   display: flex;
   flex-direction: row;
   margin-right: 10px;
+  font-size: 1.5em;
 }
 
 .navbar-elements div {
