@@ -23,6 +23,7 @@ background: linear-gradient(90deg, rgba(214,30,30,1) 0%, rgba(253,124,29,1) 29%,
 .navbar-title {
   font-size: 2.5em;
   color: rgb(70, 20, 145);
+  text-shadow: 3px 0px 2px rgb(158, 55, 255);
 }
 
 .navbar-item {

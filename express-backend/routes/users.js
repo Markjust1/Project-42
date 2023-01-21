@@ -24,6 +24,8 @@ router.get("/:id", getUser, (req, res) => {
 
 router.post("/", async (req, res) => {
   console.log(req.body);
+  // console.log(db.collection.find)
+  // db.collection.find({name: req.body.name})
   const user = new User({
     name: req.body.name,
     password: req.body.password,
