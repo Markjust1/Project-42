@@ -26,7 +26,7 @@
   display: flex;
   font-size: 1.3em;
   margin: 3px;
-  color: rgb(253, 180, 116);
+  color: rgb(255, 208, 40);
   flex-grow: 2;
   margin-left: 10px;
   text-shadow: 0px 3px 3px rgb(255, 94, 50);
@@ -47,9 +47,9 @@
   display: flex;
   margin: 3px;
   font-size: 1.3em;
-  color: rgb(255, 79, 16);
+  color: rgb(231, 34, 12);
   font-family: "Cinzel Decorative", cursive;
-  text-shadow: 0px 3px 3px rgba(6, 20, 224, 0.4);
+  text-shadow: 0px 3px 3px rgba(86, 1, 68, 0.759);
 }
 
 .premium-description {
@@ -75,8 +75,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 45px;
-  width: 70px;
+  height: 60px;
+  width: 80px;
   z-index: 2;
   box-shadow: rgb(255, 163, 34) 3px 3px 6px 0px inset,
     rgb(252, 106, 28) -3px -3px 6px 1px inset;
