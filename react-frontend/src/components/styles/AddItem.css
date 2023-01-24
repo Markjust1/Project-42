@@ -1,7 +1,7 @@
 #add-form {
   display: flex;
   flex-direction: column;
-  min-width: 500px;
+  min-width: 900px;
   font-family: "Expletus Sans", cursive;
   font-size: 1.2em;
   background: radial-gradient(
@@ -27,6 +27,8 @@
   color: blueviolet;
   margin: 100px auto;
   padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  transform: scale(0.8);
 }
 
 /* section {

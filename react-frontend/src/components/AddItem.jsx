@@ -67,7 +67,7 @@ const AddItem = () => {
           id="title"
           ref={titleRef}
           autoComplete="off"
-          // required
+          required
         />
         <label htmlFor="price">Price</label>
         <input
@@ -75,7 +75,7 @@ const AddItem = () => {
           id="price"
           ref={priceRef}
           autoComplete="off"
-          // required
+          required
         />
         <fieldset>
           <legend>Select a platform:</legend>
@@ -155,7 +155,9 @@ const AddItem = () => {
           id="description"
           autoComplete="off"
           ref={descriptionRef}
-          // required
+          maxlength="60"
+          placeholder="Maximum 60 characters"
+          required
         />
         {/* <div>
           <label htmlFor="prem">List as Premium</label>
@@ -174,7 +176,7 @@ const AddItem = () => {
           ref={imageRef}
           accept="image/*"
           onChange={(e) => handleFileUpload(e)}
-          // required
+          required
         />
         <button id="submit-btn">Add Item</button>
       </form>
