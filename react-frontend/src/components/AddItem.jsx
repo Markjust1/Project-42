@@ -155,7 +155,7 @@ const AddItem = () => {
           id="description"
           autoComplete="off"
           ref={descriptionRef}
-          maxlength="60"
+          maxLength="60"
           placeholder="Maximum 60 characters"
           required
         />
