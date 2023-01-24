@@ -1,5 +1,4 @@
 const express = require("express");
-const { db } = require("../models/user");
 const router = express.Router();
 const User = require("../models/user");
 
@@ -24,8 +23,11 @@ router.get("/:id", getUser, (req, res) => {
 
 router.post("/", async (req, res) => {
   console.log(req.body);
-  // console.log(db.collection.find)
-  // db.collection.find({name: req.body.name})
+  User.findOne({ name: req.body.name }).then((user) => {
+    if (user != null) {
+      return res.status(409).send('User already in the system');
+    } 
+  });
   const user = new User({
     name: req.body.name,
     password: req.body.password,
@@ -33,9 +35,9 @@ router.post("/", async (req, res) => {
 
   try {
     const newUser = await user.save();
-    res.status(201).json(newUser);
+    return res.status(201).json(newUser);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   }
 });
 
