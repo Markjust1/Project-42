@@ -40,8 +40,7 @@ const Register = () => {
         navigate("/login");
       })
       .catch((err) => {
-        console.log(err);
-        alert("Something went wrong...");
+        alert("Username already exists..");
       });
   };
 

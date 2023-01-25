@@ -22,22 +22,21 @@ router.get("/:id", getUser, (req, res) => {
 // Create user
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  User.findOne({ name: req.body.name }).then((user) => {
-    if (user != null) {
-      return res.status(409).send('User already in the system');
-    } 
-  });
-  const user = new User({
-    name: req.body.name,
-    password: req.body.password,
-  });
-
   try {
+    const userExist = await User.findOne({ name: req.body.name });
+    if (userExist) {
+      return res.status(409).json({ error: "Username already exists" });
+    }
+    const user = new User({
+      name: req.body.name,
+      password: req.body.password,
+    });
     const newUser = await user.save();
-    return res.status(201).json(newUser);
+    if (newUser) {
+      res.status(201).json({ message: "User registered successfully" });
+    }
   } catch (err) {
-    return res.status(400).json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 });
 
