@@ -31,8 +31,7 @@ router.post("/", async (req, res) => {
       return res.status(409).json({ error: "Username already exists" });
     }
     // Encrypting password
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
     const user = new User({
       name: req.body.name,
@@ -46,6 +45,10 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+// User login
+
+
 
 // Update/modify user
 
