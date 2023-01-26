@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const bcrypt = require('bcrypt')
 
 // Get all users
 
@@ -23,13 +24,19 @@ router.get("/:id", getUser, (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    // Check if given username exists
     const userExist = await User.findOne({ name: req.body.name });
+
     if (userExist) {
       return res.status(409).json({ error: "Username already exists" });
     }
+    // Encrypting password
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt)
+
     const user = new User({
       name: req.body.name,
-      password: req.body.password,
+      password: hashedPassword,
     });
     const newUser = await user.save();
     if (newUser) {
