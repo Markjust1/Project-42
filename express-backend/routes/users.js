@@ -59,14 +59,12 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const user = await User.findOne({name: req.body.name});
+  // Checking if user exists
   if (!user) {
     return res.status(400).send("Cannot find user");
   }
-  if (await bcrypt.compare(req.body.password, user.password)) {
-    res.status(200).send('Success!')
-  } else {
-    res.status(403).send("Login failed");
-  }
+  // Checking if password is correct
+  await bcrypt.compare(req.body.password, user.password) ? res.status(200).send('Success!') : res.status(403).send("Login failed");
 });
 
 // Update/modify user
