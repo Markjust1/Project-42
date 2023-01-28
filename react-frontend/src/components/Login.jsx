@@ -14,6 +14,7 @@ const Login = () => {
     axios
       .post(url, loginInfo)
       .then((res) => {
+        console.log(res)
         alert("User has logged in");
         navigate("/");
       })

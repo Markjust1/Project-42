@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+// const cookieSession = require('cookie-session');
+// const app = express();
+
+// app.use(cookieSession({
+
+//   keys: 'pink horse',
+//   saveUninitialized: false,
+//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
+// }))
 
 // Get all users
 
@@ -53,14 +62,10 @@ router.post("/login", async (req, res) => {
   if (!user) {
     return res.status(400).send("Cannot find user");
   }
-  try {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send("Success!");
-    } else {
-      res.send("Login failed");
-    }
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  if (await bcrypt.compare(req.body.password, user.password)) {
+    res.status(200).send('Success!')
+  } else {
+    res.status(403).send("Login failed");
   }
 });
 
