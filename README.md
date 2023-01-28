@@ -1,12 +1,12 @@
-# Welcome to Project-42!
+# Welcome to Project-42! 🎮
 
 ## E-commerce project where users can add and trade in-game currency/items etc.
 
 ### Tech stack: 
 
-Frontend: React.js
-Backend: Express.js
-Database: MongoDB
+👾 Frontend: React.js |
+🎯 Backend: Express.js |
+♥️ Database: MongoDB |
 
 -------------------------------------------------------------------------
 
