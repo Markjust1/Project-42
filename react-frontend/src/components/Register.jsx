@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles/Register.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -69,10 +69,10 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log({
-      name: userRef.current.value,
-      password: passwordRef.current.value,
-    });
+    // console.log({
+    //   name: userRef.current.value,
+    //   password: passwordRef.current.value,
+    // });
     createUser({
       name: userRef.current.value,
       password: passwordRef.current.value,

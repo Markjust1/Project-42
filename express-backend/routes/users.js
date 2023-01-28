@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 
 // Get all users
 
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
       return res.status(409).json({ error: "Username already exists" });
     }
     // Encrypting password
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     const user = new User({
       name: req.body.name,
@@ -48,7 +48,21 @@ router.post("/", async (req, res) => {
 
 // User login
 
-
+router.post("/login", async (req, res) => {
+  const user = await User.findOne({name: req.body.name});
+  if (!user) {
+    return res.status(400).send("Cannot find user");
+  }
+  try {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      res.send("Success!");
+    } else {
+      res.send("Login failed");
+    }
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 // Update/modify user
 
