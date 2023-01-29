@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
 import Games from "./components/Games";
 import Platform from "./components/Platform";
 import Footer from "./components/Footer";
-import Premium_Item_List from "./components/Premium_Item_List";
 import About from "./components/About";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
-import Security from "./components/Security"
+import Security from "./components/Security";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import AddItem from "./components/AddItem";
@@ -17,14 +17,19 @@ import "./components/styles/Terms.css";
 import "./App.css";
 
 function App() {
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const loginHandler = (passedValue) => {
+    console.log("passed value:", passedValue);
+    setIsLoggedIn(passedValue);
+  };
+  console.log('app.js login status',isLoggedIn);
   return (
     <main className="App">
       <Navigation />
       <Routes>
-        <Route path='/add' element={<AddItem/>}/>
-        <Route path='/login' element={<Login />}/>
-        <Route path='/register' element={<Register />}/>
+        <Route path="/add" element={<AddItem />} />
+        <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/"
           element={

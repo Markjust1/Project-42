@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 // const app = express();
 
 // app.use(cookieSession({
-
 //   keys: 'pink horse',
 //   saveUninitialized: false,
 //   maxAge: 24 * 60 * 60 * 1000 // 24 hours

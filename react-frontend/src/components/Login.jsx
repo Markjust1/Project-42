@@ -1,24 +1,28 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
+  const [login, setLogin] = useState(false);
   const userRef = useRef();
   const passwordRef = useRef();
 
   const navigate = useNavigate();
 
   const url = "http://localhost:2500/api/users/login";
-  const loginUser = (loginInfo) => {
+  function loginUser(loginInfo) {
     axios
       .post(url, loginInfo)
       .then((res) => {
-        console.log(res)
-        alert("User has logged in");
+        console.log(res);
+        setLogin(true)
+        // alert("User has logged in");
+        props.onLoginChange(login);
         navigate("/");
       })
       .catch((err) => {
+        console.log(err)
         alert("Wrong username or password entered..");
       });
   };
