@@ -18,11 +18,11 @@ import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const loginHandler = (passedValue) => {
-    console.log("passed value:", passedValue);
-    setIsLoggedIn(passedValue);
+  console.log('app.js login state beginning:', isLoggedIn)
+  function loginHandler() {
+    setIsLoggedIn(!isLoggedIn);
   };
-  console.log('app.js login status',isLoggedIn);
+  // console.log('app.js login status',isLoggedIn);
   return (
     <main className="App">
       <Navigation />
