@@ -92,7 +92,7 @@ const Register = () => {
           </p>
         </div>
       ) : (
-        <div id="register">
+        <div className="register">
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}

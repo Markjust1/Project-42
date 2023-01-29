@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = (props) => {
-
+  const [addStyle, setAddStyle] = useState('');
 // Holders for username and email
   const userRef = useRef();
   const passwordRef = useRef();
@@ -24,7 +24,8 @@ const Login = (props) => {
       })
       .catch((err) => {
         console.log(err)
-        alert("Wrong username or password entered..");
+        setAddStyle(' shake')
+        // alert("Wrong username or password entered..");
       });
   };
 
@@ -40,7 +41,7 @@ const Login = (props) => {
 
   return (
     <>
-      <div id="register">
+      <div className={"register" + addStyle}>
         <h1 className="form-title">LOGIN</h1>
         <form onSubmit={submitHandler}>
           {/* USERNAME FIELD */}
