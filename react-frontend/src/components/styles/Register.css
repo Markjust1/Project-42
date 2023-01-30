@@ -224,3 +224,31 @@ button {
   align-self: center;
   text-shadow: 0px 3px 3px rgba(102, 27, 253, 0.601);
 }
+
+.form-success {
+  animation: bounce 0.5s linear;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 20px,
+        transparent 20px
+      )
+      0% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      0% 100%/23px 23px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 100%/23px 23px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
+      calc(100% - 46px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(90deg, #5aff19 0%, #d1ff2a 100%);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+  40% {transform: translateY(-30px);} 
+  60% {transform: translateY(-15px);} 
+} 

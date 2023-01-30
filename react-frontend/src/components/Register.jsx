@@ -38,13 +38,17 @@ const Register = () => {
       .post(url, newUser)
       .then((res) => {
         console.log(res)
-        navigate("/login");
+        setTimeout(() => {
+          setAddStyle("");
+          navigate("/login");
+        }, 1000);
+        setAddStyle(" form-success");
       })
       .catch((err) => {
         console.log("Username already exists..");
         setTimeout(() => {
           setAddStyle("");
-        }, 700);
+        }, 1000);
         setAddStyle(" shake");
       });
   };
@@ -106,6 +110,8 @@ const Register = () => {
             {errMsg}
           </p>
           <h1 className="form-title">CREATE ACCOUNT</h1>
+          {addStyle == ' shake' && <div style={{color:'red', textAlign:'center',fontSize:'1.3em'}}>USERNAME IS TAKEN</div>}
+          {addStyle == ' form-success' && <div style={{color:'limegreen', textAlign:'center', fontSize:'1.3em'}}>SUCCESS!</div>}
           <form onSubmit={submitHandler}>
             {/* USERNAME FIELD */}
 
@@ -210,7 +216,6 @@ const Register = () => {
               >
               SIGN ME UP!
             </button>
-              {addStyle.length > 0 && <div style={{color:'red', textAlign:'center'}}>USERNAME IS TAKEN</div>}
           </form>
           <p className="line-footer">
             Already a member?
