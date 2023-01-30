@@ -91,7 +91,7 @@ const AddItem = () => {
               type="radio"
               id="xbox"
               name="platform"
-              value="xbox"
+              value="Xbox"
             />
             <label htmlFor="xbox">Xbox</label>
           </div>
@@ -103,7 +103,7 @@ const AddItem = () => {
               type="radio"
               id="playstation"
               name="platform"
-              value="playstation"
+              value="PlayStation"
             />
             <label htmlFor="playstation">PlayStation</label>
           </div>
@@ -114,7 +114,7 @@ const AddItem = () => {
               type="radio"
               id="origin"
               name="platform"
-              value="origin"
+              value="Origin"
             />
             <label htmlFor="origin">Origin</label>
           </div>
@@ -125,7 +125,7 @@ const AddItem = () => {
               type="radio"
               id="battlenet"
               name="platform"
-              value="battlenet"
+              value="Battle.net"
             />
             <label htmlFor="battlenet">Battle.net</label>
           </div>
@@ -137,7 +137,7 @@ const AddItem = () => {
               type="radio"
               id="steam"
               name="platform"
-              value="steam"
+              value="Steam"
             />
             <label htmlFor="steam">Steam</label>
           </div>
@@ -148,7 +148,7 @@ const AddItem = () => {
               type="radio"
               id="epicgames"
               name="platform"
-              value="epicgames"
+              value="Epic Games"
             />
             <label htmlFor="epicgames">Epic Games</label>
           </div>

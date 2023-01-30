@@ -75,8 +75,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 80px;
+  height: 50px;
+  width: 70px;
   z-index: 2;
   box-shadow: rgb(255, 163, 34) 3px 3px 6px 0px inset,
     rgb(252, 106, 28) -3px -3px 6px 1px inset;
@@ -89,4 +89,10 @@
 .premium-container:hover {
   transform: scale(1.01);
   cursor: pointer;
+}
+
+.platform-info {
+  padding-right: 15px;
+  text-shadow: 0px 3px 3px rgb(44, 0, 68);
+  color: rgb(210, 115, 6);
 }
