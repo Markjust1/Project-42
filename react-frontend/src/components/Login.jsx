@@ -24,7 +24,10 @@ const Login = (props) => {
       })
       .catch((err) => {
         console.log(err)
-        setAddStyle(' shake')
+        setTimeout(()=>{setAddStyle('')},200)
+        setAddStyle(' shake');
+        
+        // setAddStyle('');
         // alert("Wrong username or password entered..");
       });
   };

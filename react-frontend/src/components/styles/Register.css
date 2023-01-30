@@ -1,10 +1,10 @@
 .register {
   display: flex;
   flex-direction: column;
-  min-height: 600px;
-  min-width: 550px;
+  min-height: 500px;
+  min-width: 450px;
   font-family: "Expletus Sans", cursive;
-  font-size: 1.2em;
+  font-size: 1em;
   background: radial-gradient(
         circle at 100% 100%,
         #ffffff 0,
@@ -33,18 +33,47 @@
 }
 
 .shake {
-  animation: wiggle 1s linear;
-  /* transform: scale(0.8); */
+  animation: wiggle 0.7s linear;
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 20px,
+        transparent 20px
+      )
+      0% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 0%/23px 23px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      0% 100%/23px 23px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
+      100% 100%/23px 23px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
+      calc(100% - 46px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(90deg, #ff1937 0%, #ff2a7f 100%);
 }
 
 @keyframes wiggle {
-  0% { transform: skewX(-15deg); }
-  5% { transform: skewX(15deg); }
-  10% { transform: skewX(-15deg); }
-  15% { transform: skewX(15deg); }
-  20% { transform: skewX(0deg); }
-  100% { transform: skewX(0deg); }
+  0% {
+    transform: skewX(-15deg);
   }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
 
 form {
   display: flex;
