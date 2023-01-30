@@ -19,11 +19,18 @@ const Login = (props) => {
       .then((res) => {
         console.log(res);
         // Executing function and changing login state in app.js
+        if (res.status == 200) {
+          const userName = userRef.current.value;
+          localStorage.setItem("userName", userName);
+          userRef.current.value = "";
+          
+        }
         props.onLoginChange();
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
+        // Error status border style
         setTimeout(() => {
           setAddStyle("");
         }, 200);
@@ -37,10 +44,6 @@ const Login = (props) => {
       name: userRef.current.value,
       password: passwordRef.current.value,
     });
-    const userName = userRef.current.value;
-    console.log(userName);
-    localStorage.setItem("userName", userName);
-    userRef.current.value = "";
     passwordRef.current.value = "";
   };
 

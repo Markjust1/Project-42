@@ -4,9 +4,17 @@ import star from "../assets/star.png";
 import "./styles/Premium_item_list.css";
 import Premium_item from "./Premium_Item";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const AllItems = () => {
+  const navigate = useNavigate();
+  const local_storage = window.localStorage.getItem("userName");
+  if (local_storage == null) {
+    navigate('/register')
+  }
   const [items, setItems] = useState([]);
+
+
   useEffect(() => {
     setTimeout(() => {
       axios
