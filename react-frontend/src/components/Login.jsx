@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = (props) => {
-  const [addStyle, setAddStyle] = useState('');
-// Holders for username and email
+  const [addStyle, setAddStyle] = useState("");
+  // Holders for username and email
   const userRef = useRef();
   const passwordRef = useRef();
 
   const navigate = useNavigate();
 
-// Axios call to the server
+  // Axios call to the server
   const url = "http://localhost:2500/api/users/login";
   function loginUser(loginInfo) {
     axios
@@ -23,14 +23,13 @@ const Login = (props) => {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err)
-        setTimeout(()=>{setAddStyle('')},200)
-        setAddStyle(' shake');
-        
-        // setAddStyle('');
-        // alert("Wrong username or password entered..");
+        console.log(err);
+        setTimeout(() => {
+          setAddStyle("");
+        }, 200);
+        setAddStyle(" shake");
       });
-  };
+  }
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -38,6 +37,9 @@ const Login = (props) => {
       name: userRef.current.value,
       password: passwordRef.current.value,
     });
+    const userName = userRef.current.value;
+    console.log(userName);
+    localStorage.setItem("userName", userName);
     userRef.current.value = "";
     passwordRef.current.value = "";
   };
