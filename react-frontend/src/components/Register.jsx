@@ -44,7 +44,7 @@ const Register = () => {
         console.log("Username already exists..");
         setTimeout(() => {
           setAddStyle("");
-        }, 200);
+        }, 700);
         setAddStyle(" shake");
       });
   };
@@ -75,10 +75,6 @@ const Register = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // console.log({
-    //   name: userRef.current.value,
-    //   password: passwordRef.current.value,
-    // });
     createUser({
       name: userRef.current.value,
       password: passwordRef.current.value,
@@ -211,9 +207,10 @@ const Register = () => {
             <button
               className="submit-btn"
               disabled={!validName || !validPwd || !validMatch ? true : false}
-            >
+              >
               SIGN ME UP!
             </button>
+              {addStyle.length > 0 && <div style={{color:'red', textAlign:'center'}}>USERNAME IS TAKEN</div>}
           </form>
           <p className="line-footer">
             Already a member?
