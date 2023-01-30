@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router";
 import "./styles/AddItem.css";
 import axios from "axios";
 
@@ -11,6 +12,8 @@ const AddItem = () => {
   const descriptionRef = useRef();
   const [platform, setPlatform] = useState("");
   // const [premium, setPremium] = useState(false);
+
+  const navigate = useNavigate();
 
   const resetValues = () => {
     titleRef.current.value = "";
@@ -37,9 +40,10 @@ const AddItem = () => {
       platform: platform,
       price: priceRef.current.value,
     });
-    alert("Item successfully added");
+    console.log("Item successfully added");
     // Clean up:
     resetValues();
+    navigate('/');
   };
 
   const handleFileUpload = async (e) => {

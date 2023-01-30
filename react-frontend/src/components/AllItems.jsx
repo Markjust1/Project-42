@@ -47,8 +47,8 @@ const AllItems = () => {
               platform={item.platform}
               price={item.price}
             />
-          ))
-        )}
+          )
+        ).sort())}
       </div>
     </div>
   );

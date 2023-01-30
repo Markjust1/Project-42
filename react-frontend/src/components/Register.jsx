@@ -35,7 +35,7 @@ const Register = () => {
     axios
       .post(url, newUser)
       .then((res) => {
-        alert("User successfully created, you can login now!");
+        console.log(res)
         navigate("/login");
       })
       .catch((err) => {
