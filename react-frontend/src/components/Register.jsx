@@ -28,6 +28,8 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const [addStyle, setAddStyle] = useState("");
+
   const navigate = useNavigate();
 
   const url = "http://localhost:2500/api/users/";
@@ -39,7 +41,11 @@ const Register = () => {
         navigate("/login");
       })
       .catch((err) => {
-        alert("Username already exists..");
+        console.log("Username already exists..");
+        setTimeout(() => {
+          setAddStyle("");
+        }, 200);
+        setAddStyle(" shake");
       });
   };
 
@@ -92,7 +98,7 @@ const Register = () => {
           </p>
         </div>
       ) : (
-        <div className="register">
+        <div className={'register' + addStyle}>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
