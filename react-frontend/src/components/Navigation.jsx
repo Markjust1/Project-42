@@ -1,14 +1,11 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./styles/Navigation.css";
 
 const Navigation = () => {
-
-    const local_storage = window.localStorage.getItem("userName");
-    console.log(local_storage)
-    const navigate = useNavigate();
-
+  const local_storage = window.localStorage.getItem("userName");
+  console.log(local_storage);
+  const navigate = useNavigate();
 
   const clearLocalStorage = () => {
     localStorage.clear();
@@ -21,12 +18,12 @@ const Navigation = () => {
       <div className="navbar-elements">
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
-          {local_storage == null ? <span></span> : <span>HOME</span>}
+            {local_storage == null ? <span></span> : <span>HOME</span>}
           </div>
         </Link>
         <Link to="/register" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
-          {local_storage == null ? <span>REGISTER</span> : <span></span>}
+            {local_storage == null ? <span>REGISTER</span> : <span></span>}
           </div>
         </Link>
         <Link to="/add" style={{ textDecoration: "none" }}>
@@ -34,20 +31,30 @@ const Navigation = () => {
             {local_storage == null ? <span></span> : <span>ADD ITEM</span>}
           </div>
         </Link>
-        <div className='navbar-item'>|</div>
+        <div className="navbar-item">|</div>
         <div className="navbar-item">
-            {local_storage == null ? <span></span> : <span>{`HELLO ${local_storage.toUpperCase()}`}</span>}
-          </div>
+          {local_storage == null ? (
+            <span></span>
+          ) : (
+            <span>{`HELLO ${local_storage.toUpperCase()}`}</span>
+          )}
+        </div>
         <Link to="/login" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
-            {local_storage == null ? <span>LOGIN</span> : <span onClick={clearLocalStorage}>LOGOUT</span>}
+            {local_storage == null ? (
+              <span>LOGIN</span>
+            ) : (
+              <span onClick={clearLocalStorage}>LOGOUT</span>
+            )}
           </div>
         </Link>
-        {/* <div className="navbar-cart">
-          <Link to="/cart">
-            <img src={cart} alt="Cart"></img>
+        {local_storage !== null && (
+          <Link to="/profile">
+            <div className="navbar-item">
+              <span>MY ACCOUNT</span>
+            </div>
           </Link>
-        </div> */}
+        )}
       </div>
     </nav>
   );

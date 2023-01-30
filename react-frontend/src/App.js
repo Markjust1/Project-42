@@ -13,6 +13,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import AddItem from "./components/AddItem";
 import AllItems from "./components/AllItems";
+import MyAccount from "./components/MyAccount";
 import "./components/styles/Terms.css";
 import "./App.css";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<MyAccount />} />
         <Route
           path="/"
           element={

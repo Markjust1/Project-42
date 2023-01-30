@@ -1,0 +1,29 @@
+.cabinet-container {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  height: 80vh;
+  width: 80vw;
+  border: 1px solid black;
+  margin-top: 50px;
+}
+
+.profile-separator {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  width: 30vw;
+  height: 30vh;
+}
+.options-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
