@@ -86,6 +86,9 @@ const Register = () => {
     userRef.current.value = "";
     passwordRef.current.value = "";
     matchPasswordRef.current.value = "";
+    setValidName(false);
+    setValidPwd(false);
+    setValidMatch(false);
   };
 
   return (
