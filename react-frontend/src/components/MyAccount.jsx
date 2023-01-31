@@ -12,7 +12,7 @@ const MyAccount = (props) => {
         <li>My Orders</li>
       </ul>
       </div>
-      <div>My items</div>
+      <div className='my-items'>My items</div>
     </div>
   )
 };

@@ -26,6 +26,21 @@
   text-shadow: 3px 0px 2px rgb(136, 22, 151);
 }
 
+.navbar-container a {
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.profile-container a {
+  display: inline;
+  text-align: center;
+}
+
+.profile-container span {
+  white-space: nowrap;
+}
+
+
 .navbar-title {
   font-size: 2.5em;
   color: rgb(70, 20, 145);

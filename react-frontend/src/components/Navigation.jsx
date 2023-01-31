@@ -32,13 +32,6 @@ const Navigation = () => {
           </div>
         </Link>
         <div className="navbar-item">|</div>
-        <div className="navbar-item">
-          {local_storage == null ? (
-            <span></span>
-          ) : (
-            <span>{`HELLO ${local_storage.toUpperCase()}`}</span>
-          )}
-        </div>
         <Link to="/login" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
             {local_storage == null ? (
@@ -48,13 +41,23 @@ const Navigation = () => {
             )}
           </div>
         </Link>
-        {local_storage !== null && (
-          <Link to="/profile">
-            <div className="navbar-item">
-              <span>MY ACCOUNT</span>
-            </div>
-          </Link>
-        )}
+
+        <div className="profile-container">
+          <div className="navbar-item">
+            {local_storage == null ? (
+              <span></span>
+            ) : (
+              <span>{`HELLO ${local_storage.toUpperCase()}`}</span>
+            )}
+          </div>
+          {local_storage !== null && (
+            <Link to="/profile">
+              <div className="navbar-item">
+                <span>MY ACCOUNT</span>
+              </div>
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );
