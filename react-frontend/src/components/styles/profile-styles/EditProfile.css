@@ -1,0 +1,13 @@
+.profile-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
