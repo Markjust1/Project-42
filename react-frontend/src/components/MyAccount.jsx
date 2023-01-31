@@ -6,7 +6,7 @@ const MyAccount = (props) => {
       <div className='profile-separator'>
       <div className='profile-picture'></div>
       <ul className='options-list'>
-        <li>Profile</li>
+        <li>Edit Profile</li>
         <li>My Wallet</li>
         <li>My Items</li>
         <li>My Orders</li>
