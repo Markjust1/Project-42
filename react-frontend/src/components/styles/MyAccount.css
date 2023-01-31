@@ -60,13 +60,16 @@
   list-style-type: none;
   margin-top: 130px;
   font-size: 1.5em;
+  text-decoration: none;
 }
 
-.options-list li {
+.options-list div {
   padding-top: 5px;
   padding-bottom: 5px;
+  color: blueviolet;
+  text-decoration: none;
 }
-.options-list li:hover {
+.options-list div:hover {
   transform: scale(1.1);
   cursor: pointer;
 }

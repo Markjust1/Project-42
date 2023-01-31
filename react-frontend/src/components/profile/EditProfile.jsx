@@ -1,6 +1,6 @@
 const EditProfile = () => {
   return (
-    <div></div>
+    <div>Edit Profile</div>
   )
 };
 

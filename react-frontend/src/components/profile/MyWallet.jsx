@@ -1,6 +1,6 @@
 const MyWallet = () => {
   return (
-    <div></div>
+    <div>My Wallet</div>
   )
 };
 

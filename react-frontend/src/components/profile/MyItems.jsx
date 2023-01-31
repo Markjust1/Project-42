@@ -1,6 +1,6 @@
 const MyItems = () => {
   return (
-    <div></div>
+    <div>My Items</div>
   )
 };
 
