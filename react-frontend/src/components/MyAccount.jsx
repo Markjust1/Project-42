@@ -13,13 +13,11 @@ const MyAccount = (props) => {
   const [myOrders, setMyOrders] = useState(false);
 
   const stateHandler = (exception) => {
-    console.log('exception state:',exception)
     setProfile(false);
     setWallet(false);
     setMyItems(false);
     setMyOrders(false);
     const exemptionCall = new Function(eval(`set${exception}(true)`))
-    // console.log(typeof exemptionCall)
     exemptionCall();
   }
 

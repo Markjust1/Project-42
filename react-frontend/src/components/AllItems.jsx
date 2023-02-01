@@ -2,7 +2,7 @@ import Loading from "./Loading";
 import { useState, useEffect } from "react";
 import star from "../assets/star.png";
 import "./styles/Premium_item_list.css";
-import Premium_item from "./Premium_Item";
+import Premium_Item from "./Premium_Item";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -37,12 +37,12 @@ const AllItems = () => {
       <div className="list-container">
         {items.length < 1 ? (
           <>
-          {/* <Loading/> */}
-          <div>No Items added</div>
+          <Loading/>
+          {/* <div>No Items added</div> */}
           </>
         ) : (
           items.map((item) => (
-            <Premium_item
+            <Premium_Item
               key={item._id}
               title={item.title}
               image={item.image}
