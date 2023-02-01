@@ -1,7 +1,6 @@
 import "./styles/Premium_item.css";
 
 const Premium_Item = (props) => {
-  console.log(props)
   return (
     <>
       <div className="premium-container">
