@@ -36,7 +36,10 @@ const AllItems = () => {
       </div>
       <div className="list-container">
         {items.length < 1 ? (
-          <Loading/>
+          <>
+          {/* <Loading/> */}
+          <div>No Items added</div>
+          </>
         ) : (
           items.map((item) => (
             <Premium_item

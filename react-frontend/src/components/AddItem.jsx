@@ -11,6 +11,8 @@ const AddItem = () => {
   const imageRef = useRef();
   const descriptionRef = useRef();
   const [platform, setPlatform] = useState("");
+  const owner = localStorage.getItem('userName');
+  console.log(owner)
   // const [premium, setPremium] = useState(false);
 
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ const AddItem = () => {
       description: descriptionRef.current.value,
       platform: platform,
       price: priceRef.current.value,
+      owner: owner,
     });
     console.log("Item successfully added");
     // Clean up:
@@ -87,7 +90,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "xbox"}
+              // checked={platform === "xbox"}
               type="radio"
               id="xbox"
               name="platform"
@@ -99,7 +102,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "playstation"}
+              // checked={platform === "playstation"}
               type="radio"
               id="playstation"
               name="platform"
@@ -110,7 +113,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "origin"}
+              // checked={platform === "origin"}
               type="radio"
               id="origin"
               name="platform"
@@ -121,7 +124,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "battlenet"}
+              // checked={platform === "battlenet"}
               type="radio"
               id="battlenet"
               name="platform"
@@ -133,7 +136,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "steam"}
+              // checked={platform === "steam"}
               type="radio"
               id="steam"
               name="platform"
@@ -144,7 +147,7 @@ const AddItem = () => {
           <div>
             <input
               onChange={handleChange}
-              checked={platform === "epicgames"}
+              // checked={platform === "epicgames"}
               type="radio"
               id="epicgames"
               name="platform"
