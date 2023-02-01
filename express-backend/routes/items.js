@@ -28,6 +28,7 @@ router.post("/", async (req, res) => {
     description: req.body.description,
     platform: req.body.platform,
     price: req.body.price,
+    owner: req.body.owner,
   });
   try {
     const newItem = await item.save();

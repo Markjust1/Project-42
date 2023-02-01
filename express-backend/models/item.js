@@ -21,6 +21,10 @@ const itemSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  owner: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Item", itemSchema);
