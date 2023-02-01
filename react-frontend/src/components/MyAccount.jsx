@@ -4,7 +4,6 @@ import MyWallet from "./profile/MyWallet";
 import MyItems from "./profile/MyItems";
 import MyOrders from "./profile/MyOrders";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const MyAccount = (props) => {
   const [profile, setProfile] = useState(true);
@@ -20,12 +19,6 @@ const MyAccount = (props) => {
     const exemptionCall = new Function(eval(`set${exception}(true)`))
     exemptionCall();
   }
-
-  //   setProfile(false);
-  //   setWallet(false);
-  //   setMyItems(false);
-  //   setMyOrders(false);
-  // };
 
   return (
     <div className="cabinet-container">

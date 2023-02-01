@@ -21,7 +21,15 @@ const MyItems = () => {
       axios
         .get(`/api/items/`)
         .then((response) => {
-          setItems(response.data);
+          // console.log(response.data)
+          const dataContainer = [];
+          for (let item of response.data) {
+            if (item.owner == local_storage) {
+              dataContainer.push(item);
+            }
+          }
+          setItems(dataContainer);
+          console.log(items)
         })
         .catch((err) => {
           console.log(err);
