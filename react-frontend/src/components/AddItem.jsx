@@ -74,6 +74,8 @@ const AddItem = () => {
           id="title"
           ref={titleRef}
           autoComplete="off"
+          maxLength="15"
+          placeholder="Maximum 15 characters"
           required
         />
         <label htmlFor="price">Price</label>
@@ -82,6 +84,8 @@ const AddItem = () => {
           id="price"
           ref={priceRef}
           autoComplete="off"
+          maxLength="3"
+          placeholder="Maximum 3 characters"
           required
         />
         <fieldset>
