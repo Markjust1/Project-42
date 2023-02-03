@@ -6,9 +6,9 @@ import MyOrders from "./profile/MyOrders";
 import { useState } from "react";
 
 const MyAccount = (props) => {
-  const [profile, setProfile] = useState(true);
+  const [profile, setProfile] = useState(false);
   const [wallet, setWallet] = useState(false);
-  const [myItems, setMyItems] = useState(false);
+  const [myItems, setMyItems] = useState(true);
   const [myOrders, setMyOrders] = useState(false);
 
   const stateHandler = (exception) => {

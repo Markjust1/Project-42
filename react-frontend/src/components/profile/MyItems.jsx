@@ -1,7 +1,6 @@
 import Loading from "../Loading";
 import { useState, useEffect } from "react";
-import star from "../../assets/star.png";
-import best from "../../assets/best.png";
+// import star from "../../assets/star.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "../styles/Premium_item_list.css";
@@ -15,7 +14,7 @@ const MyItems = () => {
   if (local_storage == null) {
     navigate("/login");
   }
-
+  // Render my items
   useEffect(() => {
     setTimeout(() => {
       axios
@@ -37,13 +36,17 @@ const MyItems = () => {
     }, 500);
   }, []);
 
+
+
   return (
     <div className="premium-list-container">
       <div className="title-logo">
-        <img src={star} alt=""></img>
-        <div className="premium-list-title">All Items</div>
+        {/* <img src={star} alt=""></img> */}
+        <div className="premium-list-title">My Items</div>
       </div>
       <div className="list-container">
+
+
         {items.length < 1 ? (
           <>
             <Loading/>
@@ -61,8 +64,9 @@ const MyItems = () => {
                 price={item.price}
               />
             ))
-            .sort()
-        )}
+        )
+        
+        }
       </div>
     </div>
   );

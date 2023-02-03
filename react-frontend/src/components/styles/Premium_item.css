@@ -1,12 +1,12 @@
 .premium-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 25vw;
-  min-width: 250px;
-  min-height: 400px;
+  /* justify-content: space-evenly; */
+  /* width: 25vw; */
+  /* min-width: 250px; */
+  /* min-height: 400px; */
   max-width: 300px;
-  height: 40vh;
+  /* height: 40vh; */
   border: 1px solid rgba(255, 165, 31, 0.849);
   border-radius: 6px;
   margin: 10px;
@@ -20,33 +20,36 @@
   font-family: "Cinzel Decorative", cursive;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   z-index: 1;
+  /* box-sizing: border-box; */
 }
 
 .premium-title {
-  display: flex;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  /* display: flex; */
   font-size: 1.3em;
-  margin: 3px;
+  /* margin: 3px; */
   color: rgb(255, 208, 40);
-  flex-grow: 2;
-  margin-left: 10px;
+  /* flex-grow: 2; */
+  text-align: center;
   text-shadow: 0px 3px 3px rgb(255, 94, 50);
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .premium-image {
   display: flex;
-  flex-grow: 4;
-  width: 99%;
-  height: 100%;
+  /* flex-grow: 4; */
+  /* width: 99%; */
+  /* height: 100%; */
   min-height: 230px;
   border: 1px solid rgba(0, 0, 0, 0.199);
   border-radius: 6px;
 }
 
 .premium-price {
-  display: flex;
+  /* display: flex; */
   margin: 3px;
-  font-size: 1.3em;
+  font-size: 1.4em;
   color: rgb(231, 34, 12);
   font-family: "Cinzel Decorative", cursive;
   text-shadow: 0px 3px 3px rgba(86, 1, 68, 0.759);
@@ -55,12 +58,14 @@
 .premium-description {
   display: flex;
   text-align: center;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  /* flex-grow: 1; */
   font-size: 0.9em;
-  margin-top: 1.5vh;
-  margin-left: 1vw;
-  margin-right: 1vw;
-  min-height: 70px;
+  /* margin-top: 1.5vh; */
+  /* margin-left: 1vw; */
+  /* margin-right: 1vw; */
+  min-height: 90px;
   font-family: "Cinzel Decorative", cursive;
   text-shadow: 0px 3px 3px rgba(255, 162, 31, 0.4);
   color: rgb(252, 243, 189);
@@ -80,10 +85,12 @@
   z-index: 2;
   box-shadow: rgb(255, 163, 34) 3px 3px 6px 0px inset,
     rgb(252, 106, 28) -3px -3px 6px 1px inset;
-  border-radius: 45%;
+  /* border-radius: 45%; */
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 6px;
   background-color: rgb(236, 225, 255);
   align-self: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .premium-container:hover {
@@ -96,3 +103,54 @@
   text-shadow: 0px 3px 3px rgb(44, 0, 68);
   color: rgb(210, 115, 6);
 }
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0;
+  padding: 0; */
+  /* position: absolute; */
+  left: 220px;
+  bottom: 50px;
+  font-family: "Expletus Sans";
+  text-align: center;
+  width: 70px;
+  height:30px;
+  position: relative;
+  background-color: blanchedalmond;
+  color: red;
+  border: 2px solid rgb(250, 58, 58);
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0;
+  padding: 0; */
+  /* position: absolute; */
+  left: 140px;
+  bottom: 16px;
+  font-family: "Expletus Sans";
+  text-align: center;
+  width: 70px;
+  height:30px;
+  background-color: blanchedalmond;
+  position: relative;
+  color: rgb(255, 167, 35);
+  border: 2px solid rgb(255, 204, 0);
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.close-button:hover {
+  transform: scale(1.05);
+}
+
+.edit-button:hover {
+  transform: scale(1.05);
+}
+

@@ -4,6 +4,8 @@ const Premium_Item = (props) => {
   return (
     <>
       <div className="premium-container">
+        <div className="edit-button">EDIT</div>
+        <div className='close-button'>DELETE</div>
         <div className="premium-title">{props.title}</div>
         <img className="premium-image" src={props.image} alt="game image" />
         <div className="premium-description">{props.description}</div>
