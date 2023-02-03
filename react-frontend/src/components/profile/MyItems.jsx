@@ -1,10 +1,10 @@
-import Loading from "../Loading";
 import { useState, useEffect } from "react";
 // import star from "../../assets/star.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
+import Loading from "../Loading";
 
 const MyItems = () => {
   const navigate = useNavigate();
@@ -28,13 +28,26 @@ const MyItems = () => {
             }
           }
           setItems(dataContainer);
-          console.log(items)
+          // console.log(items)
         })
         .catch((err) => {
           console.log(err);
         });
     }, 500);
   }, []);
+
+  // Handle delete
+  // const handleDelete = async (id) => {
+  //   axios
+  //     .delete(`/api/items/${id}`)
+  //     .then((response) => {
+  //       // setItems(response.data);
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
 
 
@@ -57,11 +70,13 @@ const MyItems = () => {
             .map((item) => (
               <Premium_Item
                 key={item._id}
+                // id={item._id}
                 title={item.title}
                 image={item.image}
                 description={item.description}
                 platform={item.platform}
                 price={item.price}
+                // onDelete={handleDelete}
               />
             ))
         )

@@ -2,7 +2,6 @@
   display: flex;
   align-self: center;
   justify-content: space-evenly;
-  /* height: 80vh; */
   width: 80vw;
   min-width: 900px;
   border: 0.5px solid rgba(54, 54, 54, 0.132);
@@ -43,7 +42,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid grey; */
   width: 250px;
   height: 250px;
   margin-top: 40px;
@@ -73,41 +71,12 @@
   transform: scale(1.1);
   cursor: pointer;
 }
-/* 
-.my-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-grow: 2;
-} */
 
 .side-panel {
-  /* display: flex; */
-  /* align-items: center; */
   width: 60vw;
-  min-width: 500px;;
-  /* justify-content: center; */
+  min-width: 500px;
   flex-wrap: wrap;
   flex-grow: 2;
-  /* background: radial-gradient(
-        circle at 100% 100%,
-        #ffffff 0,
-        #ffffff 20px,
-        transparent 20px
-      )
-      0% 0%/23px 23px no-repeat,
-    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 20px, transparent 20px)
-      100% 0%/23px 23px no-repeat,
-    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 20px, transparent 20px)
-      0% 100%/23px 23px no-repeat,
-    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 20px, transparent 20px)
-      100% 100%/23px 23px no-repeat,
-    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 6px)
-      calc(100% - 46px) no-repeat,
-    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
-      calc(100% - 6px) no-repeat,
-    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%); */
   border-radius: 23px;
   margin-left: 70px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;

@@ -44,6 +44,7 @@ const AllItems = () => {
           items.map((item) => (
             <Premium_Item
               key={item._id}
+              // id={item._id}
               title={item.title}
               image={item.image}
               description={item.description}
