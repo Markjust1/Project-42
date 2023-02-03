@@ -86,6 +86,14 @@
   color: rgb(210, 115, 6);
 }
 
+.smaller {
+  transform: scale(0.8);
+}
+
+.smaller:hover {
+  transform: scale(0.81);
+}
+
 .close-button {
   display: flex;
   align-items: center;
