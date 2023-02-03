@@ -131,9 +131,3 @@ button {
   align-self: center;
 }
 
-.bottom-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
