@@ -51,7 +51,7 @@ const AllItems = () => {
               price={item.price}
             />
           )
-        ).sort())}
+        ))}
       </div>
     </div>
   );

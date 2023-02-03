@@ -19,6 +19,7 @@ import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [editableItems, setEditableItems] = useState(false);
 
   function loginHandler() {
     setIsLoggedIn(!isLoggedIn);
@@ -37,10 +38,10 @@ function App() {
           element={
             <>
               {/* <Popular /> */}
-              <div className="top-content">
+              {/* <div className="top-content"> */}
                 {/* <Games /> */}
                 {/* <Platform /> */}
-              </div>
+              {/* </div> */}
               {/* <Premium_Item_List /> */}
               <AllItems />
             </>
