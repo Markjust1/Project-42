@@ -1,19 +1,22 @@
 import "./styles/Premium_item.css";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
 import { useEffect } from "react";
+import { useState } from "react";
 
 const Premium_Item = (props) => {
   const location = useLocation();
+ 
   // console.log('current path:',location.pathname);
-
   const [myItems, setMyItems] = useState("");
   useEffect(() => {
     if (location.pathname == "/profile") {
       setMyItems(" smaller");
     }
   }, []);
-   console.log(props.onDelete)
+
+    const deleteItem = () => {
+      props.onDelete(props.itemId);
+    }
 
   return (
     <>
@@ -25,7 +28,7 @@ const Premium_Item = (props) => {
           <div className="edit-button">EDIT</div>
         )}
         {location.pathname == "/profile" && (
-          <div className="close-button" onClick={props.onDelete(props.id)}>DELETE</div>
+          <div className="close-button" onClick={()=>{deleteItem()}}>DELETE</div>
         )}
 
         <div className="premium-title">{props.title}</div>

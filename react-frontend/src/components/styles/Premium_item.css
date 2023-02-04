@@ -88,10 +88,7 @@
 
 .smaller {
   transform: scale(0.8);
-<<<<<<< HEAD
   margin: -15px;
-=======
->>>>>>> parent of ce6d59b (fix bottom info display in items)
 }
 
 .smaller:hover {
@@ -135,6 +132,16 @@
   z-index: 4;
   text-shadow: 0px 2px 2px rgb(232, 120, 89);
 }
+
+/* .add {
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  border-radius: 3px;
+  border: 1px rgb(118, 182, 23) solid;
+  text-decoration:none;
+  font-family: "Expletus Sans";
+} */
 
 .edit-button {
   display: flex;

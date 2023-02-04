@@ -4,7 +4,6 @@ import "./styles/Navigation.css";
 
 const Navigation = () => {
   const local_storage = window.localStorage.getItem("userName");
-  console.log(local_storage);
   const navigate = useNavigate();
 
   const clearLocalStorage = () => {
@@ -33,13 +32,6 @@ const Navigation = () => {
         </Link>
 
         <div className="profile-container">
-          {/* <div className="navbar-item">
-            {local_storage == null ? (
-              <span></span>
-              ) : (
-                <span>{`HELLO ${local_storage.toUpperCase()}`}</span>
-                )}
-              </div> */}
           {local_storage !== null && (
             <Link to="/profile">
               <div className="navbar-item">

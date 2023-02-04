@@ -25,10 +25,10 @@ const MyAccount = (props) => {
       <div className="profile-separator">
         <div className="profile-picture"></div>
         <div className="options-list">
-          <div onClick={() => stateHandler('Profile')}>Edit Profile</div>
-          <div onClick={() => stateHandler('Wallet')}>My Wallet</div>
           <div onClick={() => stateHandler('MyItems')}>My Items</div>
+          <div onClick={() => stateHandler('Wallet')}>My Wallet</div>
           <div onClick={() => stateHandler('MyOrders')}>My Orders</div>
+          <div onClick={() => stateHandler('Profile')}>Edit Profile</div>
         </div>
       </div>
       <div className="side-panel">
