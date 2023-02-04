@@ -7,6 +7,8 @@ import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
 
+import EditComponent from "./EditComponent";
+
 const MyItems = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -32,6 +34,7 @@ const MyItems = () => {
             }
           }
           setItems(dataContainer);
+          
           // console.log(items)
         })
         .catch((err) => {
@@ -89,6 +92,7 @@ const MyItems = () => {
               onDelete={handleDelete}
             />
           ))}
+      <EditComponent/>
       </div>
     </div>
   );
