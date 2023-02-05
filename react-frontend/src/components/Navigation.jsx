@@ -27,7 +27,7 @@ const Navigation = () => {
         </Link>
         <Link to="/add" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
-            {local_storage == null ? <span></span> : <span>ADD ITEM</span>}
+            {local_storage == null ? <span></span> : <span>LIST ITEM</span>}
           </div>
         </Link>
 

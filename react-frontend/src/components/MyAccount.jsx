@@ -6,6 +6,8 @@ import MyOrders from "./profile/MyOrders";
 import { useState } from "react";
 
 const MyAccount = (props) => {
+  const user = localStorage.getItem('userName');
+
   const [profile, setProfile] = useState(false);
   const [wallet, setWallet] = useState(false);
   const [myItems, setMyItems] = useState(true);
@@ -23,6 +25,7 @@ const MyAccount = (props) => {
   return (
     <div className="cabinet-container">
       <div className="profile-separator">
+        <div>{user}</div>
         <div className="profile-picture"></div>
         <div className="options-list">
           <div onClick={() => stateHandler('MyItems')}>My Items</div>
