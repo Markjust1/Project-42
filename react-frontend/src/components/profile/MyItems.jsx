@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import EditComponent from "./EditComponent";
 
 const MyItems = () => {
+  const [enableEdit, setEnableEdit] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
@@ -61,6 +62,12 @@ const MyItems = () => {
       });
   };
 
+  // Handle edit
+  const handleEdit = (id) => {
+    setEnableEdit(true);
+    
+  };
+
   return (
     <div className="premium-list-container">
       <div className="title-logo">
@@ -90,6 +97,7 @@ const MyItems = () => {
               platform={item.platform}
               price={item.price}
               onDelete={handleDelete}
+              onEdit={handleEdit}
             />
           ))}
       <EditComponent/>

@@ -18,6 +18,10 @@ const Premium_Item = (props) => {
       props.onDelete(props.itemId);
     }
 
+    const editItem = () => {
+      props.onEdit(props.itemId)
+    }
+
   return (
     <>
       <div className={`premium-container${myItems}`} >
@@ -25,7 +29,7 @@ const Premium_Item = (props) => {
           <div className="cart-button">ADD TO CART</div>
         )}
         {location.pathname == "/profile" && (
-          <div className="edit-button">EDIT</div>
+          <div className="edit-button" onClick={()=>{editItem()}}>EDIT</div>
         )}
         {location.pathname == "/profile" && (
           <div className="close-button" onClick={()=>{deleteItem()}}>DELETE</div>
