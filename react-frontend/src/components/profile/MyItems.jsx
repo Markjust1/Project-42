@@ -6,11 +6,10 @@ import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
+import EditComponent from './EditComponent'
 
-import EditComponent from "./EditComponent";
 
 const MyItems = () => {
-  const [enableEdit, setEnableEdit] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
@@ -35,7 +34,7 @@ const MyItems = () => {
             }
           }
           setItems(dataContainer);
-          
+
           // console.log(items)
         })
         .catch((err) => {
@@ -64,8 +63,7 @@ const MyItems = () => {
 
   // Handle edit
   const handleEdit = (id) => {
-    setEnableEdit(true);
-    
+    console.log('Sending request to change item description...');
   };
 
   return (
@@ -88,6 +86,7 @@ const MyItems = () => {
         )}
         {items.length > 0 &&
           items.map((item) => (
+            
             <Premium_Item
               key={item._id}
               itemId={item._id}
@@ -100,7 +99,7 @@ const MyItems = () => {
               onEdit={handleEdit}
             />
           ))}
-      <EditComponent/>
+        <EditComponent />
       </div>
     </div>
   );

@@ -1,11 +1,14 @@
+import { useState } from "react";
 import "../styles/profile-styles/EditComponent.css";
 
 const EditComponent = () => {
+  const [edit, setEdit] = useState(false);
+
   return (
     <>
       <div className='edit-container smaller'>
-        <div className="edit-button">BACK</div>
-        <div className="close-button">OK</div>
+        {/* <div className="edit-button">BACK</div>
+        <div className="close-button">OK</div> */}
 
         <input type="text" placeholder="Title" className="edit-text"></input>
         <label className="edit-text">Change item picture</label>

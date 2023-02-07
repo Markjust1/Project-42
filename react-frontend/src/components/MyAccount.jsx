@@ -6,7 +6,7 @@ import MyOrders from "./profile/MyOrders";
 import { useState } from "react";
 
 const MyAccount = (props) => {
-  const user = localStorage.getItem('userName');
+  const user = localStorage.getItem("userName");
 
   const [profile, setProfile] = useState(false);
   const [wallet, setWallet] = useState(false);
@@ -18,9 +18,9 @@ const MyAccount = (props) => {
     setWallet(false);
     setMyItems(false);
     setMyOrders(false);
-    const exemptionCall = new Function(eval(`set${exception}(true)`))
+    const exemptionCall = new Function(eval(`set${exception}(true)`));
     exemptionCall();
-  }
+  };
 
   return (
     <div className="cabinet-container">
@@ -28,10 +28,10 @@ const MyAccount = (props) => {
         <div>{user}</div>
         <div className="profile-picture"></div>
         <div className="options-list">
-          <div onClick={() => stateHandler('MyItems')}>My Items</div>
-          <div onClick={() => stateHandler('Wallet')}>My Wallet</div>
-          <div onClick={() => stateHandler('MyOrders')}>My Orders</div>
-          <div onClick={() => stateHandler('Profile')}>Edit Profile</div>
+          <div onClick={() => stateHandler("MyItems")}>My Items</div>
+          <div onClick={() => stateHandler("Wallet")}>My Wallet</div>
+          <div onClick={() => stateHandler("MyOrders")}>My Orders</div>
+          <div onClick={() => stateHandler("Profile")}>Edit Profile</div>
         </div>
       </div>
       <div className="side-panel">
