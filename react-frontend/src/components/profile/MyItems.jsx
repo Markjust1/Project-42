@@ -63,7 +63,7 @@ const MyItems = () => {
 
   // Handle edit
   const handleEdit = (id) => {
-    console.log('Sending request to change item description...');
+    
   };
 
   return (
