@@ -19,7 +19,20 @@ const EditComponent = (props) => {
         <label className="edit-text">Change item picture</label>
         <input type="file" className="edit-text"></input>
         <input className="edit-text"type="text" placeholder="Price"></input>
-        <input className="edit-text"type="text" placeholder="Platform"></input>
+        {/* <input className="edit-text"type="text" placeholder="Platform"></input>
+         */}
+         <select
+      className="platform-select"
+      required
+    >
+       <option value="">Select a platform:</option>
+      <option value="Xbox">Xbox</option>
+      <option value="Playstation">Playstation</option>
+      <option value="Origin">Origin</option>
+      <option value="Battle.net">Battle.net</option>
+      <option value="Steam">Steam</option>
+      <option value="Epic Games">Epic Games</option>
+      </select>
         <textarea className="edit-description" placeholder="Description"></textarea>
       </div>
 ) : (
