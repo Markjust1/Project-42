@@ -99,7 +99,7 @@ const MyItems = () => {
               onEdit={handleEdit}
             />
           ))}
-        <EditComponent />
+        {/* <EditComponent /> */}
       </div>
     </div>
   );

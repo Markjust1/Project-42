@@ -4,7 +4,23 @@ import { useEffect, useState } from "react";
 import EditComponent from "./profile/EditComponent";
 
 const Premium_Item = (props) => {
-  console.log('props passed to premium item',props.old)
+ // function to remove extra keys and assign its values to parent element
+  const convert = (obj) => {
+    let temp = obj.old;
+    if (Object.keys(temp)[0] === "old") {
+      return convert(temp);
+    } else {
+      return temp;
+    }
+  };
+
+  let result = {};
+  if (Object.keys(props)[0] === "old") {
+    result = convert(props);
+  }
+
+
+  // console.log('props passed to premium item',props.old)
   const location = useLocation();
 
   // console.log('current path:',location.pathname);
@@ -26,11 +42,10 @@ const Premium_Item = (props) => {
 
   const editItem = (boolean) => {};
 
-
   return (
     <>
-    {!edit ? (
-      <div className={`premium-container${myItems}`}>
+      {!edit ? (
+        <div className={`premium-container${myItems}`}>
           {location.pathname == "/" && (
             <div className="cart-button">ADD TO CART</div>
           )}
@@ -38,7 +53,7 @@ const Premium_Item = (props) => {
             <div
               className="edit-button"
               onClick={() => {
-                setEdit(current => !current);
+                setEdit((current) => !current);
               }}
             >
               EDIT
@@ -55,21 +70,30 @@ const Premium_Item = (props) => {
             </div>
           )}
 
-          <div className="premium-title">{props.title || props.old.title}</div>
-          <img className="premium-image" src={props.image || props.old.image} alt="game image" />
-          <div className="premium-description">{props.description || props.old.description}</div>
+          <div className="premium-title">{props.title || result.title}</div>
+          <img
+            className="premium-image"
+            src={props.image || result.image}
+            alt="game image"
+          />
+          <div className="premium-description">
+            {props.description || result.description}
+          </div>
           <div className="bottom-info">
             <div className="price-circle">
-              <div className="premium-price">${props.price || props.old.price}</div>
+              <div className="premium-price">
+                ${props.price || result.price}
+              </div>
             </div>
-            <div className="platform-info">{props.platform || props.old.platform}</div>
+            <div className="platform-info">
+              {props.platform || result.platform}
+            </div>
           </div>
         </div>
-    ) : (
-      <EditComponent info={props}/>
-    )}
-      </>
-    
+      ) : (
+        <EditComponent info={props} />
+      )}
+    </>
   );
 };
 
