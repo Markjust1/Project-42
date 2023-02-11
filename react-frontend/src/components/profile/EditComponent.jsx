@@ -2,7 +2,8 @@ import { useState } from "react";
 import Premium_Item from "../Premium_Item";
 import "../styles/profile-styles/EditComponent.css";
 
-const EditComponent = () => {
+const EditComponent = (props) => {
+  // console.log('props passed to edit comp:',props.info)
   const [edit, setEdit] = useState(true);
 
   return (
@@ -22,7 +23,7 @@ const EditComponent = () => {
         <textarea className="edit-description" placeholder="Description"></textarea>
       </div>
 ) : (
-  <Premium_Item />
+  <Premium_Item old={props.info}/>
 )}
     </>
   );

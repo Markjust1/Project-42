@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import EditComponent from "./profile/EditComponent";
 
 const Premium_Item = (props) => {
+  console.log('props passed to premium item',props.old)
   const location = useLocation();
 
   // console.log('current path:',location.pathname);
@@ -54,18 +55,18 @@ const Premium_Item = (props) => {
             </div>
           )}
 
-          <div className="premium-title">{props.title}</div>
-          <img className="premium-image" src={props.image} alt="game image" />
-          <div className="premium-description">{props.description}</div>
+          <div className="premium-title">{props.title || props.old.title}</div>
+          <img className="premium-image" src={props.image || props.old.image} alt="game image" />
+          <div className="premium-description">{props.description || props.old.description}</div>
           <div className="bottom-info">
             <div className="price-circle">
-              <div className="premium-price">${props.price}</div>
+              <div className="premium-price">${props.price || props.old.price}</div>
             </div>
-            <div className="platform-info">{props.platform}</div>
+            <div className="platform-info">{props.platform || props.old.platform}</div>
           </div>
         </div>
     ) : (
-      <EditComponent />
+      <EditComponent info={props}/>
     )}
       </>
     
