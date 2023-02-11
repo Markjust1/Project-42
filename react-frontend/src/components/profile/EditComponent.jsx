@@ -1,14 +1,17 @@
 import { useState } from "react";
+import Premium_Item from "../Premium_Item";
 import "../styles/profile-styles/EditComponent.css";
 
 const EditComponent = () => {
   const [edit, setEdit] = useState(true);
 
-
   return (
     <>
+    {edit ? (
       <div className='edit-container smaller'>
-        <div className="edit-button" onClick={()=>setEdit(false)}>BACK</div>
+        <div className="edit-button" onClick={() => {
+                setEdit(current => !current);
+              }}>BACK</div>
         <div className="close-button">OK</div>
 
         <input type="text" placeholder="Title" className="edit-text"></input>
@@ -18,6 +21,9 @@ const EditComponent = () => {
         <input className="edit-text"type="text" placeholder="Platform"></input>
         <textarea className="edit-description" placeholder="Description"></textarea>
       </div>
+) : (
+  <Premium_Item />
+)}
     </>
   );
 };

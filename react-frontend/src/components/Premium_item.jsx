@@ -37,7 +37,7 @@ const Premium_Item = (props) => {
             <div
               className="edit-button"
               onClick={() => {
-                setEdit(!true);
+                setEdit(current => !current);
               }}
             >
               EDIT
