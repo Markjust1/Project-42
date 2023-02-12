@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-// import star from "../../assets/star.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
-// import EditComponent from './EditComponent'
-
+import Validation from "./Validation";
 
 const MyItems = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +13,6 @@ const MyItems = () => {
   const local_storage = window.localStorage.getItem("userName");
   const [items, setItems] = useState([]);
 
-  // render ? setRender(false) : setRender(false);
   // If user is not logged in -> reroute to login
   if (local_storage == null) {
     navigate("/login");
@@ -34,8 +31,6 @@ const MyItems = () => {
             }
           }
           setItems(dataContainer);
-
-          // console.log(items)
         })
         .catch((err) => {
           console.log(err);
@@ -62,9 +57,7 @@ const MyItems = () => {
   };
 
   // Handle edit
-  const handleEdit = (id) => {
-    
-  };
+  const handleEdit = (id) => {};
 
   return (
     <div className="premium-list-container">
@@ -86,7 +79,6 @@ const MyItems = () => {
         )}
         {items.length > 0 &&
           items.map((item) => (
-            
             <Premium_Item
               key={item._id}
               itemId={item._id}
@@ -99,7 +91,7 @@ const MyItems = () => {
               onEdit={handleEdit}
             />
           ))}
-        {/* <EditComponent /> */}
+        <Validation />
       </div>
     </div>
   );
