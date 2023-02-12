@@ -4,7 +4,7 @@
 
 ## E-commerce project where users can add and trade in-game currency/items etc.
 
-#### Actively under development! 
+#### ------> Actively under development! <------
 
 ### Tech stack: 
 
