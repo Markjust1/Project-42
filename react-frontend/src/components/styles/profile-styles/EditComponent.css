@@ -25,6 +25,12 @@
   margin: auto;
   margin-top: 10px;
   cursor: pointer;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.edit-pic input[type="file"] {
+  display: none;
 }
 
 .edit-description {

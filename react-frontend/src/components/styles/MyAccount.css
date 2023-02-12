@@ -74,7 +74,7 @@
   transform: scale(1.03);
 }
 
-input[type="file"] {
+.edit-picture input[type="file"] {
   display: none;
 }
 

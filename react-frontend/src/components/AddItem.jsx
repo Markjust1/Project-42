@@ -179,7 +179,7 @@ const AddItem = () => {
             onChange={() => setPremium(!premium)}
           />
         </div> */}
-        <label htmlFor="image" className="edit-pic">Add Image</label>
+        <label htmlFor="image" >Add Image:</label>
         <input
           type="file"
           label="image"
@@ -189,7 +189,7 @@ const AddItem = () => {
           onChange={(e) => handleFileUpload(e)}
           required
         />
-        <button id="submit-btn">List This Item</button>
+        <button id="submit-btn">List New Item</button>
       </form>
     </div>
   );

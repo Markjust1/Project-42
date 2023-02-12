@@ -97,7 +97,7 @@ const EditComponent = (props) => {
                 onChange={(e) => handleFileUpload(e)}
                 required
               />
-              New Image
+              Choose New Image
             </label>
             <label htmlFor="title" className="edit-text">
               New title:
