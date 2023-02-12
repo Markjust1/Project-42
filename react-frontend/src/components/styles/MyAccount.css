@@ -56,6 +56,23 @@
   text-shadow: 0px 3px 3px rgba(244, 31, 255, 0.4);
 }
 
+.edit-picture {
+  position: relative;
+  top: 120px;
+  font-family: "Expletus Sans";
+  text-align: center;
+  background-color: rgb(246, 255, 146);
+  color: rgb(60, 135, 10);
+  border: 2px solid rgb(151, 237, 13);
+  border-radius: 6px;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.edit-picture:hover{
+  transform: scale(1.03);
+}
+
 .options-list {
   display: flex;
   align-items: flex-start;
