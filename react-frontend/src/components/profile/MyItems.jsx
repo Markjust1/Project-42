@@ -6,7 +6,7 @@ import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
-import EditComponent from './EditComponent'
+// import EditComponent from './EditComponent'
 
 
 const MyItems = () => {

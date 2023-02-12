@@ -12,7 +12,7 @@ const AddItem = () => {
   const descriptionRef = useRef();
   const [platform, setPlatform] = useState("");
   const owner = localStorage.getItem('userName');
-  console.log(owner)
+  // console.log(owner)
   // const [premium, setPremium] = useState(false);
 
   const navigate = useNavigate();
