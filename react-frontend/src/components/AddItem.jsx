@@ -11,7 +11,7 @@ const AddItem = () => {
   const imageRef = useRef();
   const descriptionRef = useRef();
   const [platform, setPlatform] = useState("");
-  const owner = localStorage.getItem('userName');
+  const owner = localStorage.getItem("userName");
   // console.log(owner)
   // const [premium, setPremium] = useState(false);
 
@@ -46,7 +46,7 @@ const AddItem = () => {
     console.log("Item successfully added");
     // Clean up:
     resetValues();
-    navigate('/');
+    navigate("/");
   };
 
   const handleFileUpload = async (e) => {

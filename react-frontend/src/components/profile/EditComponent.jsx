@@ -1,12 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router";
 import Premium_Item from "../Premium_Item";
 import axios from "axios";
-import Loading from '../Loading';
+import Loading from "../Loading";
 import "../styles/profile-styles/EditComponent.css";
 
 const EditComponent = (props) => {
-  // console.log(props.info.itemId)
   const url = `http://localhost:2500/api/items/${props.info.itemId}`;
   const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(true);
@@ -16,12 +14,11 @@ const EditComponent = (props) => {
   const imageRef = useRef();
   const descriptionRef = useRef();
   const platformRef = useRef();
-  // const [platform, setPlatform] = useState("");
+
   // Getting logged user's name
   const owner = localStorage.getItem("userName");
-  // Enables routing
-  const navigate = useNavigate();
 
+  //Resetting ref values after submitting
   const resetValues = () => {
     titleRef.current.value = "";
     priceRef.current.value = "";
@@ -30,6 +27,8 @@ const EditComponent = (props) => {
     imageRef.current.value = "";
     setEdit(false);
   };
+
+  //Axios call to backend to update item
 
   const editItem = async (newInfo) => {
     try {
@@ -41,11 +40,6 @@ const EditComponent = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // if (titleRef.current.value === '' || descriptionRef.current.value === '' || platformRef.current.value === '' || priceRef.current.value === '') {
-    //   console.log('All information has to be filled');
-    //   return;
-    // }
-
     editItem({
       title: titleRef.current.value || props.info.title,
       image: files || props.info.image,
@@ -59,16 +53,11 @@ const EditComponent = (props) => {
     // Clean up:
     resetValues();
     setLoading(true);
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false);
       location.reload();
     }, 1000);
-    // navigate("/profile");
   };
-
-  // useEffect(()=>{
-  //   navigate('/profile')
-  // }, [loading])
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -81,10 +70,9 @@ const EditComponent = (props) => {
     setFiles(base64);
   };
 
-
   return (
     <>
-    {loading && <Loading/>}
+      {loading && <Loading />}
       {edit ? (
         <div className="edit-container smaller">
           <form onSubmit={submitHandler}>
