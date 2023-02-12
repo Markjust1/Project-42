@@ -5,7 +5,8 @@ import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
-import Validation from "./Validation";
+// import Validation from "./Validation";
+import Empty from "./Empty";
 
 const MyItems = () => {
   const [loading, setLoading] = useState(false);
@@ -58,25 +59,28 @@ const MyItems = () => {
   };
 
   // Handle edit
-  const handleEdit = (id) => {};
+  // const handleEdit = (id) => {};
 
   return (
     <div className="premium-list-container">
       <div className="title-logo">
         {/* <img src={star} alt=""></img> */}
-        <div className="premium-list-title">My Items</div>
+        {items.length > 0 && <div className="premium-list-title">My Items</div>}
+        {items.length === 0 && <div className="premium-list-title">No items added yet</div>}
+        {/* <div className="premium-list-title">My Items</div> */}
       </div>
       <div className="list-container">
         {loading && <Loading />}
         {items.length === 0 && (
-          <>
-            <>
-              <div>No items added yet.</div>
-              <Link to="/add">
-                <div className="add">Add Items</div>
-              </Link>
-            </>
-          </>
+          // <>
+          //   <>
+          //     <div>No items added yet.</div>
+          //     <Link to="/add">
+          //       <div className="add">Add Items</div>
+          //     </Link>
+          //   </>
+          // </>
+          <Empty />
         )}
         {items.length > 0 &&
           items.map((item) => (
@@ -89,10 +93,9 @@ const MyItems = () => {
               platform={item.platform}
               price={item.price}
               onDelete={handleDelete}
-              onEdit={handleEdit}
+              // onEdit={handleEdit}
             />
           ))}
-        {/* <Validation /> */}
       </div>
     </div>
   );
