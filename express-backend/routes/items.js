@@ -41,20 +41,27 @@ router.post("/", async (req, res) => {
 // Update one
 
 router.patch("/:id", getItem, async (req, res) => {
+
   if (req.body.title != null) {
-    res.user.title = req.body.title;
+    res.item.title = req.body.title;
   }
   if (req.body.image != null) {
-    res.user.image = req.body.image;
+    res.item.image = req.body.image;
   }
   if (req.body.description != null) {
-    res.user.description = req.body.description;
+    res.item.description = req.body.description;
   }
   if (req.body.platform != null) {
-    res.user.platform = req.body.platform;
+    res.item.platform = req.body.platform;
   }
   if (req.body.price != null) {
-    res.user.price = req.body.price;
+    res.item.price = req.body.price;
+  }
+  try {
+    const updatedItem = await res.item.save();
+    res.json(updatedItem);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 

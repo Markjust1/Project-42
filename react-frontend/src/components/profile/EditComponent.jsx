@@ -5,7 +5,8 @@ import axios from "axios";
 import "../styles/profile-styles/EditComponent.css";
 
 const EditComponent = (props) => {
-  const url = "http://localhost:2500/api/items/";
+  // console.log(props.info.itemId)
+  const url = `http://localhost:2500/api/items/${props.info.itemId}`;
   const [edit, setEdit] = useState(true);
   const [files, setFiles] = useState("");
   const titleRef = useRef();
@@ -52,11 +53,11 @@ const EditComponent = (props) => {
     //   owner: owner
     // });
     editItem({
-      title: titleRef.current.value,
-      image: files,
-      description: descriptionRef.current.value,
-      platform: platformRef.current.value,
-      price: priceRef.current.value,
+      title: titleRef.current.value || props.info.title,
+      image: files || props.info.image,
+      description: descriptionRef.current.value || props.info.description,
+      platform: platformRef.current.value || props.info.platform,
+      price: priceRef.current.value || props.info.price,
       owner: owner
     });
     console.log("Item successfully modified");

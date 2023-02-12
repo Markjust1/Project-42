@@ -23,9 +23,14 @@ DELETE http://localhost:2500/api/users/63ca206e95d57aed0be5b5bb
 
 ###
 
-PATCH  http://localhost:2500/api/users/63ca206e95d57aed0be5b5bb
+PATCH  http://localhost:2500/api/items/63ddd3b7c4d17ee526044507
 Content-Type: application/json
 
 {
-  "name": "Mark"
+  "title": "Joystick",
+  "image": "image",
+  "description": "2sdfsdv",
+  "platform": "Xbox",
+  "price": "234",
+  "owner": "Markjust"
 }
