@@ -87,6 +87,18 @@ const EditComponent = (props) => {
             <div className="close-button" onClick={submitHandler}>
               OK
             </div>
+            <label className="edit-pic">
+              <input
+                type="file"
+                className="edit-text"
+                id="image"
+                ref={imageRef}
+                accept="image/*"
+                onChange={(e) => handleFileUpload(e)}
+                required
+              />
+              New Image
+            </label>
             <label htmlFor="title" className="edit-text">
               New title:
             </label>
@@ -98,17 +110,6 @@ const EditComponent = (props) => {
               ref={titleRef}
               autoComplete="off"
               maxLength="15"
-              required
-            ></input>
-
-            <label className="edit-text">Change item picture:</label>
-            <input
-              type="file"
-              className="edit-text"
-              id="image"
-              ref={imageRef}
-              accept="image/*"
-              onChange={(e) => handleFileUpload(e)}
               required
             ></input>
 
@@ -155,6 +156,7 @@ const EditComponent = (props) => {
               maxLength="60"
               required
             ></textarea>
+            
           </form>
         </div>
       ) : (
