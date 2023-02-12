@@ -48,7 +48,8 @@ const MyItems = () => {
           setLoading(false);
         }, 800);
         setLoading(true);
-        setItems([]);
+        // setItems([]);
+        location.reload();
         // navigate("/")
       })
       .catch((err) => {
