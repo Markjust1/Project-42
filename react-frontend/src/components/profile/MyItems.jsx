@@ -91,7 +91,7 @@ const MyItems = () => {
               onEdit={handleEdit}
             />
           ))}
-        <Validation />
+        {/* <Validation /> */}
       </div>
     </div>
   );
