@@ -92,7 +92,7 @@ const EditComponent = (props) => {
             </label>
             <input
               type="text"
-              placeholder="Title (max 15 chars)"
+              placeholder={props.info.title}
               className="edit-text"
               id="title"
               ref={titleRef}
@@ -118,7 +118,7 @@ const EditComponent = (props) => {
             <input
               className="edit-text"
               type="text"
-              placeholder="Price (max 3 chars)"
+              placeholder={props.info.price}
               id="price"
               ref={priceRef}
               autoComplete="off"
@@ -147,7 +147,7 @@ const EditComponent = (props) => {
             </label>
             <textarea
               className="edit-description"
-              placeholder="Description (max 60 chars)"
+              placeholder={props.info.description}
               rows="4"
               id="description"
               autoComplete="off"
