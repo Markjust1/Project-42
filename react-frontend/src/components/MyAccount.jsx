@@ -25,9 +25,12 @@ const MyAccount = () => {
   return (
     <div className="cabinet-container">
       <div className="profile-separator">
-        <div className='profile-name'>{user}</div>
+        <div className="profile-name">{user}</div>
         <div className="profile-picture">
-          <button className="edit-picture">Edit Picture</button>
+          <label className="edit-picture">
+            <input type="file" />
+            Edit Picture
+          </label>
         </div>
         <div className="options-list">
           <div onClick={() => stateHandler("MyItems")}>My Items</div>

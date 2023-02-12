@@ -67,10 +67,15 @@
   border-radius: 6px;
   z-index: 4;
   cursor: pointer;
+  padding: 5px;
 }
 
 .edit-picture:hover{
   transform: scale(1.03);
+}
+
+input[type="file"] {
+  display: none;
 }
 
 .options-list {
