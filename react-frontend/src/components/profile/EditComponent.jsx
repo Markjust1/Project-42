@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Premium_Item from "../Premium_Item";
 import axios from "axios";
+import Loading from '../Loading';
 import "../styles/profile-styles/EditComponent.css";
 
 const EditComponent = (props) => {
   // console.log(props.info.itemId)
   const url = `http://localhost:2500/api/items/${props.info.itemId}`;
+  const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(true);
   const [files, setFiles] = useState("");
   const titleRef = useRef();
@@ -25,7 +27,6 @@ const EditComponent = (props) => {
     priceRef.current.value = "";
     descriptionRef.current.value = "";
     platformRef.current.value = "";
-    // setPlatform("");
     imageRef.current.value = "";
     setEdit(false);
   };
@@ -40,31 +41,34 @@ const EditComponent = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (titleRef.current.value === '' || descriptionRef.current.value === '' || platformRef.current.value === '' || priceRef.current.value === '') {
-      console.log('All information has to be filled');
-      return;
-    }
-    // console.log({
-    //   title: titleRef.current.value,
-    //   image: files,
-    //   description: descriptionRef.current.value,
-    //   platform: platformRef.current.value,
-    //   price: priceRef.current.value,
-    //   owner: owner
-    // });
+    // if (titleRef.current.value === '' || descriptionRef.current.value === '' || platformRef.current.value === '' || priceRef.current.value === '') {
+    //   console.log('All information has to be filled');
+    //   return;
+    // }
+
     editItem({
       title: titleRef.current.value || props.info.title,
       image: files || props.info.image,
       description: descriptionRef.current.value || props.info.description,
       platform: platformRef.current.value || props.info.platform,
       price: priceRef.current.value || props.info.price,
-      owner: owner
+      owner: owner,
     });
     console.log("Item successfully modified");
+
     // Clean up:
     resetValues();
-    navigate('/')
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false);
+      location.reload();
+    }, 1000);
+    // navigate("/profile");
   };
+
+  // useEffect(()=>{
+  //   navigate('/profile')
+  // }, [loading])
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -77,12 +81,10 @@ const EditComponent = (props) => {
     setFiles(base64);
   };
 
-  // const handleChange = (event) => {
-  //   setPlatform(event.target.value);
-  // };
 
   return (
     <>
+    {loading && <Loading/>}
       {edit ? (
         <div className="edit-container smaller">
           <form onSubmit={submitHandler}>
@@ -94,10 +96,12 @@ const EditComponent = (props) => {
             >
               BACK
             </div>
-            <div 
-              className="close-button"
-              onClick={submitHandler}
-            >OK</div>
+            <div className="close-button" onClick={submitHandler}>
+              OK
+            </div>
+            <label htmlFor="title" className="edit-text">
+              New title:
+            </label>
             <input
               type="text"
               placeholder="Title (max 15 chars)"
@@ -109,7 +113,7 @@ const EditComponent = (props) => {
               required
             ></input>
 
-            <label className="edit-text">Change item picture</label>
+            <label className="edit-text">Change item picture:</label>
             <input
               type="file"
               className="edit-text"
@@ -120,6 +124,9 @@ const EditComponent = (props) => {
               required
             ></input>
 
+            <label htmlFor="price" className="edit-text">
+              New price:
+            </label>
             <input
               className="edit-text"
               type="text"
@@ -130,11 +137,15 @@ const EditComponent = (props) => {
               maxLength="3"
               required
             ></input>
-
-            <select 
+            <label htmlFor="platform" className="edit-text">
+              Update platform:
+            </label>
+            <select
               className="platform-select"
               ref={platformRef}
-              required>
+              id="platform"
+              required
+            >
               <option value="">Select a platform:</option>
               <option value="Xbox">Xbox</option>
               <option value="Playstation">Playstation</option>
@@ -143,6 +154,9 @@ const EditComponent = (props) => {
               <option value="Steam">Steam</option>
               <option value="Epic Games">Epic Games</option>
             </select>
+            <label htmlFor="description" className="edit-text">
+              New description:
+            </label>
             <textarea
               className="edit-description"
               placeholder="Description (max 60 chars)"

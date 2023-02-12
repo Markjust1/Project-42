@@ -7,7 +7,6 @@
   height: 9vh;
   min-height: 70px;
   width: 100%;
-  border-bottom: 1px dotted rgba(128, 128, 128, 0.087);
   align-items: center;
   justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.181);
@@ -22,8 +21,9 @@
     rgba(87, 53, 164, 1) 100%
   );
   font-family: "Cinzel Decorative", cursive;
-  border-bottom: 3px solid rgba(255, 68, 0, 0.474);
+  border-bottom: 2px solid rgba(33, 33, 33, 0.056);
   text-shadow: 3px 0px 2px rgb(136, 22, 151);
+  box-shadow: rgba(209, 244, 9, 0.415) 0px 22px 70px 0px;
 }
 
 .navbar-container a {
