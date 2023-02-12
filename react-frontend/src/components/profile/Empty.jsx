@@ -5,9 +5,8 @@ const Empty = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="empty-container smaller">
-      {/* <div className="empty-title">Add New Item</div> */}
-      <div className="add-button" onClick={() => navigate("/add")}>
+    <div className="empty-container smaller" onClick={() => navigate("/add")}>
+      <div className="add-button">
         <div className="horizontal"></div>
         <div className="square"></div>
         <div className="vertical"></div>
