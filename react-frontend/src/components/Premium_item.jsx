@@ -2,6 +2,7 @@ import "./styles/Premium_item.css";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EditComponent from "./profile/EditComponent";
+import Validation from "./profile/Validation";
 
 const Premium_Item = (props) => {
  // function to remove extra keys and assign its values to parent element
@@ -22,8 +23,7 @@ const Premium_Item = (props) => {
 
   // console.log('props passed to premium item',props.old)
   const location = useLocation();
-
-  // console.log('current path:',location.pathname);
+  const [deleteMode, setDeleteMode] = useState(false);
   const [edit, setEdit] = useState(false);
   const [myItems, setMyItems] = useState("");
   useEffect(() => {
@@ -44,7 +44,9 @@ const Premium_Item = (props) => {
 
   return (
     <>
-      {!edit ? (
+    {deleteMode ? <Validation/> : (
+      <>
+        {!edit ? (
         <div className={`premium-container${myItems}`}>
           {location.pathname == "/" && (
             <div className="cart-button">ADD TO CART</div>
@@ -63,7 +65,8 @@ const Premium_Item = (props) => {
             <div
               className="close-button"
               onClick={() => {
-                deleteItem();
+                setDeleteMode(true);
+                // deleteItem();
               }}
             >
               DELETE
@@ -93,6 +96,9 @@ const Premium_Item = (props) => {
       ) : (
         <EditComponent info={props} />
       )}
+      </>
+    )}
+      
     </>
   );
 };
