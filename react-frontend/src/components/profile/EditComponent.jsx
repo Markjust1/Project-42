@@ -38,6 +38,8 @@ const EditComponent = (props) => {
     }
   };
 
+  // useEffect(()=>{}, [loading])
+
   const submitHandler = (e) => {
     e.preventDefault();
     editItem({
@@ -55,7 +57,7 @@ const EditComponent = (props) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      location.reload();
+      // location.reload();
     }, 1000);
   };
 
@@ -72,8 +74,9 @@ const EditComponent = (props) => {
 
   return (
     <>
-      {loading && <Loading />}
-      {edit ? (
+      {loading ? <Loading /> : (
+        <>
+        {edit ? (
         <div className="edit-container smaller">
           <form onSubmit={submitHandler}>
             <div
@@ -162,6 +165,9 @@ const EditComponent = (props) => {
       ) : (
         <Premium_Item old={props.info} />
       )}
+        </>
+      )}
+      
     </>
   );
 };

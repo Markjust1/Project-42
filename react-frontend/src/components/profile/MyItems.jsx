@@ -25,6 +25,7 @@ const MyItems = () => {
       axios
         .get(`/api/items/`)
         .then((response) => {
+          setLoading(true);
           const dataContainer = [];
           for (let item of response.data) {
             if (item.owner == local_storage) {
@@ -61,42 +62,45 @@ const MyItems = () => {
   // Handle edit
   // const handleEdit = (id) => {};
 
+  {
+    /* <div className="premium-list-title">No items added yet</div> */
+  }
+
   return (
     <div className="premium-list-container">
-      <div className="title-logo">
-        {/* <img src={star} alt=""></img> */}
-        {items.length > 0 && <div className="premium-list-title">My Items</div>}
-        {items.length === 0 && <div className="premium-list-title">No items added yet</div>}
-        {/* <div className="premium-list-title">My Items</div> */}
-      </div>
-      <div className="list-container">
-        {loading && <Loading />}
-        {items.length === 0 && (
-          // <>
-          //   <>
-          //     <div>No items added yet.</div>
-          //     <Link to="/add">
-          //       <div className="add">Add Items</div>
-          //     </Link>
-          //   </>
-          // </>
-          <Empty />
-        )}
-        {items.length > 0 &&
-          items.map((item) => (
-            <Premium_Item
-              key={item._id}
-              itemId={item._id}
-              title={item.title}
-              image={item.image}
-              description={item.description}
-              platform={item.platform}
-              price={item.price}
-              onDelete={handleDelete}
-              // onEdit={handleEdit}
-            />
-          ))}
-      </div>
+      {!loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="title-logo">
+            {items.length < 1 && (
+              <div className="premium-list-title">My Items</div>
+            )}
+            {items.length > 0 && (
+              <div className="premium-list-title">Add Your item</div>
+            )}
+          </div>
+          <div className="list-container">
+            {items.length > 0 ? (
+              items.map((item) => (
+                <Premium_Item
+                  key={item._id}
+                  itemId={item._id}
+                  title={item.title}
+                  image={item.image}
+                  description={item.description}
+                  platform={item.platform}
+                  price={item.price}
+                  onDelete={handleDelete}
+                  // onEdit={handleEdit}
+                />
+              ))
+            ) : (
+              <Empty />
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };
