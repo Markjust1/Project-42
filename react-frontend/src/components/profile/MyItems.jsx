@@ -74,10 +74,10 @@ const MyItems = () => {
         <>
           <div className="title-logo">
             {items.length < 1 && (
-              <div className="premium-list-title">My Items</div>
+              <div className="premium-list-title">Add Your Item:</div>
             )}
             {items.length > 0 && (
-              <div className="premium-list-title">Add Your item</div>
+              <div className="premium-list-title">My Items:</div>
             )}
           </div>
           <div className="list-container">

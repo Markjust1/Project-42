@@ -56,8 +56,8 @@ const EditComponent = (props) => {
     resetValues();
     setLoading(true);
     setTimeout(() => {
-      setLoading(false);
-      // location.reload();
+      location.reload();
+      // setLoading(false);
     }, 1000);
   };
 
