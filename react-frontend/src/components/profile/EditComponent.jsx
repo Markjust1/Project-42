@@ -38,8 +38,6 @@ const EditComponent = (props) => {
     }
   };
 
-  // useEffect(()=>{}, [loading])
-
   const submitHandler = (e) => {
     e.preventDefault();
     editItem({

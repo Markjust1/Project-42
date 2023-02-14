@@ -1,6 +1,6 @@
 import "../styles/profile-styles/Validation.css";
 
-const Validation = () => {
+const Validation = (props) => {
   return (
     <div className="validation-container smaller">
       <div className="validation-title">Are you sure?</div>
