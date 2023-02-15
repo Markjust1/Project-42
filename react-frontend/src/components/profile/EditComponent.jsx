@@ -3,6 +3,7 @@ import Premium_Item from "../Premium_Item";
 import axios from "axios";
 import Loading from "../Loading";
 import "../styles/profile-styles/EditComponent.css";
+import convertToBase64 from "../../helpers/convertToBase64";
 
 const EditComponent = (props) => {
   const url = `http://localhost:2500/api/items/${props.info.itemId}`;
@@ -171,16 +172,3 @@ const EditComponent = (props) => {
 };
 
 export default EditComponent;
-
-function convertToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (err) => {
-      reject(err);
-    };
-  });
-}

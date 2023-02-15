@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import "./styles/AddItem.css";
 import axios from "axios";
+import convertToBase64 from "../helpers/convertToBase64";
 
 const AddItem = () => {
   const url = "http://localhost:2500/api/items/";
@@ -12,8 +13,6 @@ const AddItem = () => {
   const descriptionRef = useRef();
   const [platform, setPlatform] = useState("");
   const owner = localStorage.getItem("userName");
-  // console.log(owner)
-  // const [premium, setPremium] = useState(false);
 
   const navigate = useNavigate();
 
@@ -196,16 +195,3 @@ const AddItem = () => {
 };
 
 export default AddItem;
-
-function convertToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (err) => {
-      reject(err);
-    };
-  });
-}
