@@ -32,9 +32,9 @@ const Premium_Item = (props) => {
     }
   }, []);
 
-  const deleteItem = () => {
-    props.onDelete(props.itemId);
-  };
+  // const deleteItem = () => {
+  //   props.onDelete(props.itemId);
+  // };
 
   // const editItem = () => {
   //   props.onEdit(props.itemId);
