@@ -44,7 +44,7 @@ const Premium_Item = (props) => {
 
   return (
     <>
-    {deleteMode ? <Validation old={props}/> : (
+    {deleteMode ? <Validation info={props}/> : (
       <>
         {!edit ? (
         <div className={`premium-container${myItems}`}>
