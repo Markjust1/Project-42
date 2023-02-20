@@ -4,12 +4,29 @@ import Premium_Item from "../Premium_Item";
 
 const Validation = (props) => {
   const [showVal, setShowVal] = useState(true);
-  console.log(props);
+  console.log('props received in validation form',props);
+  // console.log(Object.keys(props.info)[0])
+
+  // const convert = (obj) => {
+  //   let temp = obj.info;
+  //   if (Object.keys(temp)[0] === "old") {
+  //     return convert(temp);
+  //   } else {
+  //     return temp;
+  //   }
+  // };
   
+  // let result = {};
+  // if (Object.keys(props.info || props.info.old)[0] === "old") {
+  //   result = convert(props);
+  // }
+
   //Function to delete item from db
   const deleteItem = () => {
     props.info.onDelete(props.info.itemId);
   };
+
+  // console.log(result)
 
   return (
     <>
@@ -31,7 +48,7 @@ const Validation = (props) => {
           </div>
         </div>
       ) : (
-        <Premium_Item old={props.info} />
+        <Premium_Item old={props.info || props.info.old} />
       )}
     </>
   );

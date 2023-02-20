@@ -6,6 +6,7 @@ import Validation from "./profile/Validation";
 
 const Premium_Item = (props) => {
  // function to remove extra keys and assign its values to parent element
+ console.log('props at prem.item: ',props )
   const convert = (obj) => {
     let temp = obj.old;
     if (Object.keys(temp)[0] === "old") {
