@@ -7,19 +7,18 @@ const Validation = (props) => {
   console.log('props received in validation form',props);
   // console.log(Object.keys(props.info)[0])
 
-  // const convert = (obj) => {
-  //   let temp = obj.info;
-  //   if (Object.keys(temp)[0] === "old") {
-  //     return convert(temp);
-  //   } else {
-  //     return temp;
-  //   }
-  // };
   
-  // let result = {};
+  // const result = {};
+  // if (Object.keys(props.info || props.info.old)[0] === "old") {
+  //   result = 
+  //   // result = {...props.info.old}
+  //   convert(props.info.old);
+  // }
+  // let result = {...props.info};
   // if (Object.keys(props.info || props.info.old)[0] === "old") {
   //   result = convert(props);
   // }
+  // console.log('result:',result)
 
   //Function to delete item from db
   const deleteItem = () => {
