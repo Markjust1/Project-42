@@ -56,6 +56,7 @@ const Premium_Item = (props) => {
   return (
     <>
       {deleteMode ? (
+        // Weird bug was here! Gladly fixed ;)
         <Validation info={Object.keys(result).length > 1 ? result : props} />
       ) : (
         <>
