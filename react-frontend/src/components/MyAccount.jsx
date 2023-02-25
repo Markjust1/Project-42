@@ -4,6 +4,7 @@ import MyWallet from "./profile/MyWallet";
 import MyItems from "./profile/MyItems";
 import MyOrders from "./profile/MyOrders";
 import { useState } from "react";
+import profilep from "../assets/profile-pic.png"
 
 const MyAccount = () => {
   const user = localStorage.getItem("userName");
@@ -27,6 +28,7 @@ const MyAccount = () => {
       <div className="profile-separator">
         <div className="profile-name">{user}</div>
         <div className="profile-picture">
+        <img src={profilep} alt='profile picture' className="avatar"/>
           <label className="edit-picture">
             <input type="file" />
             Edit Picture

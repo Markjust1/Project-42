@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 250px;
   height: 250px;
   margin-top: 40px;
@@ -56,9 +57,17 @@
   text-shadow: 0px 3px 3px rgba(244, 31, 255, 0.4);
 }
 
+.avatar {
+  position: relative;
+  top:25px;
+  object-fit: cover;
+  overflow: hidden;
+  transform: scale(1.24);
+}
+
 .edit-picture {
   position: relative;
-  top: 120px;
+  top: 25px;
   font-family: "Expletus Sans";
   text-align: center;
   background-color: rgb(246, 255, 146);
