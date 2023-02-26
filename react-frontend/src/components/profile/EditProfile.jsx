@@ -26,12 +26,10 @@ const EditProfile = () => {
           <label>Address:</label>
           <input ref={addressRef} required></input>
           <label>City:</label>
-          <input ref={cityRef}></input>
+          <input ref={cityRef} required></input>
           <br/>
           <select
-              // className="platform-select"
               ref={provinceRef}
-              id="province"
               required
             >
               <option value="">Select a province:</option>

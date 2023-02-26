@@ -14,6 +14,18 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: Date.now,
   },
+  fullName: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  province: {
+    type: String,
+  },
   image: {
     type: String,
   },
