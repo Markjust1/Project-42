@@ -59,15 +59,15 @@
 
 .avatar {
   position: relative;
-  top:25px;
+  top: 26px;
   object-fit: cover;
   overflow: hidden;
   transform: scale(1.24);
 }
 
-.edit-picture {
+.edit-profile {
   position: relative;
-  top: 25px;
+  top: 30px;
   font-family: "Expletus Sans";
   text-align: center;
   background-color: rgb(246, 255, 146);
@@ -79,16 +79,13 @@
   padding: 5px;
 }
 
-.edit-picture:hover{
+.edit-profile:hover{
   transform: scale(1.03);
-}
-
-.edit-picture input[type="file"] {
-  display: none;
 }
 
 .options-list {
   display: flex;
+  align-self: center;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;

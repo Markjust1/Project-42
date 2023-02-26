@@ -29,16 +29,13 @@ const MyAccount = () => {
         <div className="profile-name">{user}</div>
         <div className="profile-picture">
         <img src={profilep} alt='profile picture' className="avatar"/>
-          <label className="edit-picture">
-            <input type="file" />
-            Edit Picture
-          </label>
+          <div className="edit-profile" onClick={() => stateHandler("Profile")}>Edit Profile</div>
         </div>
         <div className="options-list">
           <div onClick={() => stateHandler("MyItems")}>My Items</div>
           <div onClick={() => stateHandler("Wallet")}>My Wallet</div>
           <div onClick={() => stateHandler("MyOrders")}>My Orders</div>
-          <div onClick={() => stateHandler("Profile")}>Edit Profile</div>
+          {/* <div onClick={() => stateHandler("Profile")}>Edit Profile</div> */}
         </div>
       </div>
       <div className="side-panel">
