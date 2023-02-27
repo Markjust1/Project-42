@@ -3,7 +3,7 @@ GET http://localhost:2500/api/items
 
 ###
 
-GET http://localhost:2500/api/items/63daa601b466822a747efd20
+GET http://localhost:2500/api/users/63daa35eb466822a747efd0c
 # GET http://localhost:2500/api/users/63a64d9ba62108b75838c7f0
 
 

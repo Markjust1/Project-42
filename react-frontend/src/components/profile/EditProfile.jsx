@@ -1,13 +1,34 @@
 import "../styles/profile-styles/EditProfile.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect} from "react";
 import axios from "axios";
 import convertToBase64 from "../../helpers/convertToBase64";
 import { useNavigate } from "react-router";
 
-const EditProfile = (props) => {
-  const owner = localStorage.getItem("userName");
-  console.log(owner)
-  const url = `http://localhost:2500/api/users/${owner}`;
+const EditProfile = () => {
+  // const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState('');
+  const local_storage = window.localStorage.getItem("userName");
+  useEffect(() => {
+      axios
+        .get(`/api/users/`)
+        .then((response) => {
+          // console.log(response.data)
+          // setLoading(true);
+          let userId = '';
+          for (let user of response.data) {
+            if (user.name == local_storage) {
+              userId = user._id;
+            }
+          }
+          setUserId(userId)
+          // setItems(userId);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, []);
+
+  const url = `http://localhost:2500/api/users/${userId}`;
   const navigate = useNavigate();
 
   const nameRef = useRef();

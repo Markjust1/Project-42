@@ -4,8 +4,6 @@ import { useNavigate } from "react-router";
 import "../styles/Premium_item_list.css";
 import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
-import { Link } from "react-router-dom";
-// import Validation from "./Validation";
 import Empty from "./Empty";
 
 const MyItems = () => {
@@ -92,7 +90,6 @@ const MyItems = () => {
                   platform={item.platform}
                   price={item.price}
                   onDelete={handleDelete}
-                  // onEdit={handleEdit}
                 />
               ))
             ) : (
