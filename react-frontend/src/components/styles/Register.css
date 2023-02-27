@@ -84,6 +84,7 @@ form {
 }
 
 input[type="text"],
+select,
 input[type="password"],
 button,
 textarea {

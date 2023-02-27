@@ -8,10 +8,24 @@
 
 .wallet-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 60px;
+  align-items: center;
+  flex-direction: column;
 }
 
+.card-input {
+  width: 41px;
+}
 /* .my-cards {
 
 } */
+
+.cvs-number {
+  width: 30px;
+}
+
+.additional-data {
+  display: flex;
+  justify-content: space-around;
+}
