@@ -57,11 +57,12 @@ const MyAccount = () => {
       <div className="profile-separator">
         <div className="profile-name">{userName}</div>
         <div className="profile-picture">
-          <img src={profilep} alt="profile picture" className="avatar" />
+          <img src={files || profilep} alt="profile picture" className="avatar" />
           <div className="edit-profile" onClick={() => stateHandler("Profile")}>
             Edit Profile
           </div>
         </div>
+        
         <div className="options-list">
           <div onClick={() => stateHandler("MyItems")}>My Items</div>
           <div onClick={() => stateHandler("Wallet")}>My Wallet</div>

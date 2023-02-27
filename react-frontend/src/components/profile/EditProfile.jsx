@@ -5,38 +5,7 @@ import convertToBase64 from "../../helpers/convertToBase64";
 import { useNavigate } from "react-router";
 
 const EditProfile = (props) => {
-  // const [loading, setLoading] = useState(false);
-
-  // const [userId, setUserId] = useState("");
-  // const [userFullName, setUserFullName] = useState("");
-  // const [userAddress, setUserAddress] = useState("");
-  // const [userCity, setUserCity] = useState("");
-  // const [userProvince, setUserProvince] = useState("");
   const [files, setFiles] = useState("");
-  // const local_storage = window.localStorage.getItem("userName");
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`/api/users/`)
-  //     .then((response) => {
-  //       for (let user of response.data) {
-  //         if (user.name == local_storage) {
-  //           setUserId(user._id);
-  //           setUserFullName(user.fullName);
-  //           setUserAddress(user.address);
-  //           setUserCity(user.city);
-  //           setUserProvince(user.province);
-  //           setFiles(user.image)
-  //         }
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
-  console.log('props in edit profile',props)
-
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
   const navigate = useNavigate();
 
@@ -57,7 +26,7 @@ const EditProfile = (props) => {
     });
     console.log("User info added successfully");
     resetValues();
-    navigate("/");
+    location.reload();
   };
 
   const resetValues = () => {

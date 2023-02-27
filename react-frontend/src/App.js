@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import { useState } from "react";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
@@ -16,6 +16,9 @@ import AllItems from "./components/AllItems";
 import MyAccount from "./components/MyAccount";
 import "./components/styles/Terms.css";
 import "./App.css";
+import MyItems from "./components/profile/MyItems";
+import EditProfile from "./components/profile/EditProfile";
+import MyWallet from "./components/profile/MyWallet";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,7 +35,12 @@ function App() {
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<MyAccount />} />
+        <Route path="/profile" element={<MyAccount />}>
+          {/* <Route path="edit-profile" element={<EditProfile/>}/>
+          <Route path="my-items" element={<MyItems/>}/>
+          <Route path="my-wallet" element={<MyWallet/>}/>
+          <Route path="my-orders" element={<MyItems/>}/> */}
+        </Route>
         <Route
           path="/"
           element={

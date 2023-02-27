@@ -63,6 +63,7 @@
   object-fit: cover;
   overflow: hidden;
   transform: scale(1.24);
+  border-radius: 50%;
 }
 
 .edit-profile {
@@ -79,7 +80,7 @@
   padding: 5px;
 }
 
-.edit-profile:hover{
+.edit-profile:hover {
   transform: scale(1.03);
 }
 

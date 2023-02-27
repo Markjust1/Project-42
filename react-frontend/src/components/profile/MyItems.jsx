@@ -12,6 +12,8 @@ const MyItems = () => {
   const local_storage = window.localStorage.getItem("userName");
   const [items, setItems] = useState([]);
 
+
+
   // If user is not logged in -> reroute to login
   if (local_storage == null) {
     navigate("/login");
