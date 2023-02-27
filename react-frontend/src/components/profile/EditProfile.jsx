@@ -11,6 +11,7 @@ const EditProfile = () => {
   const [userAddress, setUserAddress] = useState("");
   const [userCity, setUserCity] = useState("");
   const [userProvince, setUserProvince] = useState("");
+  const [files, setFiles] = useState("");
 
   const local_storage = window.localStorage.getItem("userName");
   useEffect(() => {
@@ -27,6 +28,7 @@ const EditProfile = () => {
             setUserAddress(user.address);
             setUserCity(user.city);
             setUserProvince(user.province);
+            setFiles(user.image)
           }
         }
 
@@ -45,15 +47,14 @@ const EditProfile = () => {
   const cityRef = useRef();
   const provinceRef = useRef();
   const imageRef = useRef();
-  const [files, setFiles] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault();
     addUserInfo({
-      fullName: nameRef.current.value,
-      address: addressRef.current.value,
-      city: cityRef.current.value,
-      province: provinceRef.current.value,
+      fullName: nameRef.current.value || userFullName,
+      address: addressRef.current.value || userAddress,
+      city: cityRef.current.value || userCity,
+      province: provinceRef.current.value || userProvince,
       image: files,
     });
     console.log("User info added successfully");
