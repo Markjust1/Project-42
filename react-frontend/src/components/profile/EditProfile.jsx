@@ -1,31 +1,40 @@
 import "../styles/profile-styles/EditProfile.css";
-import { useRef, useState, useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import convertToBase64 from "../../helpers/convertToBase64";
 import { useNavigate } from "react-router";
 
 const EditProfile = () => {
   // const [loading, setLoading] = useState(false);
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState("");
+  const [userFullName, setUserFullName] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [userCity, setUserCity] = useState("");
+  const [userProvince, setUserProvince] = useState("");
+
   const local_storage = window.localStorage.getItem("userName");
   useEffect(() => {
-      axios
-        .get(`/api/users/`)
-        .then((response) => {
-          // console.log(response.data)
-          // setLoading(true);
-          let userId = '';
-          for (let user of response.data) {
-            if (user.name == local_storage) {
-              userId = user._id;
-            }
+    axios
+      .get(`/api/users/`)
+      .then((response) => {
+        // console.log(response.data)
+        // setLoading(true);
+
+        for (let user of response.data) {
+          if (user.name == local_storage) {
+            setUserId(user._id);
+            setUserFullName(user.fullName);
+            setUserAddress(user.address);
+            setUserCity(user.city);
+            setUserProvince(user.province);
           }
-          setUserId(userId)
-          // setItems(userId);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        }
+
+        // setItems(userId);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const url = `http://localhost:2500/api/users/${userId}`;
@@ -45,11 +54,11 @@ const EditProfile = () => {
       address: addressRef.current.value,
       city: cityRef.current.value,
       province: provinceRef.current.value,
-      // image: files,
+      image: files,
     });
     console.log("User info added successfully");
     resetValues();
-    navigate("/profile");
+    navigate("/");
   };
 
   const resetValues = () => {
@@ -91,7 +100,7 @@ const EditProfile = () => {
               id="fullName"
               type="text"
               maxLength="40"
-              placeholder="Enter your name"
+              placeholder={userFullName || "Enter your name"}
             ></input>
             <label htmlFor="address">Address:</label>
             <input
@@ -99,19 +108,19 @@ const EditProfile = () => {
               id="address"
               type="text"
               maxLength="40"
-              placeholder="Enter your address"
+              placeholder={userAddress || "Enter your address"}
             ></input>
             <label htmlFor="city">City:</label>
             <input
               ref={cityRef}
               id="city"
               type="text"
-              placeholder="Enter your city"
+              placeholder={userCity || "Enter your city"}
             ></input>
             <br />
             <label htmlFor="province">Please select a province:</label>
             <select ref={provinceRef} id="province" type="text">
-              <option value="">Select a province:</option>
+              <option value={userProvince || ""}>Select a province:</option>
               <option value="Alberta">Alberta</option>
               <option value="British Columbia">British Columbia</option>
               <option value="Manitoba">Manitoba</option>
