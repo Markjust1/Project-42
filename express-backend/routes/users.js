@@ -75,6 +75,21 @@ router.patch("/:id", getUser, async (req, res) => {
   if (req.body.password != null) {
     res.user.password = req.body.password;
   }
+  if (req.body.fullName != null) {
+    res.user.fullName = req.body.fullName;
+  }
+  if (req.body.address != null) {
+    res.user.address = req.body.address;
+  }
+  if (req.body.city != null) {
+    res.user.city = req.body.city;
+  }
+  if (req.body.province != null) {
+    res.user.province = req.body.province;
+  }
+  if (req.body.image != null) {
+    res.user.image = req.body.image;
+  }
 
   try {
     const updatedUser = await res.user.save();

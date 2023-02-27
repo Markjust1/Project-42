@@ -4,8 +4,10 @@ import axios from "axios";
 import convertToBase64 from "../../helpers/convertToBase64";
 import { useNavigate } from "react-router";
 
-const EditProfile = () => {
-  const url = "http://localhost:2500/api/users/";
+const EditProfile = (props) => {
+  const owner = localStorage.getItem("userName");
+  console.log(owner)
+  const url = `http://localhost:2500/api/users/${owner}`;
   const navigate = useNavigate();
 
   const nameRef = useRef();
@@ -14,7 +16,6 @@ const EditProfile = () => {
   const provinceRef = useRef();
   const imageRef = useRef();
   const [files, setFiles] = useState("");
-  const owner = localStorage.getItem("userName");
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const EditProfile = () => {
       address: addressRef.current.value,
       city: cityRef.current.value,
       province: provinceRef.current.value,
+      // image: files,
     });
     console.log("User info added successfully");
     resetValues();
@@ -39,7 +41,7 @@ const EditProfile = () => {
 
   const addUserInfo = async (userData) => {
     try {
-      await axios.post(url, userData);
+      await axios.patch(url, userData);
     } catch (err) {
       console.log(err);
     }
@@ -61,16 +63,33 @@ const EditProfile = () => {
       <div className="profile-title">Edit My Profile</div>
       <div className="profile-container">
         <div>
-          <form>
-            <label htmlFor='fullName'>Full Name:</label>
-            <input ref={nameRef} id="fullName" required></input>
-            <label htmlFor='address'>Address:</label>
-            <input ref={addressRef} id="address" required></input>
+          <form onSubmit={submitHandler}>
+            <label htmlFor="fullName">Full Name:</label>
+            <input
+              ref={nameRef}
+              id="fullName"
+              type="text"
+              maxLength="40"
+              placeholder="Enter your name"
+            ></input>
+            <label htmlFor="address">Address:</label>
+            <input
+              ref={addressRef}
+              id="address"
+              type="text"
+              maxLength="40"
+              placeholder="Enter your address"
+            ></input>
             <label htmlFor="city">City:</label>
-            <input ref={cityRef} id="city" required></input>
+            <input
+              ref={cityRef}
+              id="city"
+              type="text"
+              placeholder="Enter your city"
+            ></input>
             <br />
             <label htmlFor="province">Please select a province:</label>
-            <select ref={provinceRef} id="province" required>
+            <select ref={provinceRef} id="province" type="text">
               <option value="">Select a province:</option>
               <option value="Alberta">Alberta</option>
               <option value="British Columbia">British Columbia</option>
@@ -87,8 +106,14 @@ const EditProfile = () => {
             </select>
 
             <label htmlFor="image">Your profile picture:</label>
-            <input type="file" id="image"></input>
-            <button type="submit" onClick={submitHandler}>
+            <input
+              type="file"
+              id="image"
+              ref={imageRef}
+              accept="image/*"
+              onChange={(e) => handleFileUpload(e)}
+            ></input>
+            <button type="submit" id="submit-btn">
               Submit
             </button>
           </form>
