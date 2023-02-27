@@ -4,42 +4,40 @@ import axios from "axios";
 import convertToBase64 from "../../helpers/convertToBase64";
 import { useNavigate } from "react-router";
 
-const EditProfile = () => {
+const EditProfile = (props) => {
   // const [loading, setLoading] = useState(false);
-  const [userId, setUserId] = useState("");
-  const [userFullName, setUserFullName] = useState("");
-  const [userAddress, setUserAddress] = useState("");
-  const [userCity, setUserCity] = useState("");
-  const [userProvince, setUserProvince] = useState("");
+
+  // const [userId, setUserId] = useState("");
+  // const [userFullName, setUserFullName] = useState("");
+  // const [userAddress, setUserAddress] = useState("");
+  // const [userCity, setUserCity] = useState("");
+  // const [userProvince, setUserProvince] = useState("");
   const [files, setFiles] = useState("");
+  // const local_storage = window.localStorage.getItem("userName");
 
-  const local_storage = window.localStorage.getItem("userName");
-  useEffect(() => {
-    axios
-      .get(`/api/users/`)
-      .then((response) => {
-        // console.log(response.data)
-        // setLoading(true);
+  // useEffect(() => {
+  //   axios
+  //     .get(`/api/users/`)
+  //     .then((response) => {
+  //       for (let user of response.data) {
+  //         if (user.name == local_storage) {
+  //           setUserId(user._id);
+  //           setUserFullName(user.fullName);
+  //           setUserAddress(user.address);
+  //           setUserCity(user.city);
+  //           setUserProvince(user.province);
+  //           setFiles(user.image)
+  //         }
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
-        for (let user of response.data) {
-          if (user.name == local_storage) {
-            setUserId(user._id);
-            setUserFullName(user.fullName);
-            setUserAddress(user.address);
-            setUserCity(user.city);
-            setUserProvince(user.province);
-            setFiles(user.image)
-          }
-        }
+  console.log('props in edit profile',props)
 
-        // setItems(userId);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  const url = `http://localhost:2500/api/users/${userId}`;
+  const url = `http://localhost:2500/api/users/${props.userData.userId}`;
   const navigate = useNavigate();
 
   const nameRef = useRef();
@@ -51,11 +49,11 @@ const EditProfile = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     addUserInfo({
-      fullName: nameRef.current.value || userFullName,
-      address: addressRef.current.value || userAddress,
-      city: cityRef.current.value || userCity,
-      province: provinceRef.current.value || userProvince,
-      image: files,
+      fullName: nameRef.current.value || props.userData.userFullName,
+      address: addressRef.current.value || props.userData.userAddress,
+      city: cityRef.current.value || props.userData.userCity,
+      province: provinceRef.current.value || props.userData.userProvince,
+      image: files || props.userData.files,
     });
     console.log("User info added successfully");
     resetValues();
@@ -101,7 +99,7 @@ const EditProfile = () => {
               id="fullName"
               type="text"
               maxLength="40"
-              placeholder={userFullName || "Enter your name"}
+              placeholder={props.userData.userFullName || "Enter your name"}
             ></input>
             <label htmlFor="address">Address:</label>
             <input
@@ -109,19 +107,19 @@ const EditProfile = () => {
               id="address"
               type="text"
               maxLength="40"
-              placeholder={userAddress || "Enter your address"}
+              placeholder={props.userData.userAddress || "Enter your address"}
             ></input>
             <label htmlFor="city">City:</label>
             <input
               ref={cityRef}
               id="city"
               type="text"
-              placeholder={userCity || "Enter your city"}
+              placeholder={props.userData.userCity || "Enter your city"}
             ></input>
             <br />
             <label htmlFor="province">Please select a province:</label>
             <select ref={provinceRef} id="province" type="text">
-              <option value={userProvince || ""}>Select a province:</option>
+              <option value={props.userData.userProvince || ""}>Select a province:</option>
               <option value="Alberta">Alberta</option>
               <option value="British Columbia">British Columbia</option>
               <option value="Manitoba">Manitoba</option>

@@ -3,16 +3,25 @@ import EditProfile from "./profile/EditProfile";
 import MyWallet from "./profile/MyWallet";
 import MyItems from "./profile/MyItems";
 import MyOrders from "./profile/MyOrders";
-import { useState } from "react";
-import profilep from "../assets/profile-pic.png"
+import { useState, useEffect } from "react";
+import profilep from "../assets/profile-pic.png";
+import axios from "axios";
 
 const MyAccount = () => {
-  const user = localStorage.getItem("userName");
+  const userName = localStorage.getItem("userName");
 
   const [profile, setProfile] = useState(false);
   const [wallet, setWallet] = useState(false);
   const [myItems, setMyItems] = useState(true);
   const [myOrders, setMyOrders] = useState(false);
+
+  //User data
+  const [userId, setUserId] = useState("");
+  const [userFullName, setUserFullName] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [userCity, setUserCity] = useState("");
+  const [userProvince, setUserProvince] = useState("");
+  const [files, setFiles] = useState("");
 
   const stateHandler = (exception) => {
     setProfile(false);
@@ -23,13 +32,35 @@ const MyAccount = () => {
     exemptionCall();
   };
 
+  useEffect(() => {
+    axios
+      .get(`/api/users/`)
+      .then((response) => {
+        for (let user of response.data) {
+          if (user.name == userName) {
+            setUserId(user._id);
+            setUserFullName(user.fullName);
+            setUserAddress(user.address);
+            setUserCity(user.city);
+            setUserProvince(user.province);
+            setFiles(user.image);
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="cabinet-container">
       <div className="profile-separator">
-        <div className="profile-name">{user}</div>
+        <div className="profile-name">{userName}</div>
         <div className="profile-picture">
-        <img src={profilep} alt='profile picture' className="avatar"/>
-          <div className="edit-profile" onClick={() => stateHandler("Profile")}>Edit Profile</div>
+          <img src={profilep} alt="profile picture" className="avatar" />
+          <div className="edit-profile" onClick={() => stateHandler("Profile")}>
+            Edit Profile
+          </div>
         </div>
         <div className="options-list">
           <div onClick={() => stateHandler("MyItems")}>My Items</div>
@@ -39,7 +70,18 @@ const MyAccount = () => {
         </div>
       </div>
       <div className="side-panel">
-        {profile && <EditProfile />}
+        {profile && (
+          <EditProfile
+            userData={{
+              userId,
+              userFullName,
+              userAddress,
+              userCity,
+              userProvince,
+              files,
+            }}
+          />
+        )}
         {wallet && <MyWallet />}
         {myItems && <MyItems />}
         {myOrders && <MyOrders />}
