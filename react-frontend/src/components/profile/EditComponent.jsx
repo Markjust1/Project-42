@@ -128,9 +128,9 @@ const EditComponent = (props) => {
               maxLength="3"
               required
             ></input>
-            <label htmlFor="platform" className="edit-text">
+            {/* <label htmlFor="platform" className="edit-text">
               Update platform:
-            </label>
+            </label> */}
             <select
               className="platform-select"
               ref={platformRef}

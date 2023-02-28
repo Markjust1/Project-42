@@ -18,19 +18,55 @@ const MyWallet = () => {
       </div> */}
 
         <div className="my-cards">
-          <div>Add new Card</div>
+          <div className="add-card">Add new credit card:</div>
           <form>
             <label>Card number:</label>
             <div>
-              <input type="text" className="card-input" maxLength="4" placeholder="0000"></input>-
-              <input type="text" className="card-input" maxLength="4" placeholder="0000"></input>-
-              <input type="text" className="card-input" maxLength="4" placeholder="0000"></input>-
-              <input type="text" className="card-input" maxLength="4" placeholder="0000"></input>
+              <input
+                type="text"
+                className="card-input"
+                maxLength="4"
+                placeholder="0000"
+                // onKeyDown={(event) => {
+                  
+                //   if (!/[0-9]/.test(event.key)) {
+                //     event.preventDefault();
+                //   }
+                // }}
+              ></input>
+              -
+              <input
+                type="text"
+                className="card-input"
+                maxLength="4"
+                placeholder="0000"
+              ></input>
+              -
+              <input
+                type="text"
+                className="card-input"
+                maxLength="4"
+                placeholder="0000"
+              ></input>
+              -
+              <input
+                type="text"
+                className="card-input"
+                maxLength="4"
+                placeholder="0000"
+              ></input>
             </div>
             <label>Cardholder name:</label>
-            <input type="text" maxLength="25"></input>
-            <label>Expiry date: </label>
+            <input
+              type="text"
+              maxLength="25"
+              placeholder="Name on the credit card"
+            ></input>
             <div className="additional-data">
+              <div className="stack">
+
+            <label>Expiry date:</label>
+              <div className="row"> 
               <select>
                 <option>January</option>
                 <option>February</option>
@@ -58,8 +94,21 @@ const MyWallet = () => {
                 <option>{new Date().getFullYear() + 9}</option>
                 <option>{new Date().getFullYear() + 10}</option>
               </select>
-              <input type="text" maxLength="3" className="cvs-number" placeholder="CVS"></input>
+              </div>
+             
+              </div>
+              <div className="stack">
+                <label htmlFor="cvs">CVS:</label>
+                <input
+                  type="text"
+                  maxLength="3"
+                  id="cvs"
+                  className="cvs-number"
+                  placeholder="CVS"
+                ></input>
+              </div>
             </div>
+            <button type="submit" className="add-card-button">Add Card</button>
           </form>
         </div>
       </div>

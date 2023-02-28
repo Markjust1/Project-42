@@ -1,9 +1,10 @@
 .wallet-title {
   display: flex;
-  align-items: center;
+  align-self: center;
   justify-content: center;
   font-size: 2em;
   margin-top: 20px;
+  text-align: center;
 }
 
 .wallet-container {
@@ -14,12 +15,54 @@
   flex-direction: column;
 }
 
+.add-card {
+  text-align: center;
+}
+
+.add-card-button {
+  position: relative;
+  font-family: "Expletus Sans";
+  text-align: center;
+  background-color: rgb(246, 255, 146);
+  color: rgb(60, 135, 10);
+  border: 2px solid rgb(151, 237, 13);
+  border-radius: 6px;
+  z-index: 4;
+  cursor: pointer;
+  padding: 5px;
+}
+.remove-card-button {
+  position: relative;
+  font-family: "Expletus Sans";
+  text-align: center;
+  background-color: rgb(255, 237, 146);
+  color: rgb(135, 50, 10);
+  border: 2px solid rgb(237, 91, 13);
+  border-radius: 6px;
+  z-index: 4;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.add-card-button:hover {
+  transform: scale(1.03);
+}
+
 .card-input {
   width: 41px;
 }
 /* .my-cards {
 
 } */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
 
 .cvs-number {
   width: 30px;
@@ -27,5 +70,7 @@
 
 .additional-data {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
