@@ -46,7 +46,6 @@ const MyWallet = () => {
                 placeholder="16-digit number"
                 ref={card}
                 // onKeyDown={(event) => {
-
                 //   if (!/[0-9]/.test(event.key)) {
                 //     event.preventDefault();
                 //   }
