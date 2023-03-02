@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -29,9 +30,23 @@ const userSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  cards: {
-    type: String,
-  },
+  cards: [
+
+    {
+      cardNumber: {
+        type: String,
+      },
+      cardholder: {
+        type: String,
+      },
+      expiryDate: {
+        type: String,
+      },
+      cvs: {
+        type: String,
+      },
+    },
+  ]
 });
 
 module.exports = mongoose.model("User", userSchema);

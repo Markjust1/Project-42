@@ -90,6 +90,15 @@ router.patch("/:id", getUser, async (req, res) => {
   if (req.body.image != null) {
     res.user.image = req.body.image;
   }
+  const cards = req.body.cards;
+  // console.log(cards);
+  cards.map((el)=>{
+
+    if (el.cardNumber != null) {
+      res.user.cards.push(el)
+    }
+  }
+  )
 
   try {
     const updatedUser = await res.user.save();

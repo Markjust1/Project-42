@@ -1,12 +1,15 @@
 import "../styles/profile-styles/MyWallet.css";
 import { useRef, useState, useEffect } from "react";
+import axios from "axios";
 
-const MyWallet = () => {
+const MyWallet = (props) => {
   const card = useRef();
   const cardholder = useRef();
   const expiry1 = useRef();
   const expiry2 = useRef();
   const cvs = useRef();
+
+  const url = `http://localhost:2500/api/users/${props.userData}`;
 
   // const [counter, setCounter] = useState('');
   // const [cardNumber, setCardNumber] = useState('');
@@ -16,15 +19,49 @@ const MyWallet = () => {
   //   // setCounter(e.target.value);
   // };
 
-
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(
-      card.current?.value,
-      cardholder.current?.value,
-      (new Date(`${expiry1.current?.value} 1, 2023`).getMonth()+1).toString().padStart(2,0).concat(expiry2.current?.value),
-      cvs.current?.value,
-    );
+    // console.log(
+    //   card.current?.value,
+    //   cardholder.current?.value,
+    //   (new Date(`${expiry1.current?.value} 1, 2023`).getMonth()+1).toString().padStart(2,0).concat(expiry2.current?.value),
+    //   cvs.current?.value,
+    // );
+    const cardNum = card.current?.value;
+    addCardInfo({
+      cards: [
+        {
+          cardNumber: card.current?.value,
+          cardholder: cardholder.current?.value,
+          expiryDate: (
+            new Date(`${expiry1.current?.value} 1, 2023`).getMonth() + 1
+          )
+            .toString()
+            .padStart(2, 0)
+            .concat(expiry2.current?.value),
+          cvs: cvs.current?.value,
+        },
+      ],
+    });
+    // resetValues();
+    // location.reload();
+  };
+
+  const addCardInfo = async (cardData) => {
+    try {
+      await axios.patch(url, cardData);
+      console.log("Card added successfully");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const resetValues = () => {
+    card.current.value = "";
+    cardholder.current.value = "";
+    expiry1.current.value = "";
+    expiry2.current.value = "";
+    cvs.current.value = "";
   };
 
   return (
@@ -61,7 +98,6 @@ const MyWallet = () => {
                 //   }
                 // }}
               ></input>
-
             </div>
             <label>Cardholder name:</label>
             <input
@@ -90,18 +126,82 @@ const MyWallet = () => {
                     <option value="Dec">12 - December</option>
                   </select>
                   <select ref={expiry2}>
-                  <option value="">Year:</option>
-                    <option value={new Date().getFullYear().toString().substring(2)}>{new Date().getFullYear()}</option>
-                    <option value={(new Date().getFullYear()+1).toString().substring(2)}>{new Date().getFullYear() + 1}</option>
-                    <option value={(new Date().getFullYear()+2).toString().substring(2)}>{new Date().getFullYear() + 2}</option>
-                    <option value={(new Date().getFullYear()+3).toString().substring(2)}>{new Date().getFullYear() + 3}</option>
-                    <option value={(new Date().getFullYear()+4).toString().substring(2)}>{new Date().getFullYear() + 4}</option>
-                    <option value={(new Date().getFullYear()+5).toString().substring(2)}>{new Date().getFullYear() + 5}</option>
-                    <option value={(new Date().getFullYear()+6).toString().substring(2)}>{new Date().getFullYear() + 6}</option>
-                    <option value={(new Date().getFullYear()+7).toString().substring(2)}>{new Date().getFullYear() + 7}</option>
-                    <option value={(new Date().getFullYear()+8).toString().substring(2)}>{new Date().getFullYear() + 8}</option>
-                    <option value={(new Date().getFullYear()+9).toString().substring(2)}>{new Date().getFullYear() + 9}</option>
-                    <option value={(new Date().getFullYear()+10).toString().substring(2)}>{new Date().getFullYear() + 10}</option>
+                    <option value="">Year:</option>
+                    <option
+                      value={new Date().getFullYear().toString().substring(2)}
+                    >
+                      {new Date().getFullYear()}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 1)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 1}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 2)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 2}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 3)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 3}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 4)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 4}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 5)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 5}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 6)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 6}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 7)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 7}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 8)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 8}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 9)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 9}
+                    </option>
+                    <option
+                      value={(new Date().getFullYear() + 10)
+                        .toString()
+                        .substring(2)}
+                    >
+                      {new Date().getFullYear() + 10}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -117,7 +217,9 @@ const MyWallet = () => {
                 ></input>
               </div>
             </div>
-            <button onClick={submitHandler} className="submit-btn">Add Card</button>
+            <button onClick={submitHandler} className="submit-btn">
+              Add Card
+            </button>
           </form>
         </div>
       </div>

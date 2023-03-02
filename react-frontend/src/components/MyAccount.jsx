@@ -83,7 +83,7 @@ const MyAccount = () => {
             }}
           />
         )}
-        {wallet && <MyWallet />}
+        {wallet && <MyWallet userData={userId} />}
         {myItems && <MyItems />}
         {myOrders && <MyOrders />}
       </div>
