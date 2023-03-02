@@ -1,5 +1,5 @@
 import "../styles/profile-styles/MyWallet.css";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const MyWallet = () => {
   const card = useRef();
@@ -7,6 +7,15 @@ const MyWallet = () => {
   const expiry1 = useRef();
   const expiry2 = useRef();
   const cvs = useRef();
+
+  // const [counter, setCounter] = useState('');
+  // const [cardNumber, setCardNumber] = useState('');
+
+  // const dashInserter = (e) => {
+  //   console.log(e.target.value)
+  //   // setCounter(e.target.value);
+  // };
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -42,9 +51,10 @@ const MyWallet = () => {
               <input
                 type="text"
                 className="card-input"
-                maxLength="16"
+                maxLength="19"
                 placeholder="16-digit number"
                 ref={card}
+                // onChange={dashInserter}
                 // onKeyDown={(event) => {
                 //   if (!/[0-9]/.test(event.key)) {
                 //     event.preventDefault();

@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  cards: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
