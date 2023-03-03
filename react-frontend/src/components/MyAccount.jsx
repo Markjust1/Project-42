@@ -23,6 +23,9 @@ const MyAccount = () => {
   const [userProvince, setUserProvince] = useState("");
   const [files, setFiles] = useState("");
 
+  //Credit card data
+  const [cardData, setCardData] = useState("");
+
   const stateHandler = (exception) => {
     setProfile(false);
     setWallet(false);
@@ -38,12 +41,15 @@ const MyAccount = () => {
       .then((response) => {
         for (let user of response.data) {
           if (user.name == userName) {
+            //User's info
             setUserId(user._id);
             setUserFullName(user.fullName);
             setUserAddress(user.address);
             setUserCity(user.city);
             setUserProvince(user.province);
             setFiles(user.image);
+            // Cards's info
+            setCardData(user.cards);
           }
         }
       })
@@ -57,12 +63,16 @@ const MyAccount = () => {
       <div className="profile-separator">
         <div className="profile-name">{userName}</div>
         <div className="profile-picture">
-          <img src={files || profilep} alt="profile picture" className="avatar" />
+          <img
+            src={files || profilep}
+            alt="profile picture"
+            className="avatar"
+          />
           <div className="edit-profile" onClick={() => stateHandler("Profile")}>
             Edit Profile
           </div>
         </div>
-        
+
         <div className="options-list">
           <div onClick={() => stateHandler("MyItems")}>My Items</div>
           <div onClick={() => stateHandler("Wallet")}>My Wallet</div>
@@ -83,7 +93,14 @@ const MyAccount = () => {
             }}
           />
         )}
-        {wallet && <MyWallet userData={userId} />}
+        {wallet && (
+          <MyWallet
+            userData={{
+              userId: userId,
+              cardData: cardData,
+            }}
+          />
+        )}
         {myItems && <MyItems />}
         {myOrders && <MyOrders />}
       </div>

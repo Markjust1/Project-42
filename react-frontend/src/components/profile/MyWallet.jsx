@@ -9,7 +9,8 @@ const MyWallet = (props) => {
   const expiry2 = useRef();
   const cvs = useRef();
 
-  const url = `http://localhost:2500/api/users/${props.userData}`;
+  const url = `http://localhost:2500/api/users/${props.userData.userId}`;
+  console.log(props)
 
   // const [counter, setCounter] = useState('');
   // const [cardNumber, setCardNumber] = useState('');
