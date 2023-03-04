@@ -2,7 +2,7 @@ import "../styles/profile-styles/MyWallet.css";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 
-const MyWallet = (props) => {
+const AddCard = (props) => {
   const card = useRef();
   const cardholder = useRef();
   const expiry1 = useRef();
@@ -12,22 +12,9 @@ const MyWallet = (props) => {
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
   console.log(props);
 
-  // const [counter, setCounter] = useState('');
-  // const [cardNumber, setCardNumber] = useState('');
-
-  // const dashInserter = (e) => {
-  //   console.log(e.target.value)
-  //   // setCounter(e.target.value);
-  // };
-
   const submitHandler = (e) => {
     e.preventDefault();
-    // console.log(
-    //   card.current?.value,
-    //   cardholder.current?.value,
-    //   (new Date(`${expiry1.current?.value} 1, 2023`).getMonth()+1).toString().padStart(2,0).concat(expiry2.current?.value),
-    //   cvs.current?.value,
-    // );
+
     const cardNum = card.current?.value;
     addCardInfo({
       cards: [
@@ -64,24 +51,9 @@ const MyWallet = (props) => {
     expiry2.current.value = "";
     cvs.current.value = "";
   };
-
   return (
-    <>
-      <div className="wallet-title">My Wallet</div>
-      <div className="wallet-container">
-        {/* <div className="my-cards">
-        <div>My Cards:</div>
-        <ul>
-          <li>Card 1</li>
-          <button>remove</button>
-          <li>Card 2</li>
-          <button>remove</button>
-          <li>Card 3</li>
-          <button>remove</button>
-        </ul>
-      </div> */}
 
-        <div className="my-cards">
+    <div className="my-cards">
           <div className="add-card">Add new credit card:</div>
           <form>
             <label>Card number:</label>
@@ -223,9 +195,7 @@ const MyWallet = (props) => {
             </button>
           </form>
         </div>
-      </div>
-    </>
-  );
+  )
 };
 
-export default MyWallet;
+export default AddCard;
