@@ -14,8 +14,6 @@ const AddCard = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    const cardNum = card.current?.value;
     addCardInfo({
       cards: [
         {
@@ -64,12 +62,6 @@ const AddCard = (props) => {
                 maxLength="19"
                 placeholder="16-digit number"
                 ref={card}
-                // onChange={dashInserter}
-                // onKeyDown={(event) => {
-                //   if (!/[0-9]/.test(event.key)) {
-                //     event.preventDefault();
-                //   }
-                // }}
               ></input>
             </div>
             <label>Cardholder name:</label>
