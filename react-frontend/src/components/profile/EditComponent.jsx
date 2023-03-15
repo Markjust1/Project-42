@@ -8,6 +8,7 @@ import convertToBase64 from "../../helpers/convertToBase64";
 const EditComponent = (props) => {
   const url = `http://localhost:2500/api/items/${props.info.itemId}`;
   const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(true);
   const [files, setFiles] = useState("");
   const titleRef = useRef();
@@ -55,11 +56,11 @@ const EditComponent = (props) => {
 
     // Clean up:
     resetValues();
-    // setLoading(true);
-    // setTimeout(() => {
-    //   location.reload();
-    //   // setLoading(false);
-    // }, 1000);
+    setLoading(true);
+    setTimeout(() => {
+      location.reload();
+      // setLoading(false);
+    }, 1000);
   };
 
   const handleFileUpload = async (e) => {

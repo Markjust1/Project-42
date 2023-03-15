@@ -59,13 +59,6 @@ const MyItems = () => {
       });
   };
 
-  // Handle edit
-  // const handleEdit = (id) => {};
-
-  {
-    /* <div className="premium-list-title">No items added yet</div> */
-  }
-
   return (
     <div className="premium-list-container">
       {!loading ? (

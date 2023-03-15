@@ -26,9 +26,11 @@ const AddItem = () => {
 
   const createPost = async (newFile) => {
     try {
-      await axios.post(url, newFile)
-      .then(response => {
-        response.status == 201 ? console.log("Item successfully added") : console.log("Something went wrong")});
+      await axios.post(url, newFile).then((response) => {
+        response.status == 201
+          ? console.log("Item successfully added")
+          : console.log("Something went wrong");
+      });
       // ;
     } catch (err) {
       console.log(err);
@@ -93,83 +95,12 @@ const AddItem = () => {
         <select id="platform" ref={platformRef}>
           <option value="Xbox">Xbox</option>
           <option value="PlayStation">PlayStation</option>
-          <option value='Origin'>Origin</option>
+          <option value="Origin">Origin</option>
           <option value="Battle.net">Battle.net</option>
           <option value="Steam">Steam</option>
           <option value="Epic Games">Epic Games</option>
         </select>
-        {/* <fieldset>
-          <legend>Select a platform:</legend>
 
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "xbox"}
-              type="radio"
-              id="xbox"
-              name="platform"
-              value="Xbox"
-            />
-            <label htmlFor="xbox">Xbox</label>
-          </div>
-
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "playstation"}
-              type="radio"
-              id="playstation"
-              name="platform"
-              value="PlayStation"
-            />
-            <label htmlFor="playstation">PlayStation</label>
-          </div>
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "origin"}
-              type="radio"
-              id="origin"
-              name="platform"
-              value="Origin"
-            />
-            <label htmlFor="origin">Origin</label>
-          </div>
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "battlenet"}
-              type="radio"
-              id="battlenet"
-              name="platform"
-              value="Battle.net"
-            />
-            <label htmlFor="battlenet">Battle.net</label>
-          </div>
-
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "steam"}
-              type="radio"
-              id="steam"
-              name="platform"
-              value="Steam"
-            />
-            <label htmlFor="steam">Steam</label>
-          </div>
-          <div>
-            <input
-              onChange={handleChange}
-              // checked={platform === "epicgames"}
-              type="radio"
-              id="epicgames"
-              name="platform"
-              value="Epic Games"
-            />
-            <label htmlFor="epicgames">Epic Games</label>
-          </div>
-        </fieldset> */}
         <label htmlFor="description">Description:</label>
         <textarea
           rows="4"
@@ -180,16 +111,8 @@ const AddItem = () => {
           placeholder="Maximum 60 characters"
           required
         />
-        {/* <div>
-          <label htmlFor="prem">List as Premium</label>
-          <input
-            type="checkbox"
-            id="prem"
-            // ref={premiumRef}
-            onChange={() => setPremium(!premium)}
-          />
-        </div> */}
-        <label htmlFor="image" >Add Image:</label>
+
+        <label htmlFor="image">Add Image:</label>
         <input
           type="file"
           label="image"
