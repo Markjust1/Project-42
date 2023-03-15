@@ -11,7 +11,7 @@ const AddItem = () => {
   const priceRef = useRef();
   const imageRef = useRef();
   const descriptionRef = useRef();
-  const [platform, setPlatform] = useState("");
+  const platformRef = useRef();
   const owner = localStorage.getItem("userName");
 
   const navigate = useNavigate();
@@ -20,13 +20,16 @@ const AddItem = () => {
     titleRef.current.value = "";
     priceRef.current.value = "";
     descriptionRef.current.value = "";
-    setPlatform("");
+    platformRef.current.value = "";
     imageRef.current.value = "";
   };
 
   const createPost = async (newFile) => {
     try {
-      await axios.post(url, newFile);
+      await axios.post(url, newFile)
+      .then(response => {
+        response.status == 201 ? console.log("Item successfully added") : console.log("Something went wrong")});
+      // ;
     } catch (err) {
       console.log(err);
     }
@@ -38,11 +41,10 @@ const AddItem = () => {
       title: titleRef.current.value,
       image: files,
       description: descriptionRef.current.value,
-      platform: platform,
+      platform: platformRef.current.value,
       price: priceRef.current.value,
       owner: owner,
     });
-    console.log("Item successfully added");
     // Clean up:
     resetValues();
     navigate("/");
@@ -59,15 +61,15 @@ const AddItem = () => {
     setFiles(base64);
   };
 
-  const handleChange = (event) => {
-    setPlatform(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setPlatform(event.target.value);
+  // };
 
   return (
     <div id="add-form">
       <h1 className="form-title">LIST NEW ITEM</h1>
       <form onSubmit={submitHandler}>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
@@ -77,7 +79,7 @@ const AddItem = () => {
           placeholder="Maximum 15 characters"
           required
         />
-        <label htmlFor="price">Price</label>
+        <label htmlFor="price">Price:</label>
         <input
           type="text"
           id="price"
@@ -87,7 +89,16 @@ const AddItem = () => {
           placeholder="Maximum 3 characters"
           required
         />
-        <fieldset>
+        <label htmlFor="platform">Platform:</label>
+        <select id="platform" ref={platformRef}>
+          <option value="Xbox">Xbox</option>
+          <option value="PlayStation">PlayStation</option>
+          <option value='Origin'>Origin</option>
+          <option value="Battle.net">Battle.net</option>
+          <option value="Steam">Steam</option>
+          <option value="Epic Games">Epic Games</option>
+        </select>
+        {/* <fieldset>
           <legend>Select a platform:</legend>
 
           <div>
@@ -158,8 +169,8 @@ const AddItem = () => {
             />
             <label htmlFor="epicgames">Epic Games</label>
           </div>
-        </fieldset>
-        <label htmlFor="description">Description</label>
+        </fieldset> */}
+        <label htmlFor="description">Description:</label>
         <textarea
           rows="4"
           id="description"

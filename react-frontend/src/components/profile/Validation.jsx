@@ -4,7 +4,6 @@ import Premium_Item from "../Premium_Item";
 
 const Validation = (props) => {
   const [showVal, setShowVal] = useState(true);
-  console.log('props received in validation form',props);
 
   //Function to delete item from db
   const deleteItem = () => {
