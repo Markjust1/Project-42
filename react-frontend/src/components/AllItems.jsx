@@ -13,6 +13,7 @@ const AllItems = () => {
     navigate('/register')
   }
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const AllItems = () => {
       axios
         .get(`/api/items/`)
         .then((response) => {
+          setIsLoading(false);
           setItems(response.data);
         })
         .catch((err) => {
@@ -35,9 +37,10 @@ const AllItems = () => {
         <div className="premium-list-title">All Items</div>
       </div>
       <div className="list-container">
-        {items.length < 0 ? (
+        {isLoading && <Loading/>}
+        {items.length < 1 && !isLoading ? (
           <>
-          <Loading/>
+          <div className="premium-list-container">No Items Added Yet</div>
           {/* <div>No Items added</div> */}
           </>
         ) : (
