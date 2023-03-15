@@ -35,7 +35,7 @@ const AllItems = () => {
         <div className="premium-list-title">All Items</div>
       </div>
       <div className="list-container">
-        {items.length < 1 ? (
+        {items.length < 0 ? (
           <>
           <Loading/>
           {/* <div>No Items added</div> */}

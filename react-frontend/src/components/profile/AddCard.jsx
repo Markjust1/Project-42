@@ -10,7 +10,6 @@ const AddCard = (props) => {
   const cvs = useRef();
 
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
-  console.log(props);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ const AddCard = (props) => {
         },
       ],
     });
-    // resetValues();
+    resetValues();
     // location.reload();
   };
 
@@ -62,6 +61,7 @@ const AddCard = (props) => {
                 maxLength="19"
                 placeholder="16-digit number"
                 ref={card}
+                required
               ></input>
             </div>
             <label>Cardholder name:</label>
@@ -70,12 +70,13 @@ const AddCard = (props) => {
               maxLength="25"
               placeholder="Name on the credit card"
               ref={cardholder}
+              required
             ></input>
             <div className="additional-data">
               <div className="stack">
                 <label>Expiry date:</label>
                 <div className="row">
-                  <select ref={expiry1}>
+                  <select ref={expiry1} required>
                     <option value="">Month:</option>
                     <option value="Jan">01 - January</option>
                     <option value="Feb">02 - February</option>
@@ -90,7 +91,7 @@ const AddCard = (props) => {
                     <option value="Nov">11 - November</option>
                     <option value="Dec">12 - December</option>
                   </select>
-                  <select ref={expiry2}>
+                  <select ref={expiry2} required>
                     <option value="">Year:</option>
                     <option
                       value={new Date().getFullYear().toString().substring(2)}
@@ -179,6 +180,7 @@ const AddCard = (props) => {
                   className="cvs-number"
                   placeholder="CVS"
                   ref={cvs}
+                  required
                 ></input>
               </div>
             </div>
