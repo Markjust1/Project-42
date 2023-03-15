@@ -30,10 +30,13 @@ const EditComponent = (props) => {
   };
 
   //Axios call to backend to update item
-
   const editItem = async (newInfo) => {
     try {
-      await axios.patch(url, newInfo);
+      await axios.patch(url, newInfo).then((response) => {
+        response.status === 200
+          ? console.log("Item successfully modified")
+          : console.error("Could not modify item");
+      });
     } catch (err) {
       console.log(err);
     }
@@ -49,15 +52,14 @@ const EditComponent = (props) => {
       price: priceRef.current.value || props.info.price,
       owner: owner,
     });
-    console.log("Item successfully modified");
 
     // Clean up:
     resetValues();
-    setLoading(true);
-    setTimeout(() => {
-      location.reload();
-      // setLoading(false);
-    }, 1000);
+    // setLoading(true);
+    // setTimeout(() => {
+    //   location.reload();
+    //   // setLoading(false);
+    // }, 1000);
   };
 
   const handleFileUpload = async (e) => {
@@ -73,100 +75,100 @@ const EditComponent = (props) => {
 
   return (
     <>
-      {loading ? <Loading /> : (
+      {loading ? (
+        <Loading />
+      ) : (
         <>
-        {edit ? (
-        <div className="edit-container smaller">
-          <form onSubmit={submitHandler}>
-            <div
-              className="edit-button"
-              onClick={() => {
-                setEdit((current) => !current);
-              }}
-            >
-              BACK
-            </div>
-            <div className="close-button" onClick={submitHandler}>
-              OK
-            </div>
-            <label className="edit-pic">
-              <input
-                type="file"
-                className="edit-text"
-                id="image"
-                ref={imageRef}
-                accept="image/*"
-                onChange={(e) => handleFileUpload(e)}
-                required
-              />
-              Choose New Image
-            </label>
-            <label htmlFor="title" className="edit-text">
-              New title:
-            </label>
-            <input
-              type="text"
-              placeholder={props.info.title}
-              className="edit-text"
-              id="title"
-              ref={titleRef}
-              autoComplete="off"
-              maxLength="15"
-              required
-            ></input>
+          {edit ? (
+            <div className="edit-container smaller">
+              <form onSubmit={submitHandler}>
+                <div
+                  className="edit-button"
+                  onClick={() => {
+                    setEdit((current) => !current);
+                  }}
+                >
+                  BACK
+                </div>
+                <div className="close-button" onClick={submitHandler}>
+                  OK
+                </div>
+                <label className="edit-pic">
+                  <input
+                    type="file"
+                    className="edit-text"
+                    id="image"
+                    ref={imageRef}
+                    accept="image/*"
+                    onChange={(e) => handleFileUpload(e)}
+                    required
+                  />
+                  Choose New Image
+                </label>
+                <label htmlFor="title" className="edit-text">
+                  New title:
+                </label>
+                <input
+                  type="text"
+                  placeholder={props.info.title}
+                  className="edit-text"
+                  id="title"
+                  ref={titleRef}
+                  autoComplete="off"
+                  maxLength="15"
+                  required
+                ></input>
 
-            <label htmlFor="price" className="edit-text">
-              New price:
-            </label>
-            <input
-              className="edit-text"
-              type="text"
-              placeholder={props.info.price}
-              id="price"
-              ref={priceRef}
-              autoComplete="off"
-              maxLength="3"
-              required
-            ></input>
-            {/* <label htmlFor="platform" className="edit-text">
+                <label htmlFor="price" className="edit-text">
+                  New price:
+                </label>
+                <input
+                  className="edit-text"
+                  type="text"
+                  placeholder={props.info.price}
+                  id="price"
+                  ref={priceRef}
+                  autoComplete="off"
+                  maxLength="3"
+                  required
+                ></input>
+                {/* <label htmlFor="platform" className="edit-text">
               Update platform:
             </label> */}
-            <select
-              className="platform-select"
-              ref={platformRef}
-              id="platform"
-              required
-            >
-              <option value="">Select a platform:</option>
-              <option value="Xbox">Xbox</option>
-              <option value="Playstation">Playstation</option>
-              <option value="Origin">Origin</option>
-              <option value="Battle.net">Battle.net</option>
-              <option value="Steam">Steam</option>
-              <option value="Epic Games">Epic Games</option>
-            </select>
-            <label htmlFor="description" className="edit-text">
-              New description:
-            </label>
-            <textarea
-              className="edit-description"
-              placeholder={props.info.description}
-              rows="4"
-              id="description"
-              autoComplete="off"
-              ref={descriptionRef}
-              maxLength="60"
-              required
-            ></textarea>
-            
-          </form>
-        </div>
-      ) : (
-        <Premium_Item old={props.info} />
-      )}
+                <select
+                  className="platform-select"
+                  ref={platformRef}
+                  id="platform"
+                  required
+                >
+                  <option value="">Select a platform:</option>
+                  <option value="Xbox">Xbox</option>
+                  <option value="Playstation">Playstation</option>
+                  <option value="Origin">Origin</option>
+                  <option value="Battle.net">Battle.net</option>
+                  <option value="Steam">Steam</option>
+                  <option value="Epic Games">Epic Games</option>
+                </select>
+                <label htmlFor="description" className="edit-text">
+                  New description:
+                </label>
+                <textarea
+                  className="edit-description"
+                  placeholder={props.info.description}
+                  rows="4"
+                  id="description"
+                  autoComplete="off"
+                  ref={descriptionRef}
+                  maxLength="60"
+                  required
+                ></textarea>
+              </form>
+            </div>
+          ) : (
+            <Premium_Item old={props.info} />
+          )}
         </>
       )}
-      
     </>
   );
 };
