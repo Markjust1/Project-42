@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./styles/Navigation.css";
+import cart from "../assets/cart.png";
 
 const Navigation = () => {
   const local_storage = window.localStorage.getItem("userName");
@@ -31,25 +32,27 @@ const Navigation = () => {
           </div>
         </Link>
 
-        <div className="profile-container">
           {local_storage !== null && (
-            <Link to="/profile">
+            <Link to="/profile" style={{ textDecoration: "none" }}>
               <div className="navbar-item">
                 <span>MY ACCOUNT</span>
               </div>
             </Link>
           )}
-        </div>
-              <div className="navbar-item">|</div>
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                <div className="navbar-item">
-                  {local_storage == null ? (
-                    <span>LOGIN</span>
-                  ) : (
-                    <span onClick={clearLocalStorage}>LOGOUT</span>
-                  )}
-                </div>
-              </Link>
+
+        <div className="navbar-item">|</div>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
+            {local_storage == null ? (
+              <span>LOGIN</span>
+            ) : (
+              <span onClick={clearLocalStorage}>LOGOUT</span>
+            )}
+          </div>
+        </Link>
+        <Link to="/cart">
+          <img className="navbar-cart" src={cart} alt=""></img>
+        </Link>
       </div>
     </nav>
   );
