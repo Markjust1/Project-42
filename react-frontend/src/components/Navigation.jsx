@@ -51,7 +51,10 @@ const Navigation = () => {
           </div>
         </Link>
         <Link to="/cart">
-          <img className="navbar-cart" src={cart} alt=""></img>
+          <div className="cart">
+            <img src={cart} alt=""></img>
+            <div className="cart-title">CART</div>
+          </div>
         </Link>
       </div>
     </nav>
