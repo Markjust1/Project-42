@@ -48,8 +48,8 @@
 }
 
 .cart {
-  position: relative;
-  left: 80%;
+  position: absolute;
+  left: 85%;
   width: 100px;
   height: 100px;
   border: 2px solid limegreen;
