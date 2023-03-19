@@ -52,12 +52,24 @@
   left: 85%;
   width: 100px;
   height: 100px;
-  border: 2px solid limegreen;
+  border: 2px solid rgba(50, 205, 50, 0.247);
   border-radius: 50%;
   background-color: beige;
   font-size: 12px;
+  /* background: rgb(101, 30, 214);
+  background: linear-gradient(
+    90deg,
+    rgb(85, 48, 143) 0%,
+    rgb(89, 51, 113) 50%,
+    rgba(50, 40, 130, 0.704) 99%
+  ); */
   font-family: "Cinzel Decorative", cursive;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   text-decoration: none;
+}
+
+.cart:hover {
+  background-color: rgb(247, 254, 204);
 }
 
 .cart img {
