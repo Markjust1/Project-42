@@ -77,7 +77,7 @@ router.patch("/:id", getUser, async (req, res) => {
   }
   if (req.body.fullName != null) {
     res.user.fullName = req.body.fullName;
-  }
+  } 
   if (req.body.address != null) {
     res.user.address = req.body.address;
   }

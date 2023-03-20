@@ -3,8 +3,12 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EditComponent from "./profile/EditComponent";
 import Validation from "./profile/Validation";
+import axios from "axios";
 
 const Premium_Item = (props) => {
+  // console.log(props)
+  const url = `http://localhost:2500/api/users/${props.userId}`;
+
   // function to remove extra keys and assign its values to parent element
   // console.log("props at prem.item: ", props);
   const convert = (obj) => {
@@ -15,13 +19,6 @@ const Premium_Item = (props) => {
       return temp;
     }
   };
-
-  // const convert = (obj) => {
-  //   let temp = {};
-  //   if (Object.keys(obj)[0] === "old") {
-  //     temp = 
-  //   }
-  // };
 
   let result = {};
   if (Object.keys(props)[0] === "old") {
@@ -39,19 +36,30 @@ const Premium_Item = (props) => {
     }
   }, []);
 
-  // const deleteItem = () => {
-  //   props.onDelete(props.itemId);
-  // };
+  const addToCart = (newItem) => {
+    axios
+      .patch(url, newItem)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  // const editItem = () => {
-  //   props.onEdit(props.itemId);
-  // };
-
-  // const editItem = (boolean) => {};
-  // console.log(typeof result);
-  // console.log('result:  ',result);
-  // console.log('result length:  ',result.length);
-  // console.log('props length:  ',Object.keys(props).length);
+  const cartHandler = (e) => {
+    e.preventDefault();
+    addToCart({
+      cart: [
+        {
+          title: props.title || result.title,
+          platform: props.platform || result.platform,
+          description: props.description || result.description,
+          price: props.price || result.price,
+        },
+      ],
+    });
+  };
 
   return (
     <>
@@ -63,7 +71,9 @@ const Premium_Item = (props) => {
           {!edit ? (
             <div className={`premium-container${myItems}`}>
               {location.pathname == "/" && (
-                <div className="cart-button">ADD TO CART</div>
+                <div className="cart-button" onClick={cartHandler}>
+                  ADD TO CART
+                </div>
               )}
               {location.pathname == "/profile" && (
                 <div

@@ -13,7 +13,24 @@ const AllItems = () => {
     navigate('/register')
   }
   const [items, setItems] = useState([]);
+  const [userId, setUserId] = useState('')
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`/api/users/`)
+      .then((response) => {
+        for (let user of response.data) {
+          if (user.name == local_storage) {
+            //User's info
+            setUserId(user._id);
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
 
   useEffect(() => {
@@ -21,6 +38,7 @@ const AllItems = () => {
       axios
         .get(`/api/items/`)
         .then((response) => {
+          // console.log(response)
           setIsLoading(false);
           setItems(response.data);
         })
@@ -47,12 +65,13 @@ const AllItems = () => {
           items.map((item) => (
             <Premium_Item
               key={item._id}
-              // id={item._id}
+              userId={userId}
               title={item.title}
               image={item.image}
               description={item.description}
               platform={item.platform}
               price={item.price}
+              owner={item.owner}
             />
           )
         ))}
