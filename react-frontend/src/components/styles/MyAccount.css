@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   width: 80vw;
   min-width: 900px;
+  min-height: 75vh;
   border: 0.5px solid rgba(54, 54, 54, 0.132);
   margin-top: 50px;
   background: radial-gradient(

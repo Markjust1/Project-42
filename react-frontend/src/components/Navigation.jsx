@@ -53,7 +53,7 @@ const Navigation = () => {
         <Link to="/cart">
           <div className="cart">
             <img src={cart} alt=""></img>
-            <div className="cart-title">CART</div>
+            <div className="nav-cart-title">CART</div>
           </div>
         </Link>
       </div>

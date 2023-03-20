@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import AddItem from "./components/AddItem";
 import AllItems from "./components/AllItems";
 import MyAccount from "./components/MyAccount";
+import Cart from "./components/cart/Cart";
 import "./components/styles/Terms.css";
 import "./App.css";
 import MyItems from "./components/profile/MyItems";
@@ -55,6 +56,7 @@ function App() {
             </>
           }
         />
+        <Route path="/cart" element={<Cart/>}/>
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/security" element={<Security />} />
