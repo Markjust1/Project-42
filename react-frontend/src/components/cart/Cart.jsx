@@ -5,7 +5,15 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <div className="cart-title">My Cart</div>
-      <Cart_Item/>
+      <div className="cart-main-area">
+        <div className="cart-item-container">
+          <Cart_Item/>
+          <Cart_Item/>
+          <Cart_Item/>
+        </div>
+        <span className="cart-separator"></span>
+        <div className="cart-total-container">total price info</div>
+      </div>
     </div>
   )
 };
