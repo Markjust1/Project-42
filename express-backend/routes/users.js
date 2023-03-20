@@ -98,6 +98,14 @@ router.patch("/:id", getUser, async (req, res) => {
     }
   }
   )
+  const cart = req.body.cart;
+  cart?.map((el)=>{
+
+    if (el.title != null) {
+      res.user.cart.push(el)
+    }
+  }
+  )
 
   try {
     const updatedUser = await res.user.save();

@@ -24,7 +24,7 @@ const itemSchema = new mongoose.Schema({
   owner: {
     type: String,
     required: true
-  }
+  },
 });
 
 module.exports = mongoose.model("Item", itemSchema);

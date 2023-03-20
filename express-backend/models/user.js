@@ -46,6 +46,26 @@ const userSchema = new mongoose.Schema({
         type: String,
       },
     },
+  ],
+  cart: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      platform: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
+    }
   ]
 });
 
