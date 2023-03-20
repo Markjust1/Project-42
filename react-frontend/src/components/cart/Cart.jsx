@@ -12,7 +12,11 @@ const Cart = () => {
           <Cart_Item/>
         </div>
         <span className="cart-separator"></span>
-        <div className="cart-total-container">total price info</div>
+        <div className="cart-total-container">
+          <div className="cart-subtotal-title">Subtotal:</div>
+          <div className="cart-subtotal-price">$<b>300</b> + tax</div>
+          <div  className="edit-profile">Proceed to Checkout</div>
+        </div>
       </div>
     </div>
   )

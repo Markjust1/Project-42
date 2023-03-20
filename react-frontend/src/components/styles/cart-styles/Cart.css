@@ -51,8 +51,12 @@
   right: 35px;
   width: 2px;
   height: 500px;
-  background: rgb(214,30,30);
-  background: linear-gradient(19deg, rgba(214,30,30,0) 0%, rgb(141, 100, 236) 100%);
+  background: rgb(214, 30, 30);
+  background: linear-gradient(
+    19deg,
+    rgba(214, 30, 30, 0) 0%,
+    rgb(141, 100, 236) 100%
+  );
 }
 
 .cart-title {
@@ -84,7 +88,6 @@
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   box-sizing: border-box;
 }
-
 
 .cart-remove-button {
   display: flex;
@@ -126,4 +129,18 @@
   color: rgb(74, 231, 12);
   font-family: "Cinzel Decorative", cursive;
   text-shadow: 0px 3px 3px rgba(243, 96, 22, 0.759);
+}
+
+.cart-subtotal-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-family: "Expletus Sans";
+  margin-bottom: 30px;
+}
+.cart-subtotal-price {
+  text-align: center;
+  color: rgb(64, 63, 63);
+  font-size: 1.5em;
+  font-family: "Expletus Sans";
+  margin-bottom: 30px;
 }
