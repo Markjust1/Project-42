@@ -1,14 +1,15 @@
 import "../styles/cart-styles/Cart.css";
 
-const Cart_Item = () => {
+const Cart_Item = (props) => {
+  console.log('props in cart',props)
   return (
     <div className="cart-item">
       <div className="cart-area">
-        <div className="cart-item-title">Frostmourne</div>
-        <div className="cart-item-platform">Playstation</div>
+        <div className="cart-item-title">{props.title}</div>
+        <div className="cart-item-platform">{props.platform}</div>
       </div>
-      <div className="cart-item-description">A rare collectible. Get it while you can</div>
-      <div className="cart-item-price">$300</div>
+      <div className="cart-item-description">{props.description}</div>
+      <div className="cart-item-price">${props.price}</div>
       <div className="cart-remove-button">Remove</div>
     </div>
   )

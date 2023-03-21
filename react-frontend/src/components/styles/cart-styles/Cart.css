@@ -39,11 +39,11 @@
 }
 
 .cart-item-container {
-  flex-grow: 3;
+  flex-grow: 5;
 }
 
 .cart-total-container {
-  flex-grow: 2;
+  flex-grow: 0.5;
 }
 
 .cart-separator {
@@ -161,4 +161,5 @@
   color: rgb(252, 243, 189);
   overflow: auto;
   max-width: 150px;
+  flex-grow: 3;
 }
