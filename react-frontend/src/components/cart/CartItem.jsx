@@ -1,6 +1,7 @@
 import "../styles/cart-styles/Cart.css";
 
 const Cart_Item = (props) => {
+  console.log(props.id);
   return (
     <div className="cart-item">
       <div className="cart-area">

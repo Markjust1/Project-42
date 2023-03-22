@@ -57,13 +57,15 @@ router.post("/", async (req, res) => {
 // User login
 
 router.post("/login", async (req, res) => {
-  const user = await User.findOne({name: req.body.name});
+  const user = await User.findOne({ name: req.body.name });
   // Checking if user exists
   if (!user) {
     return res.status(400).send("Cannot find user");
   }
   // Checking if password is correct
-  await bcrypt.compare(req.body.password, user.password) ? res.status(200).send('Success!') : res.status(403).send("Login failed");
+  (await bcrypt.compare(req.body.password, user.password))
+    ? res.status(200).send("Success!")
+    : res.status(403).send("Login failed");
 });
 
 // Update/modify user
@@ -77,7 +79,7 @@ router.patch("/:id", getUser, async (req, res) => {
   }
   if (req.body.fullName != null) {
     res.user.fullName = req.body.fullName;
-  } 
+  }
   if (req.body.address != null) {
     res.user.address = req.body.address;
   }
@@ -91,21 +93,19 @@ router.patch("/:id", getUser, async (req, res) => {
     res.user.image = req.body.image;
   }
   const cards = req.body.cards;
-  cards?.map((el)=>{
-
+  cards?.map((el) => {
     if (el.cardNumber != null) {
-      res.user.cards.push(el)
+      res.user.cards.push(el);
     }
-  }
-  )
+  });
   const cart = req.body.cart;
-  cart?.map((el)=>{
-
+  cart?.map((el) => {
     if (el.title != null) {
-      res.user.cart.push(el)
+      res.user.cart.push(el);
     }
-  }
-  )
+  });
+
+  
 
   try {
     const updatedUser = await res.user.save();

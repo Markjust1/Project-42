@@ -49,6 +49,7 @@ const Cart = () => {
             content.map((item) => (
               <Cart_Item
                 key={item.title}
+                id={item._id}
                 title={item.title}
                 description={item.description}
                 price={item.price}
