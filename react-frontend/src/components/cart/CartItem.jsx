@@ -1,7 +1,5 @@
 import "../styles/cart-styles/Cart.css";
 import axios from "axios";
-import { useState } from "react";
-
 
 const Cart_Item = (props) => {
   const url = `http://localhost:2500/api/users/${props.userId}`;
@@ -10,7 +8,6 @@ const Cart_Item = (props) => {
     axios
       .delete(`${url}/cards/${cartItemId}`)
       .then((res) => {
-        console.log(res);
         if (res.status == 200) {
           props.onDelete();
         }
@@ -33,9 +30,11 @@ const Cart_Item = (props) => {
       </div>
       <div className="cart-item-description">{props.description}</div>
       <div className="cart-item-price">${props.price}</div>
-      <div className="cart-remove-button" onClick={removeHandler}>Remove</div>
+      <div className="cart-remove-button" onClick={removeHandler}>
+        Remove
+      </div>
     </div>
-  )
+  );
 };
 
 export default Cart_Item;

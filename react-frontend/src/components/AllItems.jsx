@@ -38,7 +38,6 @@ const AllItems = () => {
       axios
         .get(`/api/items/`)
         .then((response) => {
-          // console.log(response)
           setIsLoading(false);
           setItems(response.data);
         })

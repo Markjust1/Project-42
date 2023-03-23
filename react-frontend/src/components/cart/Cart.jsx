@@ -31,15 +31,15 @@ const Cart = () => {
             //User's cart info
             setContent(user.cart);
             if (user.cart.length > 0) {
-              let num = user.cart.map(el => el.price);
+              let num = user.cart.map((el) => el.price);
               setSubtotal(num.reduce((a, b) => a + b));
               setEmpty(false);
             } else {
               setSubtotal(0);
+              setEmpty(true);
             }
           }
         }
-
       })
       .catch((err) => {
         console.log(err);
@@ -51,10 +51,17 @@ const Cart = () => {
       <div className="cart-title">My Cart</div>
       <div className="cart-main-area">
         <div className="cart-item-container">
-          {content.length < 1 ? (
+          {content.length < 1 && empty ? (
             <>
               <div className="cart-empty-title">Cart is empty...</div>
-              <div className="edit-profile centered" onClick={()=>{navigate("/")}}>Main page</div>
+              <div
+                className="edit-profile centered"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Main page
+              </div>
             </>
           ) : (
             content.map((item) => (
@@ -71,19 +78,16 @@ const Cart = () => {
             ))
           )}
         </div>
-        {!empty && 
-        <>
-          <span className="cart-separator"></span>
-          <div className="cart-total-container">
-            <div className="cart-subtotal-title">Subtotal:</div>
-            <div className="cart-subtotal-price">
-              ${subtotal} + tax
+        {!empty && content ? (
+          <>
+            <span className="cart-separator"></span>
+            <div className="cart-total-container">
+              <div className="cart-subtotal-title">Subtotal:</div>
+              <div className="cart-subtotal-price">${subtotal} + tax</div>
+              <div className="edit-profile">Proceed to Checkout</div>
             </div>
-            <div className="edit-profile">Proceed to Checkout</div>
-          </div>
-        </>
-        }
-
+          </>
+        ) : <></>}
       </div>
     </div>
   );
