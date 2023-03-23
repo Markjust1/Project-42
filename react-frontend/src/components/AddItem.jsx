@@ -49,7 +49,7 @@ const AddItem = () => {
     });
     // Clean up:
     resetValues();
-    navigate("/");
+    navigate("/profile");
   };
 
   const handleFileUpload = async (e) => {

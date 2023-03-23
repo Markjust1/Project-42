@@ -46,10 +46,10 @@ const MyItems = (props) => {
       .delete(`/api/items/${id}`)
       .then((response) => {
         console.log(response);
-        setTimeout(() => {
-          setLoading(false);
-        }, 800);
-        setLoading(true);
+        // setTimeout(() => {
+        //   setLoading(false);
+        // }, 800);
+        // setLoading(true);
         props.setProfileUpdated(true);
       })
       .catch((err) => {
@@ -72,8 +72,8 @@ const MyItems = (props) => {
             )}
           </div>
           <div className="list-container">
-            {items.length > 0 ? (
-              items.map((item) => (
+            {items?.length > 0 ? (
+              items?.map((item) => (
                 <Premium_Item
                   key={item._id}
                   itemId={item._id}

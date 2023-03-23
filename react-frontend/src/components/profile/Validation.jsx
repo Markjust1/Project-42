@@ -1,13 +1,17 @@
 import "../styles/profile-styles/Validation.css";
 import { useState } from "react";
 import Premium_Item from "../Premium_Item";
+import { useNavigate } from "react-router";
 
 const Validation = (props) => {
   const [showVal, setShowVal] = useState(true);
 
+  const navigate = useNavigate();
+
   //Function to delete item from db
   const deleteItem = () => {
     props.info.onDelete(props.info.itemId);
+    navigate("/profile");
   };
 
   return (
