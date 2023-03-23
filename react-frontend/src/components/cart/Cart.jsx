@@ -13,6 +13,11 @@ const Cart = () => {
   const [userId, setUserId] = useState();
   const [content, setContent] = useState([]);
   const [subtotal, setSubtotal] = useState();
+  const [renderSwitch, setRenderSwitch] = useState(false);
+
+  const handleDelete = () => {
+    setRenderSwitch((prev) => !prev);
+  };
 
   useEffect(() => {
     axios
@@ -35,7 +40,7 @@ const Cart = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [renderSwitch]);
 
   return (
     <div className="cart-container">
@@ -57,6 +62,7 @@ const Cart = () => {
                 description={item.description}
                 price={item.price}
                 platform={item.platform}
+                onDelete={handleDelete}
               />
             ))
           )}

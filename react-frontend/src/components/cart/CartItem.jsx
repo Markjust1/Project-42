@@ -1,28 +1,19 @@
 import "../styles/cart-styles/Cart.css";
 import axios from "axios";
+import { useState } from "react";
 
 
 const Cart_Item = (props) => {
   const url = `http://localhost:2500/api/users/${props.userId}`;
-  // console.log(props.id);
-
-  // const deleteCartItem = (cartItemId) => {
-  //   axios
-  //     .delete(url, cartItemId)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-      
-  // };
 
   const deleteCartItem = (cartItemId) => {
     axios
       .delete(`${url}/cards/${cartItemId}`)
       .then((res) => {
         console.log(res);
+        if (res.status == 200) {
+          props.onDelete();
+        }
       })
       .catch((err) => {
         console.log(err);
