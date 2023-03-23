@@ -6,7 +6,7 @@ import Premium_Item from "../Premium_Item";
 import Loading from "../Loading";
 import Empty from "./Empty";
 
-const MyItems = () => {
+const MyItems = (props) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
@@ -50,9 +50,7 @@ const MyItems = () => {
           setLoading(false);
         }, 800);
         setLoading(true);
-        // setItems([]);
-        location.reload();
-        // navigate("/")
+        props.setProfileUpdated(true);
       })
       .catch((err) => {
         console.log(err);

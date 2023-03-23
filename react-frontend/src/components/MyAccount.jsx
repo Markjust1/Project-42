@@ -100,10 +100,9 @@ const MyAccount = (props) => {
               userId: userId,
               cardData: cardData,
             }}
-            setProfileUpdated={props.setProfileUpdated}
           />
         )}
-        {myItems && <MyItems />}
+        {myItems && <MyItems setProfileUpdated={props.setProfileUpdated}/>}
         {myOrders && <MyOrders />}
       </div>
     </div>
