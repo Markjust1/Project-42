@@ -14,6 +14,7 @@ const Cart = () => {
   const [content, setContent] = useState([]);
   const [subtotal, setSubtotal] = useState();
   const [renderSwitch, setRenderSwitch] = useState(false);
+  const [empty, setEmpty] = useState(true);
 
   const handleDelete = () => {
     setRenderSwitch((prev) => !prev);
@@ -32,6 +33,7 @@ const Cart = () => {
             if (user.cart.length > 0) {
               let num = user.cart.map(el => el.price);
               setSubtotal(num.reduce((a, b) => a + b));
+              setEmpty(false);
             } else {
               setSubtotal(0);
             }
@@ -51,8 +53,8 @@ const Cart = () => {
         <div className="cart-item-container">
           {content.length < 1 ? (
             <>
-              <div className="premium-list-container">No content Added Yet</div>
-              {/* <div>No content added</div> */}
+              <div className="cart-empty-title">Cart is empty...</div>
+              <div className="edit-profile centered" onClick={()=>{navigate("/")}}>Main page</div>
             </>
           ) : (
             content.map((item) => (
@@ -69,14 +71,18 @@ const Cart = () => {
             ))
           )}
         </div>
-        <span className="cart-separator"></span>
-        <div className="cart-total-container">
-          <div className="cart-subtotal-title">Subtotal:</div>
-          <div className="cart-subtotal-price">
-            ${subtotal} + tax
+        {!empty && 
+        <>
+          <span className="cart-separator"></span>
+          <div className="cart-total-container">
+            <div className="cart-subtotal-title">Subtotal:</div>
+            <div className="cart-subtotal-price">
+              ${subtotal} + tax
+            </div>
+            <div className="edit-profile">Proceed to Checkout</div>
           </div>
-          <div className="edit-profile">Proceed to Checkout</div>
-        </div>
+        </>
+        }
 
       </div>
     </div>

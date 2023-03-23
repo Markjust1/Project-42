@@ -163,3 +163,14 @@
   max-width: 150px;
   flex-grow: 3;
 }
+
+.cart-empty-title {
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 150px;
+}
+
+.centered {
+  width: 150px;
+  margin: auto;
+}
