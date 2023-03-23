@@ -10,6 +10,7 @@ const Cart = () => {
   if (local_storage == null) {
     navigate("/register");
   }
+  const [userId, setUserId] = useState();
   const [content, setContent] = useState([]);
   const [subtotal, setSubtotal] = useState();
 
@@ -17,6 +18,7 @@ const Cart = () => {
     axios
       .get(`/api/users/`)
       .then((response) => {
+        setUserId(response.data[0]._id);
         let num = [];
         for (let user of response.data) {
           if (user.name == local_storage) {
@@ -27,7 +29,7 @@ const Cart = () => {
             })
           }
         }
-        setSubtotal(num.reduce((a,b)=>a+b));
+        setSubtotal(num?.reduce((a,b)=>a+b));
 
       })
       .catch((err) => {
@@ -49,7 +51,8 @@ const Cart = () => {
             content.map((item) => (
               <Cart_Item
                 key={item.title}
-                id={item._id}
+                itemId={item._id}
+                userId={userId}
                 title={item.title}
                 description={item.description}
                 price={item.price}

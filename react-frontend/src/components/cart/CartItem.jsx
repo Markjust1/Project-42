@@ -1,7 +1,39 @@
 import "../styles/cart-styles/Cart.css";
+import axios from "axios";
+
 
 const Cart_Item = (props) => {
-  console.log(props.id);
+  const url = `http://localhost:2500/api/users/${props.userId}`;
+  // console.log(props.id);
+
+  // const deleteCartItem = (cartItemId) => {
+  //   axios
+  //     .delete(url, cartItemId)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+      
+  // };
+
+  const deleteCartItem = (cartItemId) => {
+    axios
+      .delete(`${url}/cards/${cartItemId}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const removeHandler = (e) => {
+    e.preventDefault();
+    deleteCartItem(props.itemId);
+  };
+
   return (
     <div className="cart-item">
       <div className="cart-area">
@@ -10,7 +42,7 @@ const Cart_Item = (props) => {
       </div>
       <div className="cart-item-description">{props.description}</div>
       <div className="cart-item-price">${props.price}</div>
-      <div className="cart-remove-button">Remove</div>
+      <div className="cart-remove-button" onClick={removeHandler}>Remove</div>
     </div>
   )
 };

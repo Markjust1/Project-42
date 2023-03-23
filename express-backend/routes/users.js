@@ -71,6 +71,8 @@ router.post("/login", async (req, res) => {
 // Update/modify user
 
 router.patch("/:id", getUser, async (req, res) => {
+  console.log(req.params);
+
   if (req.body.name != null) {
     res.user.name = req.body.name;
   }
@@ -105,8 +107,6 @@ router.patch("/:id", getUser, async (req, res) => {
     }
   });
 
-  
-
   try {
     const updatedUser = await res.user.save();
     res.json(updatedUser);
@@ -115,12 +115,38 @@ router.patch("/:id", getUser, async (req, res) => {
   }
 });
 
+// Deleting cart items
+
+// router.patch("/:id/:id", getUser, getCartItem, async (req, res) => {
+//   console.log(req.params)
+//   try {
+//     await res.cart.remove();
+//     res.json({message: "Deleted cart item"})
+//   } catch(err) {
+//     res.status(500).json({message: err.message})
+//   }
+// })
+
+
 // Delete user
 
-router.delete("/:id", getUser, async (req, res) => {
+// router.delete("/:id/", getUser, async (req, res) => {
+//       try {
+//         await res.user.remove();
+//         res.json({ message: "Deleted user" });
+//       } catch (err) {
+//         res.status(500).json({ message: err.message });
+//       }
+// });
+
+// Delete a card from a user's cart
+
+router.delete("/:id/cards/:cardId", getUser, getCartItem, async (req, res) => {
+  console.log(req.params)
   try {
-    await res.user.remove();
-    res.json({ message: "Deleted user" });
+    res.user.cards = res.user.cards.filter((card) => card.id !== req.params.cardId);
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -140,6 +166,22 @@ async function getUser(req, res, next) {
   }
   res.user = user;
   next();
+}
+
+async function getCartItem(req, res, next) {
+  let cart;
+  try {
+    cart = await User.updateOne(
+      {_id: req.params.id},
+      {$pull: {cart: {_id: req.params.cardId} }})
+    if (cart == null) {
+      return res.status(404).json({ message: "Cannot find item" });
+    }
+  } catch (err) {
+    return res.status(500).json({message: err.message})
+  }
+  res.cart = cart;
+  next()
 }
 
 module.exports = router;
