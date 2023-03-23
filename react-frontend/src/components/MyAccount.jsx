@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import profilep from "../assets/profile-pic.png";
 import axios from "axios";
 
-const MyAccount = () => {
+const MyAccount = (props) => {
   const userName = localStorage.getItem("userName");
 
   const [profile, setProfile] = useState(false);
@@ -91,6 +91,7 @@ const MyAccount = () => {
               userProvince,
               files,
             }}
+            setProfileUpdated={props.setProfileUpdated}
           />
         )}
         {wallet && (
@@ -99,6 +100,7 @@ const MyAccount = () => {
               userId: userId,
               cardData: cardData,
             }}
+            setProfileUpdated={props.setProfileUpdated}
           />
         )}
         {myItems && <MyItems />}

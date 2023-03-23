@@ -71,7 +71,6 @@ router.post("/login", async (req, res) => {
 // Update/modify user
 
 router.patch("/:id", getUser, async (req, res) => {
-  console.log(req.params);
 
   if (req.body.name != null) {
     res.user.name = req.body.name;
@@ -114,18 +113,6 @@ router.patch("/:id", getUser, async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-
-// Deleting cart items
-
-// router.patch("/:id/:id", getUser, getCartItem, async (req, res) => {
-//   console.log(req.params)
-//   try {
-//     await res.cart.remove();
-//     res.json({message: "Deleted cart item"})
-//   } catch(err) {
-//     res.status(500).json({message: err.message})
-//   }
-// })
 
 // Delete user
 

@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
@@ -23,7 +23,9 @@ import MyWallet from "./components/profile/MyWallet";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [editableItems, setEditableItems] = useState(false);
+
+    // Checks if user profile was updated and triggers re-render:
+    const [profileUpdated, setProfileUpdated] = useState(false);
 
   function loginHandler() {
     setIsLoggedIn(!isLoggedIn);
@@ -36,7 +38,7 @@ function App() {
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<MyAccount />}>
+        <Route path="/profile" element={<MyAccount key={profileUpdated} setProfileUpdated={setProfileUpdated}/>}>
           {/* <Route path="edit-profile" element={<EditProfile/>}/>
           <Route path="my-items" element={<MyItems/>}/>
           <Route path="my-wallet" element={<MyWallet/>}/>

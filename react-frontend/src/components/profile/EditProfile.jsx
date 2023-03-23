@@ -7,7 +7,6 @@ import { useNavigate } from "react-router";
 const EditProfile = (props) => {
   const [files, setFiles] = useState("");
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
-  const navigate = useNavigate();
 
   const nameRef = useRef();
   const addressRef = useRef();
@@ -24,9 +23,8 @@ const EditProfile = (props) => {
       province: provinceRef.current.value || props.userData.userProvince,
       image: files || props.userData.files,
     });
-    console.log("User info added successfully");
     resetValues();
-    location.reload();
+    // location.reload();
   };
 
   const resetValues = () => {
@@ -39,7 +37,12 @@ const EditProfile = (props) => {
 
   const addUserInfo = async (userData) => {
     try {
-      await axios.patch(url, userData);
+      await axios.patch(url, userData).then(res => {
+        if (res.status == 200) {
+          console.log("User info added successfully");
+        }
+        props.setProfileUpdated(true);
+      })
     } catch (err) {
       console.log(err);
     }
