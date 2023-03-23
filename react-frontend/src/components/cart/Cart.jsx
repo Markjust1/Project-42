@@ -29,12 +29,14 @@ const Cart = () => {
           if (user.name == local_storage) {
             //User's cart info
             setContent(user.cart);
-            user.cart.map(el=>{
-              num.push(el.price)
-            })
+            if (user.cart.length > 0) {
+              let num = user.cart.map(el => el.price);
+              setSubtotal(num.reduce((a, b) => a + b));
+            } else {
+              setSubtotal(0);
+            }
           }
         }
-        setSubtotal(num?.reduce((a,b)=>a+b));
 
       })
       .catch((err) => {
@@ -75,6 +77,7 @@ const Cart = () => {
           </div>
           <div className="edit-profile">Proceed to Checkout</div>
         </div>
+
       </div>
     </div>
   );
