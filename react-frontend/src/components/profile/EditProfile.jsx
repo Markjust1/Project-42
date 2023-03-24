@@ -2,7 +2,6 @@ import "../styles/profile-styles/EditProfile.css";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import convertToBase64 from "../../helpers/convertToBase64";
-import { useNavigate } from "react-router";
 
 const EditProfile = (props) => {
   const [files, setFiles] = useState("");

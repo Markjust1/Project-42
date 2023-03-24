@@ -113,4 +113,5 @@
 
 .navbar-elements div:hover {
   transform: scale(1.03);
+  color: rgb(252, 233, 170);
 }

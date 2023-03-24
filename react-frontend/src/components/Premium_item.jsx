@@ -10,19 +10,18 @@ const Premium_Item = (props) => {
   const url = `http://localhost:2500/api/users/${props.userId}`;
 
   // function to remove extra keys and assign its values to parent element
-  // console.log("props at prem.item: ", props);
+
   const convert = (obj) => {
-    let temp = obj.old;
-    if (Object.keys(temp)[0] === "old") {
-      return convert(temp);
-    } else {
-      return temp;
+    let temp = obj;
+    while (Object.keys(temp)[0] === "old") {
+      temp = temp.old;
     }
+    return temp;
   };
 
   let result = {};
-  if (Object.keys(props)[0] === "old") {
-    result = convert(props);
+  if (props.old) {
+    result = convert(props.old);
   }
 
   // console.log('props passed to premium item',props.old)
@@ -41,6 +40,7 @@ const Premium_Item = (props) => {
       .patch(url, newItem)
       .then((res) => {
         console.log(res);
+        props.setProfileUpdated(true) || result.setProfileUpdated(true);
       })
       .catch((err) => {
         console.log(err);

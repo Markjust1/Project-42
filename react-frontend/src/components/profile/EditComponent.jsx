@@ -6,7 +6,25 @@ import "../styles/profile-styles/EditComponent.css";
 import convertToBase64 from "../../helpers/convertToBase64";
 
 const EditComponent = (props) => {
-  const url = `http://localhost:2500/api/items/${props.info.itemId}`;
+
+  console.log(props)
+  //function which checks if there's 'old' key in passed prop object due to going to EDIT mode back and forth;
+  const convert = (obj) => {
+    let temp = obj;
+    while (Object.keys(temp)[0] === "old") {
+      temp = temp.old;
+    }
+    return temp;
+  };
+
+  let result = {};
+  if (props.info.old) {
+    result = convert(props.info.old);
+  }
+
+  const url = `http://localhost:2500/api/items/${
+    props.info.itemId ? props.info.itemId : result?.itemId
+  }`;
   const [loading, setLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(true);
@@ -33,10 +51,12 @@ const EditComponent = (props) => {
   //Axios call to backend to update item
   const editItem = async (newInfo) => {
     try {
-      await axios.patch(url, newInfo).then((response) => {
-        response.status === 200
-          ? console.log("Item successfully modified")
-          : console.error("Could not modify item");
+      await axios.patch(url, newInfo).then((res) => {
+        console.log(res);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+        props.info?.setProfileUpdated(true)
       });
     } catch (err) {
       console.log(err);
@@ -46,21 +66,21 @@ const EditComponent = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     editItem({
-      title: titleRef.current.value || props.info.title,
-      image: files || props.info.image,
-      description: descriptionRef.current.value || props.info.description,
-      platform: platformRef.current.value || props.info.platform,
-      price: priceRef.current.value || props.info.price,
+      title: titleRef.current.value || props.info.title || result.title,
+      image: files || props.info.image || result.image,
+      description:
+        descriptionRef.current.value ||
+        props.info.description ||
+        result.desctiption,
+      platform:
+        platformRef.current.value || props.info.platform || result.platform,
+      price: priceRef.current.value || props.info.price || result.price,
       owner: owner,
     });
 
     // Clean up:
     resetValues();
     setLoading(true);
-    setTimeout(() => {
-      location.reload();
-      // setLoading(false);
-    }, 1000);
   };
 
   const handleFileUpload = async (e) => {
@@ -111,7 +131,7 @@ const EditComponent = (props) => {
                 </label>
                 <input
                   type="text"
-                  placeholder={props.info.title}
+                  placeholder={props.info.title || result?.title}
                   className="edit-text"
                   id="title"
                   ref={titleRef}
@@ -126,7 +146,7 @@ const EditComponent = (props) => {
                 <input
                   className="edit-text"
                   type="text"
-                  placeholder={props.info.price}
+                  placeholder={props.info.price || result?.price}
                   id="price"
                   ref={priceRef}
                   autoComplete="off"
@@ -155,7 +175,7 @@ const EditComponent = (props) => {
                 </label>
                 <textarea
                   className="edit-description"
-                  placeholder={props.info.description}
+                  placeholder={props.info.description || result?.description}
                   rows="4"
                   id="description"
                   autoComplete="off"

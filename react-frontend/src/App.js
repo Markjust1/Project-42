@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Popular from "./components/Popular";
 import Games from "./components/Games";
@@ -23,9 +23,9 @@ import MyWallet from "./components/profile/MyWallet";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    // Checks if user profile was updated and triggers re-render:
-    const [profileUpdated, setProfileUpdated] = useState(false);
+  // Checks if user profile was updated and triggers re-render:
+  const [profileUpdated, setProfileUpdated] = useState(false);
+  useEffect(()=>{setProfileUpdated(false)}, [profileUpdated])
 
   function loginHandler() {
     setIsLoggedIn(!isLoggedIn);
@@ -54,7 +54,7 @@ function App() {
                 {/* <Platform /> */}
               {/* </div> */}
               {/* <Premium_Item_List /> */}
-              <AllItems />
+              <AllItems/>
             </>
           }
         />

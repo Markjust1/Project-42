@@ -12,8 +12,6 @@ const MyItems = (props) => {
   const local_storage = window.localStorage.getItem("userName");
   const [items, setItems] = useState([]);
 
-
-
   // If user is not logged in -> reroute to login
   if (local_storage == null) {
     navigate("/login");
@@ -49,7 +47,7 @@ const MyItems = (props) => {
         // setTimeout(() => {
         //   setLoading(false);
         // }, 800);
-        // setLoading(true);
+        setLoading(true);
         props.setProfileUpdated(true);
       })
       .catch((err) => {
@@ -83,6 +81,7 @@ const MyItems = (props) => {
                   platform={item.platform}
                   price={item.price}
                   onDelete={handleDelete}
+                  setProfileUpdated={props.setProfileUpdated}
                 />
               ))
             ) : (
