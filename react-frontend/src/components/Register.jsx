@@ -45,7 +45,7 @@ const Register = () => {
         setAddStyle(" form-success");
       })
       .catch((err) => {
-        console.log("Username already exists..");
+        console.log(err);
         setTimeout(() => {
           setAddStyle("");
         }, 1000);

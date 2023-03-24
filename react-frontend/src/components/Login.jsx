@@ -13,6 +13,7 @@ const Login = (props) => {
 
   // Axios call to the server
   const url = "http://localhost:2500/api/users/login";
+  
   function loginUser(loginInfo) {
     axios
       .post(url, loginInfo)

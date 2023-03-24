@@ -35,15 +35,19 @@ const userSchema = new mongoose.Schema({
     {
       cardNumber: {
         type: Number,
+        required: true,
       },
       cardholder: {
         type: String,
+        required: true,
       },
       expiryDate: {
         type: String,
+        required: true,
       },
       cvs: {
         type: Number,
+        required: true,
       },
     },
   ],

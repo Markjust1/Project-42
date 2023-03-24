@@ -1,4 +1,5 @@
 import "../styles/profile-styles/MyWallet.css";
+import "../styles/Register.css"
 import AddCard from "./AddCard";
 
 const MyWallet = (props) => {
