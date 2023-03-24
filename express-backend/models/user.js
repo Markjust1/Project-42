@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
 
     {
       cardNumber: {
-        type: String,
+        type: Number,
       },
       cardholder: {
         type: String,
@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
         type: String,
       },
       cvs: {
-        type: String,
+        type: Number,
       },
     },
   ],

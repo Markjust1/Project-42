@@ -7,7 +7,6 @@ import convertToBase64 from "../../helpers/convertToBase64";
 
 const EditComponent = (props) => {
 
-  console.log(props)
   //function which checks if there's 'old' key in passed prop object due to going to EDIT mode back and forth;
   const convert = (obj) => {
     let temp = obj;

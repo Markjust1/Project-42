@@ -34,8 +34,10 @@ const AddCard = (props) => {
 
   const addCardInfo = async (cardData) => {
     try {
-      await axios.patch(url, cardData);
-      console.log("Card added successfully");
+      await axios.patch(url, cardData).then(res=>{
+        res.status == 200 ? console.log("Card added successfully") : 
+        console.log("Something went wrong");
+      })
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +60,7 @@ const AddCard = (props) => {
               <input
                 type="text"
                 className="card-input"
-                maxLength="19"
+                maxLength="16"
                 placeholder="16-digit number"
                 ref={card}
                 required
