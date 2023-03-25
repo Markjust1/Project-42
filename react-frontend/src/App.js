@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
-import Popular from "./components/Popular";
-import Games from "./components/Games";
-import Platform from "./components/Platform";
+// import Popular from "./components/Popular";
+// import Games from "./components/Games";
+// import Platform from "./components/Platform";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Terms from "./components/Terms";
@@ -17,15 +17,44 @@ import MyAccount from "./components/MyAccount";
 import Cart from "./components/cart/Cart";
 import "./components/styles/Terms.css";
 import "./App.css";
-import MyItems from "./components/profile/MyItems";
-import EditProfile from "./components/profile/EditProfile";
-import MyWallet from "./components/profile/MyWallet";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  // const [userInfo, setUserInfo] = useState();
+  const [cartLength, setCartLength] = useState();
+  const navigate = useNavigate();
+  const local_storage = window.localStorage.getItem("userName");
+  if (local_storage == null) {
+    navigate('/register')
+  }
+  // Getting user info and sending corresponding info to props
+
+  useEffect(()=>{
+    axios
+      .get(`/api/users/`)
+      .then((response) => {
+        for (let user of response.data) {
+          if (user.name == local_storage) {
+            //User's info
+            // setUserInfo(user);
+            setCartLength(user.cart.length);
+          }
+        }
+        // console.log("userInfo app.js:",userInfo.cart)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[])
+
+  console.log(cartLength)
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // Checks if user profile was updated and triggers re-render:
   const [profileUpdated, setProfileUpdated] = useState(false);
   useEffect(()=>{setProfileUpdated(false)}, [profileUpdated])
+
 
   function loginHandler() {
     setIsLoggedIn(!isLoggedIn);
@@ -33,7 +62,7 @@ function App() {
 
   return (
     <main className="App">
-      <Navigation />
+      <Navigation cartLength={cartLength}/>
       <Routes>
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
@@ -58,7 +87,7 @@ function App() {
             </>
           }
         />
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart" element={<Cart setProfileUpdated={setProfileUpdated}/>}/>
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/security" element={<Security />} />

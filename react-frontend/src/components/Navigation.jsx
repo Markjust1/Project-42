@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles/Navigation.css";
 import cart from "../assets/cart.png";
 
-const Navigation = () => {
+const Navigation = (props) => {
   const local_storage = window.localStorage.getItem("userName");
   const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ const Navigation = () => {
           <div className="cart">
             <img src={cart} alt=""></img>
             <div className="nav-cart-title">CART</div>
-            <div className="cart-item-counter">1</div>
+            {props.cartLength > 0 ? <div className="cart-item-counter">{props.cartLength}</div> : <></>}
           </div>
         </Link>
       </div>

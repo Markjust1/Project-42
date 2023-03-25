@@ -6,7 +6,7 @@ const Cart_Item = (props) => {
 
   const deleteCartItem = (cartItemId) => {
     axios
-      .delete(`${url}/cards/${cartItemId}`)
+      .delete(`${url}/cart/${cartItemId}`)
       .then((res) => {
         if (res.status == 200) {
           props.onDelete();

@@ -125,12 +125,12 @@ router.delete("/:id/", getUser, async (req, res) => {
   }
 });
 
-// Delete a card from a user's cart
+// Delete an items from a user's cart
 
-router.delete("/:id/cards/:cardId", getUser, getCartItem, async (req, res) => {
+router.delete("/:id/cart/:cartId", getUser, getCartItem, async (req, res) => {
   try {
     res.user.cards = res.user.cards.filter(
-      (card) => card.id !== req.params.cardId
+      (cartItem) => cartItem.id !== req.params.cartId
     );
     const updatedUser = await res.user.save();
     res.json(updatedUser);
@@ -160,7 +160,7 @@ async function getCartItem(req, res, next) {
   try {
     cart = await User.updateOne(
       { _id: req.params.id },
-      { $pull: { cart: { _id: req.params.cardId } } }
+      { $pull: { cart: { _id: req.params.cartId } } }
     );
     if (cart == null) {
       return res.status(404).json({ message: "Cannot find item" });
