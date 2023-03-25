@@ -115,3 +115,19 @@
   transform: scale(1.03);
   color: rgb(252, 233, 170);
 }
+
+.cart-item-counter {
+  /* display: none; */
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: whitesmoke;
+  border-radius: 50%;
+  border: 2.5px solid rgba(148, 35, 186, 0.751);
+  left: 37px;
+  bottom: 28px;
+  text-align: center;
+  text-shadow: none;
+  font-size: 1em;
+  font-family: "Expletus Sans";
+}

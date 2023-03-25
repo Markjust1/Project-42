@@ -40,7 +40,7 @@ const Premium_Item = (props) => {
       .patch(url, newItem)
       .then((res) => {
         console.log(res);
-        props.setProfileUpdated(true) || result.setProfileUpdated(true);
+        // props.setProfileUpdated(true);
       })
       .catch((err) => {
         console.log(err);
