@@ -11,6 +11,7 @@ const Validation = (props) => {
   //Function to delete item from db
   const deleteItem = () => {
     props.info.onDelete(props.info.itemId);
+    props.setProfileDeleted(true);
     navigate("/profile");
   };
 

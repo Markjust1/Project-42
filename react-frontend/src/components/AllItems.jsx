@@ -6,7 +6,7 @@ import Premium_Item from "./Premium_Item";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const AllItems = () => {
+const AllItems = (props) => {
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
   if (local_storage == null) {
@@ -71,6 +71,8 @@ const AllItems = () => {
               platform={item.platform}
               price={item.price}
               owner={item.owner}
+              setProfileUpdated={props.setProfileUpdated}
+              updateCartLength={props.updateCartLength}
             />
           )
         ))}

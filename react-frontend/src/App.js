@@ -30,7 +30,7 @@ function App() {
   }
   // Getting user info and sending corresponding info to props
 
-  useEffect(()=>{
+  const updateCartLength = () => {
     axios
       .get(`/api/users/`)
       .then((response) => {
@@ -41,19 +41,18 @@ function App() {
             setCartLength(user.cart.length);
           }
         }
-        // console.log("userInfo app.js:",userInfo.cart)
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
-  },[])
+  }
 
-  console.log(cartLength)
+  // console.log(cartLength)
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // Checks if user profile was updated and triggers re-render:
   const [profileUpdated, setProfileUpdated] = useState(false);
-  useEffect(()=>{setProfileUpdated(false)}, [profileUpdated])
+  useEffect(()=>{setProfileUpdated(false)}, [profileUpdated, cartLength])
 
 
   function loginHandler() {
@@ -62,7 +61,7 @@ function App() {
 
   return (
     <main className="App">
-      <Navigation cartLength={cartLength}/>
+      <Navigation cartLength={cartLength} setProfileUpdated={setProfileUpdated}/>
       <Routes>
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
@@ -83,11 +82,11 @@ function App() {
                 {/* <Platform /> */}
               {/* </div> */}
               {/* <Premium_Item_List /> */}
-              <AllItems/>
+              <AllItems key={profileUpdated} setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>
             </>
           }
         />
-        <Route path="/cart" element={<Cart setProfileUpdated={setProfileUpdated}/>}/>
+        <Route path="/cart" element={<Cart setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>}/>
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/security" element={<Security />} />

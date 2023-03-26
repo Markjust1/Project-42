@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-const Cart = () => {
+const Cart = (props) => {
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
   if (local_storage == null) {
@@ -18,6 +18,7 @@ const Cart = () => {
 
   const handleDelete = () => {
     setRenderSwitch((prev) => !prev);
+    props.setProfileUpdated(true);
   };
 
   useEffect(() => {
@@ -74,6 +75,7 @@ const Cart = () => {
                 price={item.price}
                 platform={item.platform}
                 onDelete={handleDelete}
+                updateCartLength={props.updateCartLength}
               />
             ))
           )}

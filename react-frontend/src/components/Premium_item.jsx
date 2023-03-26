@@ -41,6 +41,7 @@ const Premium_Item = (props) => {
       .then((res) => {
         console.log(res);
         // props.setProfileUpdated(true);
+        props.updateCartLength()
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +66,7 @@ const Premium_Item = (props) => {
     <>
       {deleteMode ? (
         // Weird bug was here! Gladly fixed ;)
-        <Validation info={Object.keys(result).length > 1 ? result : props} />
+        <Validation info={Object.keys(result).length > 1 ? result : props} setProfileUpdated={props.setProfileUpdated}/>
       ) : (
         <>
           {!edit ? (

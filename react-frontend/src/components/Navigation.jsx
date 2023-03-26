@@ -4,6 +4,7 @@ import "./styles/Navigation.css";
 import cart from "../assets/cart.png";
 
 const Navigation = (props) => {
+  console.log(props.cartLength);
   const local_storage = window.localStorage.getItem("userName");
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const Navigation = (props) => {
       <div className="navbar-elements">
         <Link to="/" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
-            {local_storage == null ? <span></span> : <span>HOME</span>}
+            {local_storage == null ? <span></span> : <span onClick={props.setProfileUpdated(true)}>HOME</span>}
           </div>
         </Link>
         <Link to="/register" style={{ textDecoration: "none" }}>
@@ -51,10 +52,10 @@ const Navigation = (props) => {
           </div>
         </Link>
         <Link to="/cart">
-          <div className="cart">
+          <div className="cart" setProfileUpdated={props.setProfileUpdated}>
             <img src={cart} alt=""></img>
             <div className="nav-cart-title">CART</div>
-            {props.cartLength > 0 ? <div className="cart-item-counter">{props.cartLength}</div> : <></>}
+            <div className="cart-item-counter">{props.cartLength}</div>
           </div>
         </Link>
       </div>

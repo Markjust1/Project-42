@@ -10,6 +10,7 @@ const Cart_Item = (props) => {
       .then((res) => {
         if (res.status == 200) {
           props.onDelete();
+          props.updateCartLength();
         }
       })
       .catch((err) => {
