@@ -22,14 +22,14 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
   // const [userInfo, setUserInfo] = useState();
-  const [cartLength, setCartLength] = useState();
+  const [cartLength, setCartLength] = useState(0);
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
   if (local_storage == null) {
     navigate('/register')
   }
-  // Getting user info and sending corresponding info to props
 
+  // Getting user info and sending corresponding info to props
   const updateCartLength = () => {
     axios
       .get(`/api/users/`)
