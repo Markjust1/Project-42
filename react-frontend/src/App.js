@@ -61,7 +61,7 @@ function App() {
 
   return (
     <main className="App">
-      <Navigation cartLength={cartLength} setProfileUpdated={setProfileUpdated}/>
+      <Navigation cartLength={cartLength} setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>
       <Routes>
         <Route path="/add" element={<AddItem />} />
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />

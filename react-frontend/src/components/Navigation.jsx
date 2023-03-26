@@ -10,6 +10,11 @@ const Navigation = (props) => {
   const local_storage = window.localStorage.getItem("userName");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    props.updateCartLength(); 
+  }, []);
+  
+
   const clearLocalStorage = () => {
     localStorage.clear();
     navigate("/login");
