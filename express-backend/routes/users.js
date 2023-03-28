@@ -71,7 +71,6 @@ router.post("/login", async (req, res) => {
 // Update/modify user
 
 router.patch("/:id", getUser, async (req, res) => {
-
   if (req.body.name != null) {
     res.user.name = req.body.name;
   }
@@ -93,25 +92,36 @@ router.patch("/:id", getUser, async (req, res) => {
   if (req.body.image != null) {
     res.user.image = req.body.image;
   }
+  // credit cards
   const cards = req.body.cards;
   cards?.map((el) => {
     if (el.cardNumber != null) {
       res.user.cards.push(el);
     }
   });
-  const cart = req.body.cart;
-  cart?.map((el) => {
-    if (el.title != null) {
-      res.user.cart.push(el);
-    }
-  });
 
-  try {
-    const updatedUser = await res.user.save();
-    res.json(updatedUser);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  // cart items
+
+  const user = await User.findById(req.params.id);
+  let cartMatch = user.cart.find(
+    (item) => item.title === req.body.cart[0].title
+  );
+  // console.log(cartMatch);
+  if (!cartMatch) {
+    const cart = req.body.cart;
+    cart?.map((el) => {
+      res.user.cart.push(el);
+    });
+    try {
+      const updatedUser = await res.user.save();
+      res.json(updatedUser);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  } else {
+    res.status(409).json({ message: "Item is already in cart" });
   }
+
 });
 
 // Delete user
@@ -127,9 +137,9 @@ router.delete("/:id/", getUser, async (req, res) => {
 
 // Delete an items from a user's cart
 
-router.delete("/:id/cart/:cartId", getUser, getCartItem, async (req, res) => {
+router.delete("/:id/cart/:cartId", getUser, addCartItem, async (req, res) => {
   try {
-    res.user.cards = res.user.cards.filter(
+    res.user.cart = res.user.cart.filter(
       (cartItem) => cartItem.id !== req.params.cartId
     );
     const updatedUser = await res.user.save();
@@ -155,8 +165,9 @@ async function getUser(req, res, next) {
   next();
 }
 
-async function getCartItem(req, res, next) {
+async function addCartItem(req, res, next) {
   let cart;
+
   try {
     cart = await User.updateOne(
       { _id: req.params.id },

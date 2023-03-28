@@ -65,6 +65,7 @@ const AllItems = (props) => {
             <Premium_Item
               key={item._id}
               userId={userId}
+              itemId={item._id}
               title={item.title}
               image={item.image}
               description={item.description}

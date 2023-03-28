@@ -41,7 +41,7 @@ const Premium_Item = (props) => {
       .then((res) => {
         console.log(res);
         // props.setProfileUpdated(true);
-        props.updateCartLength()
+        props.updateCartLength();
       })
       .catch((err) => {
         console.log(err);
@@ -53,6 +53,7 @@ const Premium_Item = (props) => {
     addToCart({
       cart: [
         {
+          id:props.itemId || result.itemId,
           title: props.title || result.title,
           platform: props.platform || result.platform,
           description: props.description || result.description,

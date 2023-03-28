@@ -27,6 +27,7 @@ const Cart = (props) => {
       .then((response) => {
         setUserId(response.data[0]._id);
         let num = [];
+        
         for (let user of response.data) {
           if (user.name == local_storage) {
             //User's cart info
