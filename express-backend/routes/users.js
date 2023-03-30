@@ -92,17 +92,29 @@ router.patch("/:id", getUser, async (req, res) => {
   if (req.body.image != null) {
     res.user.image = req.body.image;
   }
-  // credit cards
-  const cards = req.body.cards;
-  cards?.map((el) => {
-    if (el.cardNumber != null) {
-      res.user.cards.push(el);
-    }
-  });
-
-  // cart items
 
   const user = await User.findById(req.params.id);
+  // credit cards
+  let cardMatch = user.cards.find(
+    (card)=> { card.cardNumber == req.body.cards[0].cardNumber})
+  const cards = req.body.cards;
+  if (!cardMatch) {
+    cards?.map((el) => {
+      if (el.cardNumber != null) {
+        res.user.cards.push(el);
+      }
+    });
+    try {
+      const updatedCard = await res.user.save();
+      res.json(updatedCard);
+    } catch (err) {
+      res.status(400).json({message: err.message})
+    }
+  } else {
+    res.status(409).json({ message: "This card is already added" });
+  }
+
+  // cart items
   let cartMatch = user.cart.find(
     (item) => item.title === req.body.cart[0].title
   );
