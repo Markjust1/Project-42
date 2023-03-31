@@ -17,7 +17,7 @@ const AllItems = (props) => {
       navigate('/register')
     }
   }, [trigger])
-  
+
   const [items, setItems] = useState([]);
   const [userId, setUserId] = useState('')
   const [isLoading, setIsLoading] = useState(true);
@@ -45,8 +45,11 @@ const AllItems = (props) => {
       axios
         .get(`/api/items/`)
         .then((response) => {
-          setIsLoading(false);
-          setItems(response.data);
+          setTimeout(()=>{
+
+            setIsLoading(false);
+            setItems(response.data);
+          }, 500)
         })
         .catch((err) => {
           console.log(err);

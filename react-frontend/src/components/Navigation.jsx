@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 const Navigation = (props) => {
   const [addStyle, setAddStyle] = useState("");
   const [prevCartLength, setPrevCartLength] = useState(0);
+  const [trigger, setTrigger] = useState(false);
   const local_storage = window.localStorage.getItem("userName");
   const navigate = useNavigate();
 
@@ -16,8 +17,12 @@ const Navigation = (props) => {
 
   const clearLocalStorage = () => {
     localStorage.clear();
-    navigate("/login");
+    setTrigger(!trigger);
   };
+
+  useEffect(() => {
+    navigate("/");
+  }, [trigger]);
 
   const addCartShaking = () => {
     setAddStyle(" cart-shake");
@@ -75,17 +80,18 @@ const Navigation = (props) => {
         </Link>
 
         <Link to="/cart">
-        {local_storage !== null ? (
-          <div className={"cart" + addStyle}>
-            <img src={cart} alt="Cart" className={"" + addStyle}></img>
-            <div className="nav-cart-title">CART</div>
-            {props.cartLength > 0 && (
-              <div className="cart-item-counter">{props.cartLength}</div>
-            )}
-          </div>
-        ): <></>}
+          {local_storage !== null ? (
+            <div className={"cart" + addStyle}>
+              <img src={cart} alt="Cart" className={"" + addStyle}></img>
+              <div className="nav-cart-title">CART</div>
+              {props.cartLength > 0 && (
+                <div className="cart-item-counter">{props.cartLength}</div>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
         </Link>
-
       </div>
     </nav>
   );

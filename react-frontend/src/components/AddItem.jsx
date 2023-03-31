@@ -54,7 +54,7 @@ const AddItem = () => {
   };
 
   useEffect(()=>{
-    navigate("/profile");
+    navigate("/add");
   }, [trigger])
 
   const handleFileUpload = async (e) => {
