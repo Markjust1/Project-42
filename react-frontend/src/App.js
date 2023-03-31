@@ -25,9 +25,12 @@ function App() {
   const [cartLength, setCartLength] = useState(0);
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
-  if (local_storage == null) {
-    navigate('/register')
-  }
+
+  // useEffect(()=>{
+  //   if (local_storage == null) {
+  //     navigate('/register')
+  //   }
+  // },[isLoggedIn])
 
   // Getting user info and sending corresponding info to props
   const updateCartLength = () => {
@@ -67,23 +70,14 @@ function App() {
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<MyAccount key={profileUpdated} setProfileUpdated={setProfileUpdated}/>}>
-          {/* <Route path="edit-profile" element={<EditProfile/>}/>
-          <Route path="my-items" element={<MyItems/>}/>
-          <Route path="my-wallet" element={<MyWallet/>}/>
-          <Route path="my-orders" element={<MyItems/>}/> */}
+        
         </Route>
         <Route
           path="/"
           element={
-            <>
-              {/* <Popular /> */}
-              {/* <div className="top-content"> */}
-                {/* <Games /> */}
-                {/* <Platform /> */}
-              {/* </div> */}
-              {/* <Premium_Item_List /> */}
-              <AllItems key={profileUpdated} setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>
-            </>
+      
+              <AllItems setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>
+    
           }
         />
         <Route path="/cart" element={<Cart setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>}/>

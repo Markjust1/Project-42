@@ -11,9 +11,8 @@ const Navigation = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    props.updateCartLength(); 
+    props.updateCartLength();
   }, []);
-  
 
   const clearLocalStorage = () => {
     localStorage.clear();
@@ -21,9 +20,9 @@ const Navigation = (props) => {
   };
 
   const addCartShaking = () => {
-    setAddStyle(' cart-shake');
+    setAddStyle(" cart-shake");
     setTimeout(() => {
-      setAddStyle('');
+      setAddStyle("");
     }, 1000);
   };
 
@@ -33,7 +32,6 @@ const Navigation = (props) => {
       setPrevCartLength(props.cartLength);
     }
   }, [props.cartLength, prevCartLength]);
-  
 
   return (
     <nav className="navbar-container">
@@ -44,24 +42,26 @@ const Navigation = (props) => {
             {local_storage == null ? <span></span> : <span>HOME</span>}
           </div>
         </Link>
-        <Link to="/register" style={{ textDecoration: "none" }}>
-          <div className="navbar-item">
-            {local_storage == null ? <span>REGISTER</span> : <span></span>}
-          </div>
-        </Link>
+
         <Link to="/add" style={{ textDecoration: "none" }}>
           <div className="navbar-item">
             {local_storage == null ? <span></span> : <span>LIST ITEM</span>}
           </div>
         </Link>
 
-          {local_storage !== null && (
-            <Link to="/profile" style={{ textDecoration: "none" }}>
-              <div className="navbar-item">
-                <span>MY ACCOUNT</span>
-              </div>
-            </Link>
-          )}
+        {local_storage !== null && (
+          <Link to="/profile" style={{ textDecoration: "none" }}>
+            <div className="navbar-item">
+              <span>MY ACCOUNT</span>
+            </div>
+          </Link>
+        )}
+
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <div className="navbar-item">
+            {local_storage == null ? <span>REGISTER</span> : <span></span>}
+          </div>
+        </Link>
 
         <div className="navbar-item">|</div>
         <Link to="/login" style={{ textDecoration: "none" }}>
@@ -73,13 +73,19 @@ const Navigation = (props) => {
             )}
           </div>
         </Link>
+
         <Link to="/cart">
-          <div className={"cart"+ addStyle}>
+        {local_storage !== null ? (
+          <div className={"cart" + addStyle}>
             <img src={cart} alt="Cart" className={"" + addStyle}></img>
             <div className="nav-cart-title">CART</div>
-            {props.cartLength > 0 && <div className="cart-item-counter">{props.cartLength}</div>}
+            {props.cartLength > 0 && (
+              <div className="cart-item-counter">{props.cartLength}</div>
+            )}
           </div>
+        ): <></>}
         </Link>
+
       </div>
     </nav>
   );

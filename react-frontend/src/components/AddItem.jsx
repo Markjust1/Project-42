@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./styles/AddItem.css";
 import axios from "axios";
@@ -7,6 +7,7 @@ import convertToBase64 from "../helpers/convertToBase64";
 const AddItem = () => {
   const url = "http://localhost:2500/api/items/";
   const [files, setFiles] = useState("");
+  const [trigger, setTrigger] = useState(false);
   const titleRef = useRef();
   const priceRef = useRef();
   const imageRef = useRef();
@@ -49,8 +50,12 @@ const AddItem = () => {
     });
     // Clean up:
     resetValues();
-    navigate("/profile");
+    setTrigger(!trigger);
   };
+
+  useEffect(()=>{
+    navigate("/profile");
+  }, [trigger])
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];

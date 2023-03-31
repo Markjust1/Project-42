@@ -9,9 +9,14 @@ import { useNavigate } from "react-router";
 const AllItems = (props) => {
   const navigate = useNavigate();
   const local_storage = window.localStorage.getItem("userName");
-  if (local_storage == null) {
-    navigate('/register')
-  }
+
+  const [trigger, setTrigger] = useState(false);
+
+  useEffect(()=>{
+    if (local_storage == null) {
+      navigate('/register')
+    }
+  }, [trigger])
   const [items, setItems] = useState([]);
   const [userId, setUserId] = useState('')
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +31,7 @@ const AllItems = (props) => {
             setUserId(user._id);
           }
         }
+        setTrigger(!trigger)
       })
       .catch((err) => {
         console.log(err);
@@ -34,7 +40,7 @@ const AllItems = (props) => {
 
 
   useEffect(() => {
-    setTimeout(() => {
+
       axios
         .get(`/api/items/`)
         .then((response) => {
@@ -44,7 +50,7 @@ const AllItems = (props) => {
         .catch((err) => {
           console.log(err);
         });
-    }, 500);
+
   }, []);
 
   return (
