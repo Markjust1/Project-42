@@ -95,23 +95,19 @@ router.patch("/:id", getUser, async (req, res) => {
 
   const user = await User.findById(req.params.id);
   // credit cards
-  let cardMatch = user.cards.find(
-    (card)=> { card.cardNumber == req.body.cards[0].cardNumber})
-  const cards = req.body.cards;
+  // console.log(typeof Number(req.body.cards[0].cardNumber))
+  let cardMatch = user.cards.find(card => card.cardNumber === Number(req.body.cards[0].cardNumber));
+  console.log("cardMatch:",cardMatch);
   if (!cardMatch) {
+    const cards = req.body.cards;
+    // console.log('cards:',cards)
     cards?.map((el) => {
       if (el.cardNumber != null) {
         res.user.cards.push(el);
       }
     });
-    try {
-      const updatedCard = await res.user.save();
-      res.json(updatedCard);
-    } catch (err) {
-      res.status(400).json({message: err.message})
-    }
   } else {
-    res.status(409).json({ message: "This card is already added" });
+    res.status(409);
   }
 
   // cart items
@@ -124,16 +120,16 @@ router.patch("/:id", getUser, async (req, res) => {
     cart?.map((el) => {
       res.user.cart.push(el);
     });
-    try {
-      const updatedUser = await res.user.save();
-      res.json(updatedUser);
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
   } else {
-    res.status(409).json({ message: "Item is already in cart" });
+    res.status(409);
   }
 
+  try {
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
 // Delete user

@@ -13,16 +13,16 @@
   background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  background: rgb(214, 30, 30);
-  background: linear-gradient(
+  background: rgba(255, 255, 255, 0.173);
+  /* background: linear-gradient(
     90deg,
     rgb(236, 91, 91) 0%,
     rgb(241, 200, 112) 29%,
     rgba(87, 53, 164, 1) 100%
-  );
+  ); */
   font-family: "Cinzel Decorative", cursive;
-  border-bottom: 2px solid rgba(33, 33, 33, 0.056);
-  text-shadow: 3px 0px 2px rgb(136, 22, 151);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  /* text-shadow: 3px 0px 2px rgb(136, 22, 151); */
   box-shadow: rgba(209, 244, 9, 0.415) 0px 22px 70px 0px;
 }
 
@@ -95,7 +95,7 @@
   font-family: "Expletus Sans";
   /* transform: scale(); */
   font-size: 65%;
-  color: rgb(250, 216, 104);
+  color: rgb(233, 144, 1);
   padding-left: 3px;
   padding-right: 3px;
 }

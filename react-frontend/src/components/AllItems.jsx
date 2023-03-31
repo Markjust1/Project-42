@@ -17,6 +17,7 @@ const AllItems = (props) => {
       navigate('/register')
     }
   }, [trigger])
+  
   const [items, setItems] = useState([]);
   const [userId, setUserId] = useState('')
   const [isLoading, setIsLoading] = useState(true);
