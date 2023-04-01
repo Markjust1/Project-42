@@ -7,7 +7,7 @@
   min-height: 75vh;
   border: 0.5px solid rgba(54, 54, 54, 0.132);
   margin-top: 50px;
-  background: radial-gradient(
+  /* background: radial-gradient(
         circle at 100% 100%,
         #ffffff 0,
         #ffffff 20px,
@@ -24,7 +24,7 @@
       calc(100% - 46px) no-repeat,
     linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 46px)
       calc(100% - 6px) no-repeat,
-    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%);
+    linear-gradient(90deg, #ff40f5 0%, #48abe0 100%); */
   border-radius: 23px;
   box-sizing: border-box;
   color: blueviolet;
