@@ -65,6 +65,7 @@ const AddCard = (props) => {
   return (
     <div className="my-cards">
       <div className="add-card">Add new credit card:</div>
+      <div className="close-form">X</div>
       <form>
         <label>Card number:</label>
         <div>
