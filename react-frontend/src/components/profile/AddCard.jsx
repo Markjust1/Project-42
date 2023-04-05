@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import axios from "axios";
 
 const AddCard = (props) => {
+  console.log(props)
   const [addStyle, setAddStyle] = useState("");
   const card = useRef();
   const cardholder = useRef();

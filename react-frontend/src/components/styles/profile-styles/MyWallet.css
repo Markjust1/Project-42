@@ -74,3 +74,11 @@
   align-items: center;
   flex-direction: row;
 }
+
+.card-title {
+  position: relative;
+  right: 50px;
+  top: 14px;
+  font-size: 120%;
+  color: grey
+}
