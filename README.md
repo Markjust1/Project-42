@@ -1,7 +1,7 @@
 # Welcome to Project-42! 🎮
 
 !["Main"](./react-frontend/public/uploads/main.png)
-
+<img src="./react-frontend/public/uploads/main.png" width="200" />
 ## E-commerce project where users can add and trade in-game currency/items etc.
 
 #### ------> Actively under development! <------
