@@ -7,7 +7,7 @@ import convertToBase64 from "../helpers/convertToBase64";
 const AddItem = () => {
   const url = "http://localhost:2500/api/items/";
   const [files, setFiles] = useState("");
-  const [trigger, setTrigger] = useState(false);
+  // const [trigger, setTrigger] = useState(false);
   const titleRef = useRef();
   const priceRef = useRef();
   const imageRef = useRef();
@@ -28,9 +28,14 @@ const AddItem = () => {
   const createPost = async (newFile) => {
     try {
       await axios.post(url, newFile).then((response) => {
-        response.status == 201
-          ? console.log("Item successfully added")
-          : console.log("Something went wrong");
+        if (response.status == 201) {
+          console.log("Item successfully added")
+          // setTrigger(!trigger);
+          navigate("/profile")
+        } else {
+          console.log("Something went wrong");
+          navigate("/add")
+        }
       });
       // ;
     } catch (err) {
@@ -50,12 +55,11 @@ const AddItem = () => {
     });
     // Clean up:
     resetValues();
-    setTrigger(!trigger);
   };
 
-  useEffect(()=>{
-    navigate("/add");
-  }, [trigger])
+  // useEffect(()=>{
+  //   navigate("/add");
+  // }, [trigger])
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
