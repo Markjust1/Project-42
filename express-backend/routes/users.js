@@ -96,8 +96,10 @@ router.patch("/:id", getUser, async (req, res) => {
   const user = await User.findById(req.params.id);
 
   // credit cards
-  if (req.body.cards){
-    let cardMatch = user.cards.find(card => card.cardNumber === Number(req.body.cards[0].cardNumber));
+  if (req.body.cards) {
+    let cardMatch = user.cards.find(
+      (card) => card.cardNumber === Number(req.body.cards[0].cardNumber)
+    );
     if (!cardMatch) {
       const cards = req.body.cards;
       // console.log('cards:',cards)
@@ -112,16 +114,18 @@ router.patch("/:id", getUser, async (req, res) => {
   }
 
   // cart items
-  let cartMatch = user.cart.find(
-    (item) => item.title === req.body.cart[0].title
-  );
-  if (!cartMatch) {
-    const cart = req.body.cart;
-    cart?.map((el) => {
-      res.user.cart.push(el);
-    });
-  } else {
-    res.status(409);
+  if (req.body.cart) {
+    let cartMatch = user.cart.find(
+      (item) => item.title === req.body.cart[0].title
+    );
+    if (!cartMatch) {
+      const cart = req.body.cart;
+      cart?.map((el) => {
+        res.user.cart.push(el);
+      });
+    } else {
+      res.status(409);
+    }
   }
 
   try {
