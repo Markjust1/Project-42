@@ -1,6 +1,7 @@
 import "../styles/profile-styles/MyWallet.css";
 import { useRef, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const AddCard = (props) => {
   console.log(props)
@@ -10,6 +11,11 @@ const AddCard = (props) => {
   const expiry1 = useRef();
   const expiry2 = useRef();
   const cvs = useRef();
+  const navigate = useNavigate();
+  
+  // const closeButtonHandler = () => {
+  //   props.
+  // };
 
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
 
@@ -64,8 +70,8 @@ const AddCard = (props) => {
   };
   return (
     <div className="my-cards">
+      <div className="close-form" onClick={()=>props.close()}>X</div>
       <div className="add-card">Add new credit card:</div>
-      <div className="close-form">X</div>
       <form>
         <label>Card number:</label>
         <div>

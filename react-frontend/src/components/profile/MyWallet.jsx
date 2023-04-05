@@ -23,7 +23,7 @@ const MyWallet = (props) => {
           </div>
         </>
       ) : (
-        <AddCard userData={props.userData} />
+        <AddCard userData={props.userData} close={addCardHandler}/>
         )}
         </div>
     </>
