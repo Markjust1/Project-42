@@ -1,7 +1,7 @@
 # Welcome to Project-42! 🎮
 
 !["Main"](./react-frontend/public/uploads/main.png)
-<img src="./react-frontend/public/uploads/main.png" width="200" />
+
 ## E-commerce project where users can add and trade in-game currency/items etc.
 
 #### ------> Actively under development! <------
@@ -19,7 +19,7 @@
 User input is advised by prompts.
 Once all the conditions are satisfied, the 'Register' button is activated.
 
-!["Register"](./react-frontend/public/uploads/register.png)
+<img src="./react-frontend/public/uploads/register.png" width="500" />
 
 -------------------------------------------------------------------------
 
@@ -35,14 +35,14 @@ The page where we browse items from all users and add selected items to our cart
 
 Place where we see our own items, user can edit the item ino as well as delete items.
 
-!["Add"](./react-frontend/public/uploads/myitems.png)
+!["Mycabinet"](./react-frontend/public/uploads/myitems.png)
 
 -------------------------------------------------------------------------
 ### Editing user profile:
 
 We can update our profile by clicking on "Edit Profile" button under the profile picture.
 
-!["Add"](./react-frontend/public/uploads/editprofile.png)
+!["Editprofile"](./react-frontend/public/uploads/editprofile.png)
 
 -------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ We can update our profile by clicking on "Edit Profile" button under the profile
 
 Process of adding the item.
 
-!["Add"](./react-frontend/public/uploads/additem.png)
+<img src="./react-frontend/public/uploads/add.png" width="500" />
 
 -------------------------------------------------------------------------
 ### Cart:
@@ -66,7 +66,7 @@ This is where cart items are stored before user jumps to checkout.
 Place where users add new credit cards and see the added ones.
 
 !["Wallet"](./react-frontend/public/uploads/mywallet.png)
-!["Addcard"](./react-frontend/public/uploads/addcard.png)
+<img src="./react-frontend/public/uploads/addcard.png" width="500" />
 
 
 -------------------------------------------------------------------------
