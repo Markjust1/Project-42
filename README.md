@@ -50,7 +50,7 @@ We can update our profile by clicking on "Edit Profile" button under the profile
 
 Process of adding the item.
 
-<img src="./react-frontend/public/uploads/add.png" width="500" />
+<img src="./react-frontend/public/uploads/additem.png" width="500" />
 
 -------------------------------------------------------------------------
 ### Cart:
