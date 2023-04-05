@@ -106,5 +106,12 @@
   right: 50px;
   top: 14px;
   font-size: 120%;
-  color: grey
+  color: grey;
+  margin-left: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
