@@ -70,14 +70,12 @@ function App() {
         <Route path="/login" element={<Login onLoginChange={loginHandler} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<MyAccount key={profileUpdated} setProfileUpdated={setProfileUpdated}/>}>
-        
         </Route>
         <Route
           path="/"
           element={
       
               <AllItems setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>
-    
           }
         />
         <Route path="/cart" element={<Cart setProfileUpdated={setProfileUpdated} updateCartLength={updateCartLength}/>}/>

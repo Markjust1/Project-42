@@ -42,56 +42,63 @@ const Navigation = (props) => {
     <nav className="navbar-container">
       <div className="navbar-title">PROJECT42</div>
       <div className="navbar-elements">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <div className="navbar-item">
-            {local_storage == null ? <span></span> : <span>HOME</span>}
-          </div>
-        </Link>
+        {local_storage == null ? (
+          <>
+            <Link to="/register" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                {local_storage == null && <span>REGISTER</span>}
+              </div>
+            </Link>
 
-        <Link to="/add" style={{ textDecoration: "none" }}>
-          <div className="navbar-item">
-            {local_storage == null ? <span></span> : <span>LIST ITEM</span>}
-          </div>
-        </Link>
+            <div className="navbar-item">|</div>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                {local_storage == null ? (
+                  <span>LOGIN</span>
+                ) : (
+                  <span onClick={clearLocalStorage}>LOGOUT</span>
+                )}
+              </div>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                <span>HOME</span>
+              </div>
+            </Link>
 
-        {local_storage !== null && (
-          <Link to="/profile" style={{ textDecoration: "none" }}>
-            <div className="navbar-item">
-              <span>MY ACCOUNT</span>
-            </div>
-          </Link>
+            <Link to="/add" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                <span>LIST ITEM</span>
+              </div>
+            </Link>
+
+            <Link to="/profile" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                <span>MY ACCOUNT</span>
+              </div>
+            </Link>
+
+            <div className="navbar-item">|</div>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <div className="navbar-item">
+                  <span onClick={clearLocalStorage}>LOGOUT</span>
+              </div>
+            </Link>
+
+            <Link to="/cart">
+                <div className={"cart" + addStyle}>
+                  <img src={cart} alt="Cart" className={"" + addStyle}></img>
+                  <div className="nav-cart-title">CART</div>
+                  {props.cartLength > 0 && (
+                    <div className="cart-item-counter">{props.cartLength}</div>
+                  )}
+                </div>
+            </Link>
+          </>
         )}
-
-        <Link to="/register" style={{ textDecoration: "none" }}>
-          <div className="navbar-item">
-            {local_storage == null ? <span>REGISTER</span> : <span></span>}
-          </div>
-        </Link>
-
-        <div className="navbar-item">|</div>
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <div className="navbar-item">
-            {local_storage == null ? (
-              <span>LOGIN</span>
-            ) : (
-              <span onClick={clearLocalStorage}>LOGOUT</span>
-            )}
-          </div>
-        </Link>
-
-        <Link to="/cart">
-          {local_storage !== null ? (
-            <div className={"cart" + addStyle}>
-              <img src={cart} alt="Cart" className={"" + addStyle}></img>
-              <div className="nav-cart-title">CART</div>
-              {props.cartLength > 0 && (
-                <div className="cart-item-counter">{props.cartLength}</div>
-              )}
-            </div>
-          ) : (
-            <></>
-          )}
-        </Link>
       </div>
     </nav>
   );
