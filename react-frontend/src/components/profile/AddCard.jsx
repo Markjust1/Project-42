@@ -46,9 +46,9 @@ const AddCard = (props) => {
           setAddStyle("");
         }, 1000);
         setAddStyle(" form-success");
-        props.close()
-        // props.setProfileUpdated(true)
+        props.setProfileUpdated(true)
         props.redirect("Wallet")
+        // props.close()
         // props.successHandler("success");
       });
     } catch (err) {
