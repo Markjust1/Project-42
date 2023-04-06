@@ -5,10 +5,10 @@ import MyCards from "./MyCards";
 import { useState } from "react";
 
 const MyWallet = (props) => {
-  // console.log(props.userData.cardData)
+  // console.log(props)
   const [showAddCard, setShowAddCard] = useState(false);
   const data = props.userData.cardData;
-  console.log(data)
+  // console.log(data)
   const addCardHandler = () => {
     console.log(showAddCard);
     setShowAddCard(!showAddCard);
@@ -22,8 +22,11 @@ const MyWallet = (props) => {
             {data.map((el) => (
               <MyCards
                 key={el.cardNumber}
+                userId={props.userData.userId}
                 cardNumber={el.cardNumber}
                 expiryDate={el.expiryDate}
+                setProfileUpdated={props.setProfileUpdated}
+                // onDelete={handleDelete}
                 />
             )
             )}

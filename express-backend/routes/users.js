@@ -160,6 +160,20 @@ router.delete("/:id/cart/:cartId", getUser, addCartItem, async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+// Delete a card from a user's wallet
+
+router.delete("/:id/card/:cardId", getUser, updateCard, async (req, res) => {
+  console.log(req.body);
+  try {
+    res.user.cards = res.user.cards.filter(
+      (cardNumber) => cardNumber.id !== req.params.cardId
+    );
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // Middleware function
 
@@ -192,6 +206,23 @@ async function addCartItem(req, res, next) {
     return res.status(500).json({ message: err.message });
   }
   res.cart = cart;
+  next();
+}
+async function updateCard(req, res, next) {
+  let card;
+
+  try {
+    card = await User.updateOne(
+      { _id: req.params.id },
+      { $pull: { cards: { cardNumber: req.params.cardId } } }
+    );
+    if (card == null) {
+      return res.status(404).json({ message: "Cannot find card" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+  res.card = card;
   next();
 }
 
