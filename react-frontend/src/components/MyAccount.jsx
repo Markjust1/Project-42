@@ -101,6 +101,7 @@ const MyAccount = (props) => {
               cardData: cardData,
             }}
             setProfileUpdated={props.setProfileUpdated}
+            redirect={stateHandler}
           />
         )}
         {myItems && <MyItems setProfileUpdated={props.setProfileUpdated}/>}

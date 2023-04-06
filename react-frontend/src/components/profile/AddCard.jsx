@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 
 const AddCard = (props) => {
-  console.log(props)
+  // console.log(props)
   const [addStyle, setAddStyle] = useState("");
   const card = useRef();
   const cardholder = useRef();
@@ -12,10 +12,7 @@ const AddCard = (props) => {
   const expiry2 = useRef();
   const cvs = useRef();
   const navigate = useNavigate();
-  
-  // const closeButtonHandler = () => {
-  //   props.
-  // };
+
 
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
 
@@ -49,6 +46,9 @@ const AddCard = (props) => {
           setAddStyle("");
         }, 1000);
         setAddStyle(" form-success");
+        props.close()
+        // props.setProfileUpdated(true)
+        props.redirect("Wallet")
         // props.successHandler("success");
       });
     } catch (err) {

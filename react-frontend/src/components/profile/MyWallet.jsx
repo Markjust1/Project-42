@@ -5,7 +5,7 @@ import MyCards from "./MyCards";
 import { useState } from "react";
 
 const MyWallet = (props) => {
-  // console.log(props)
+  console.log(props)
   const [showAddCard, setShowAddCard] = useState(false);
   const data = props.userData.cardData;
   // console.log(data)
@@ -16,6 +16,9 @@ const MyWallet = (props) => {
   return (
     <>
       <div className="wallet-title">My Wallet</div>
+            <div className="edit-profile centered" onClick={addCardHandler}>
+              Add New Card
+            </div>
       <div className="wallet-container">
         {!showAddCard ? (
           <>
@@ -26,16 +29,14 @@ const MyWallet = (props) => {
                 cardNumber={el.cardNumber}
                 expiryDate={el.expiryDate}
                 setProfileUpdated={props.setProfileUpdated}
+                redirect={props.redirect}
                 // onDelete={handleDelete}
                 />
             )
             )}
-            <div className="edit-profile centered" onClick={addCardHandler}>
-              Add New Card
-            </div>
           </>
         ) : (
-          <AddCard userData={props.userData} close={addCardHandler} />
+          <AddCard userData={props.userData} close={addCardHandler} setProfileUpdated={props.setProfileUpdated} redirect={props.redirect}/>
         )}
       </div>
     </>

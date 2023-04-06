@@ -10,7 +10,8 @@ const MyCards = (props) => {
         if (res.status == 200) {
           // props.onDelete();
           console.log("Card Deleted...");
-          props.setProfileUpdated(true);
+          props.setProfileUpdated(true)
+          props.redirect("Wallet");
         }
       })
       .catch((err) => {
