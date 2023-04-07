@@ -5,7 +5,6 @@ import MyCards from "./MyCards";
 import { useState } from "react";
 
 const MyWallet = (props) => {
-  console.log(props);
   const [showAddCard, setShowAddCard] = useState(false);
   const data = props.userData.cardData;
   // console.log(data)

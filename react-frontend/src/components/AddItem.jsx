@@ -78,6 +78,7 @@ const AddItem = () => {
 
   return (
     <div id="add-form">
+      <div className="close-form add-form" onClick={()=>navigate('/')}>X</div>
       <h1 className="form-title">LIST NEW ITEM</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor="title">Title:</label>

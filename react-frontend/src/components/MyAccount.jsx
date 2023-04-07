@@ -22,6 +22,7 @@ const MyAccount = (props) => {
   const [userCity, setUserCity] = useState("");
   const [userProvince, setUserProvince] = useState("");
   const [files, setFiles] = useState("");
+  const [returnToWallet, setReturnToWallet] = useState(false);
 
   //Credit card data
   const [cardData, setCardData] = useState("");
@@ -34,6 +35,13 @@ const MyAccount = (props) => {
     const exemptionCall = new Function(eval(`set${exception}(true)`));
     exemptionCall();
   };
+
+  useEffect(()=>{
+    if (returnToWallet){
+      stateHandler("Wallet")
+    }
+  },[])
+
 
   useEffect(() => {
     axios
@@ -101,7 +109,7 @@ const MyAccount = (props) => {
               cardData: cardData,
             }}
             setProfileUpdated={props.setProfileUpdated}
-            redirect={stateHandler}
+            redirect={setReturnToWallet}
           />
         )}
         {myItems && <MyItems setProfileUpdated={props.setProfileUpdated}/>}

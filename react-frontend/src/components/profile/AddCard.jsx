@@ -11,7 +11,6 @@ const AddCard = (props) => {
   const expiry1 = useRef();
   const expiry2 = useRef();
   const cvs = useRef();
-  const navigate = useNavigate();
 
 
   const url = `http://localhost:2500/api/users/${props.userData.userId}`;
@@ -46,9 +45,9 @@ const AddCard = (props) => {
           setAddStyle("");
         }, 1000);
         setAddStyle(" form-success");
-        props.setProfileUpdated(true)
-        props.redirect("Wallet")
-        // props.close()
+        props.setProfileUpdated(true);
+        props.redirect(true);
+        props.close()
         // props.successHandler("success");
       });
     } catch (err) {
