@@ -36,6 +36,7 @@
   align-items: center;
   position: relative;
   left: 230px;
+  cursor: pointer;
   /* bottom: 20px; */
 }
 
