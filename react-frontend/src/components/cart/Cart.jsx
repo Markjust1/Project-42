@@ -1,4 +1,5 @@
 import Cart_Item from "./CartItem";
+import Checkout from "./Checkout";
 import "../styles/cart-styles/Cart.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -15,6 +16,7 @@ const Cart = (props) => {
   const [subtotal, setSubtotal] = useState();
   const [renderSwitch, setRenderSwitch] = useState(false);
   const [empty, setEmpty] = useState(true);
+  const [checkout, setCheckout] = useState(false);
 
   const handleDelete = () => {
     setRenderSwitch((prev) => !prev);
@@ -49,7 +51,8 @@ const Cart = (props) => {
   }, [renderSwitch]);
 
   return (
-    <div className="cart-container">
+  <>
+{ !checkout &&  <div className="cart-container">
       <div className="cart-title">My Cart</div>
       <div className="cart-main-area">
         <div className="cart-item-container">
@@ -87,12 +90,14 @@ const Cart = (props) => {
             <div className="cart-total-container">
               <div className="cart-subtotal-title">Subtotal:</div>
               <div className="cart-subtotal-price">${subtotal} + tax</div>
-              <div className="edit-profile">Proceed to Checkout</div>
+              <div className="edit-profile" onClick={()=>{setCheckout(true)}}>Proceed to Checkout</div>
             </div>
           </>
         ) : <></>}
       </div>
-    </div>
+    </div>}
+    {checkout && <Checkout/>}
+  </>
   );
 };
 
