@@ -6,21 +6,13 @@ const Privacy = () => {
     <div className="privacy-container">
       <h1>Privacy</h1>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit,
-        sequi error temporibus ipsum enim velit magni voluptatum fugiat facere
-        numquam expedita autem iure dicta consequuntur, veritatis placeat iusto
-        in deserunt quia nam. Cupiditate maxime quibusdam fugit atque distinctio
-        soluta.
+      Privacy is of paramount importance at our E-commerce platform, dedicated to providing a secure and confidential environment for users to buy and sell in-game items. We are committed to protecting your personal information and ensuring your privacy rights are respected.
       </p>
-      <br/>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit,
-        sequi error temporibus ipsum enim velit magni voluptatum fugiat facere
-        numquam expedita autem iure dicta consequuntur, veritatis placeat iusto
-        in deserunt quia nam. Cupiditate maxime quibusdam fugit atque distinctio
-        soluta, veritatis placeat iusto iure dicta consequuntur, veritatis placeat
-        in deserunt quia nam. Cupiditate maxime quibusdam fugit atque distinctio
-        solutatemporibus ipsum enim velit magni.
+      When you use our website, we collect only the necessary data required to facilitate your transactions and improve your user experience. This includes information such as your name, email address, and payment details, which are securely stored and transmitted using encryption protocols.
+      </p>
+      <p>
+      Rest assured that we never sell, rent, or disclose your personal information to third parties without your explicit consent. Your data is strictly used for internal purposes, such as processing transactions, providing customer support, and enhancing our services.
       </p>
     </div>
   );
