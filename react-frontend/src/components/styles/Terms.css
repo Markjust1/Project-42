@@ -6,10 +6,12 @@
   height: 50vh;
   margin-left: 20vw;
   margin-right: 20vw;
-  margin-top: 80px;
+  margin-top: 200px;
+  padding-top: 700px;
   align-items: center;
   font-family: "Expletus Sans", cursive;
   font-size: 1.3em;
   text-decoration: none;
   text-align: justify;
+  overflow-y: scroll;
 }
