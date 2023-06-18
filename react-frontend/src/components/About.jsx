@@ -1,11 +1,28 @@
 import "./styles/About.css";
 
 const About = () => {
-
   return (
     <div className="about-container">
       <h1>About Us</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa facere placeat dignissimos rem odit. Atque quasi dignissimos aliquid corrupti nulla dicta architecto vel beatae, iusto harum quidem maxime illum libero?</p>
+      <p>
+        Welcome to our E-commerce platform, the ultimate destination for gamers
+        and gaming enthusiasts alike. At our site, you can buy and sell in-game
+        items with ease, creating a thriving marketplace where virtual treasures
+        find their new owners.
+        <br />
+        <br />
+        Powered by cutting-edge technologies such as React.JS, Express.JS, and
+        MongoDB, our platform delivers a seamless user experience. Whether
+        you're a seasoned gamer or just starting out, our user-friendly
+        interface makes it effortless to navigate, list, and discover a wide
+        array of in-game items.
+        <br />
+        <br />
+        Join us today and embark on an extraordinary gaming journey where
+        virtual dreams become reality. Start exploring, trading, and connecting
+        on our E-commerce site, where gamers unite to make their virtual worlds
+        even more extraordinary.
+      </p>
     </div>
   );
 };
